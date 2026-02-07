@@ -18,8 +18,7 @@
 \Psi\left(\vec{q}_1,\cdots,\vec{q}_i,\cdots,\vec{q}_j,\cdots,\vec{q}_n\right) = e^{i\alpha}\Psi\left(\vec{q}_1,\cdots,\vec{q}_j,\cdots,\vec{q}_i,\cdots,\vec{q}_n\right). 
 \label{commuta}
 \end{equation}\end{linenomath}
-其中考虑到了波函数模方的不变性。 这个式子的物理意义是：\textbf{粒子的交换不带来物理态的改变，或粒子的分辨在物理上是不可能的。} 两种自然的情况是 $\alpha = 0$ 和 $\alpha = \pi,$ 在这些情况下粒子分别被称为满足 \textbf{Bose 统计} 与 \textbf{Fermi 统计}。
-
+其中考虑到了波函数模方的不变性。 这个式子的物理意义是：\textbf{粒子的交换不带来物理态的改变，或全同粒子的分辨在物理上是不可能的。} 两种自然的情况是 $\alpha = 0$ 和 $\alpha = \pi,$ 在这些情况下粒子分别被称为满足 \textbf{Bose 统计} 与 \textbf{Fermi 统计}。
 
 \section{二次量子化和 Fock 空间}
 我们只考虑一个粒子的情形，这时 Hamilton 量是：
@@ -28,12 +27,12 @@
 \]
 我们由 Schrodinger 方程可以解出一组完备的解 $\left\{\psi_s(\vec{q})\right\},$ 其中 $s$ 是某些量子数。这些波函数张成 \textbf{波函数 Hilbert 空间} $L^2(\mathbb{R} )$ 的一组基底，因此任何函数可用这一组本征函数展开。
 
-于是我们现在可以构造多粒子波函数的空间，它是$n$个粒子的 \textbf{直积空间。}  直觉上它的基底是形如 
+于是我们现在可以构造多粒子波函数的空间，它是$n$个单粒子波函数空间的 \textbf{直积空间。}  直觉上它的基底是形如 
 \[
 \psi_{s_1}(\vec{q}_1) \otimes \psi_{s_2}(\vec{q}_2) \otimes \cdots \otimes \psi_{s_n}(\vec{q}_n)
 \]
-的向量。然而，我们发现这样的选择不是物理的：因为它们并不能反映出粒子的全同性。事实上，服从 Fermi 统计的波函数与服从 Bose 统计的波函数构成这个直积空间的两个无穷维子空间（这可以由 (\ref{commuta}) 得到，只需要注意到（反）对称波函数的线性组合还是（反）对称波函数），张成它们的基底才是我们关心的对象。
-
+的向量。然而，我们发现这样的选择不是物理的：因为它们并不能反映出粒子的全同性。事实上，服从 Fermi 统计的波函数与服从 Bose 统计的波函数构成这个直积空间的两个无穷维子空间（这可以由 (\ref{commuta}) 得到，只需要注意到（反）对称波函数的线性组合还是（反）对称波函数），这两个子空间被称为\textbf{Fock 空间}。 张成它们的基底才是我们关心的对象。
+\subsection{基向量的构造}
 我们现在实行一种 \textbf{对称化} 与 \textbf{反对称化} 操作，这样它们便可以张成对应的子空间。利用置换，我们可以写：
 \begin{linenomath}\begin{equation}
 \Psi_B(s_1,s_2,\cdots,s_n)\left[\vec{q}_1,\cdots,\vec{q}_n\right] = N \sum_{\pi\in S_n}\bigotimes_{i = 1}^{n} \psi_{s_{\pi(i)}}\left(\vec{q}_i\right)
@@ -42,13 +41,43 @@
 \begin{linenomath}\begin{equation}
 \Psi_F(s_1,s_2,\cdots,s_n)\left[\vec{q}_1,\cdots,\vec{q}_n\right] = N' \sum_{\pi\in S_n}(-1)^{\pi}\bigotimes_{i = 1}^{n} \psi_{s_{\pi(i)}}\left(\vec{q}_i\right)
 \end{equation}\end{linenomath}
-其中 $(-1)^{\pi}$ 是置换 $\pi$ 的符号，$N$ 和 $N'$ 是归一化常数，他们的值将在稍后确定。但是，显而易见的是现在的波函数的确是（反）对称的。他们的正交性可以验证，只需要注意到一次量子化的波函数具有这样的正交归一性：
+其中 $(-1)^{\pi}$ 是置换 $\pi$ 的符号，$N$ 和 $N'$ 是归一化常数，他们的值将在稍后确定。但是，显而易见的是现在的波函数的确是（反）对称的。他们的正交性可以验证，只需要注意到一次量子化的波函数具有的正交归一性。
+
+对于 Bose 统计，我们有：
 \[
     \begin{aligned}
-        asd & schrodinger
-        ad &
+        \Psi_B(s_1,s_2,s_3,\cdots,s_n)\Psi_B(s_1',s_2',s_3',\cdots,s_n') &= NN'\sum_{\pi}\sum_{\pi'}\int \prod_{i=1}^{n} d^3\vec{q}_i \psi^*_{s_{\pi(i)}}(\vec{q}_i)\psi^{}_{s_{\pi'(i')}}(\vec{q}_i) \\
+        &= NN' \sum_{\pi}\sum_{\pi'} \delta_{s_{\pi(i)}s_{\pi'(i')}} \\
+        &= n!NN' \sum_{\pi}\delta_{s_{\pi(i)i'}}.
     \end{aligned}
 \]
+对于处于不同物理态的粒子，我们看到上面的内积等于$0$。对于同一个态的内积，我们注意到这些$s_i$ 可能是重复的，所以做计算时应该注意。
+
+\[
+N = \frac{1}{\sqrt{n!\prod_s n_s}},
+\]
+$n_s$ 是$s$所标示的能级的占有数。
+
+对于 Fermi 统计，我们同样可以做计算：
+\[
+    \begin{aligned}
+        \Psi_F(s_1,s_2,s_3,\cdots,s_n)\Psi_F(s_1',s_2',s_3',\cdots,s_n') &= NN'\sum_{\pi}\sum_{\pi'}\int \prod_{i=1}^{n} d^3\vec{q}_i \psi^*_{s_{\pi(i)}}(\vec{q}_i)\psi^{}_{s_{\pi'(i')}}(\vec{q}_i) (-1)^\pi(-1)^{\pi'}\\
+        &= NN' \sum_{\pi}\sum_{\pi'} \delta_{s_{\pi(i)}s_{\pi'(i')}} (-1)^\pi(-1)^{\pi'}\\
+        &= n!NN' \sum_{\pi}\delta_{s_{\pi(i)i'}}(-1)^{\pi}.
+    \end{aligned}
+\]
+
+同样，对于处于不同物理态的粒子，我们看到上面的内积等于$0$。对于 Fermi 统计还需注意，每一个能级上至多只能占有一个粒子（如果不然，那么交换两个处于同一能级上的粒子将得到波函数为0）。因此：
+\[
+N = \frac{1}{\sqrt{n!}},
+\]
+因为 $n_s = 0 $ 或 $1.$
+
+我们看到，这个表象下的基底自然变成了\textbf{占有数表象，} 也就是说，我们可以将一个态写成一个列表 $\ket{[n_s]},$ $n_s$ 是能级 $s$ 的占有数。
+
+\subsection{创造算符与湮灭算符}
+
+
 
 
 
