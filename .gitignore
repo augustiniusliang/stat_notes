@@ -111,3 +111,11 @@ desktop.ini
 # Project-specific exceptions (add your own below)
 # !important.tex  # Example: Keep specific file if needed
 # !bibliography.bib  # Usually you want to track .bib files
+main.log
+main.log
+main.log
+main.log
+main.fls
+main.toc
+main.synctex.gz
+chapters/*.aux

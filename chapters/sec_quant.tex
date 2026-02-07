@@ -14,18 +14,41 @@
 \]
 
 粒子的全同性首先表现在 Hamilton 量上：当对于上面写出的哈密顿量 $H$ 实行变换 \[\left( \hat{\vec {q}}_i,\hat{\vec p}_i \right) \leftrightarrow \left(\hat{\vec q}_j,\hat{\vec p}_j\right)\] 时，哈密顿量的形式不变。这要求对于每一个相互作用势能项对于坐标 $\{\hat{\vec{q}}_i\}$ 的置换保持不变——这是符合直觉的。于是，我们由于 Hamilton 量具有这样的对称性，自然想到波函数具有这样的对称性：也就是对于坐标与动量的对换 $\left( \hat{\vec {q}}_i,\hat{\vec p}_i \right) \leftrightarrow \left(\hat{\vec q}_j,\hat{\vec p}_j\right),$ 在坐标表象下成立
-\[
-\Psi\left(\vec{q}_1,\cdots,\vec{q}_i,\cdots,\vec{q}_j,\cdots,\vec{q}_n\right) = e^{i\alpha}\Psi\left(\vec{q}_1,\cdots,\vec{q}_j,\cdots,\vec{q}_i,\cdots,\vec{q}_n\right).
-\]
+\begin{linenomath}\begin{equation}
+\Psi\left(\vec{q}_1,\cdots,\vec{q}_i,\cdots,\vec{q}_j,\cdots,\vec{q}_n\right) = e^{i\alpha}\Psi\left(\vec{q}_1,\cdots,\vec{q}_j,\cdots,\vec{q}_i,\cdots,\vec{q}_n\right). 
+\label{commuta}
+\end{equation}\end{linenomath}
 其中考虑到了波函数模方的不变性。 这个式子的物理意义是：\textbf{粒子的交换不带来物理态的改变，或粒子的分辨在物理上是不可能的。} 两种自然的情况是 $\alpha = 0$ 和 $\alpha = \pi,$ 在这些情况下粒子分别被称为满足 \textbf{Bose 统计} 与 \textbf{Fermi 统计}。
 
-我们希望写出一个便捷的 Hamilton 量与波函数的表示形式，尤其是计及粒子的全同性，为方便量子统计的计算。
 
-\section{多粒子波函数和 Fock 空间}
+\section{二次量子化和 Fock 空间}
 我们只考虑一个粒子的情形，这时 Hamilton 量是：
 \[
 \hat H = \frac{\hat{\vec{p}}^2 }{2m}  + U (\hat{\vec{q}} ,t)
 \]
-我们由 Schrodinger 方程可以解出一组完备的解 $\left\{\psi_s(\vec{q})\right\},$ 其中 $s$ 是某些量子数。
+我们由 Schrodinger 方程可以解出一组完备的解 $\left\{\psi_s(\vec{q})\right\},$ 其中 $s$ 是某些量子数。这些波函数张成 \textbf{波函数 Hilbert 空间} $L^2(\mathbb{R} )$ 的一组基底，因此任何函数可用这一组本征函数展开。
+
+于是我们现在可以构造多粒子波函数的空间，它是$n$个粒子的 \textbf{直积空间。}  直觉上它的基底是形如 
+\[
+\psi_{s_1}(\vec{q}_1) \otimes \psi_{s_2}(\vec{q}_2) \otimes \cdots \otimes \psi_{s_n}(\vec{q}_n)
+\]
+的向量。然而，我们发现这样的选择不是物理的：因为它们并不能反映出粒子的全同性。事实上，服从 Fermi 统计的波函数与服从 Bose 统计的波函数构成这个直积空间的两个无穷维子空间（这可以由 (\ref{commuta}) 得到，只需要注意到（反）对称波函数的线性组合还是（反）对称波函数），张成它们的基底才是我们关心的对象。
+
+我们现在实行一种 \textbf{对称化} 与 \textbf{反对称化} 操作，这样它们便可以张成对应的子空间。利用置换，我们可以写：
+\begin{linenomath}\begin{equation}
+\Psi_B(s_1,s_2,\cdots,s_n)\left[\vec{q}_1,\cdots,\vec{q}_n\right] = N \sum_{\pi\in S_n}\bigotimes_{i = 1}^{n} \psi_{s_{\pi(i)}}\left(\vec{q}_i\right)
+\end{equation}\end{linenomath}
+以及
+\begin{linenomath}\begin{equation}
+\Psi_F(s_1,s_2,\cdots,s_n)\left[\vec{q}_1,\cdots,\vec{q}_n\right] = N' \sum_{\pi\in S_n}(-1)^{\pi}\bigotimes_{i = 1}^{n} \psi_{s_{\pi(i)}}\left(\vec{q}_i\right)
+\end{equation}\end{linenomath}
+其中 $(-1)^{\pi}$ 是置换 $\pi$ 的符号，$N$ 和 $N'$ 是归一化常数，他们的值将在稍后确定。但是，显而易见的是现在的波函数的确是（反）对称的。他们的正交性可以验证，只需要注意到一次量子化的波函数具有这样的正交归一性：
+\[
+    \begin{aligned}
+        asd & schrodinger
+        ad &
+    \end{aligned}
+\]
+
 
 
