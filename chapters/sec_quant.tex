@@ -76,14 +76,23 @@ N = \frac{1}{\sqrt{n!}},
 我们看到，这个表象下的基底自然变成了\textbf{占有数表象，} 也就是说，我们可以将一个态写成一个列表 $\ket{[n_s]},$ $n_s$ 是能级 $s$ 的占有数。对于 Fermi 统计，每个能级的占有数只能为 $0$ 或 $1;$ 对于 Bose 统计则没有此限。
 
 \subsection{创造算符与湮灭算符}
-我们对于量子谐振子，我们构造了两个算符：\textbf{创造算符} 和 \textbf{湮灭算符}（统称为\textbf{升降算符}），他们将粒子数低的态映射至粒子数高的态。对于角动量理论，我们同样可以构造这样的算符。现在可以看到，在占有数表象下升降算符的引入不仅是必要的，而且是自然的。对于 Fermi 统计和 Bose 统计，升降算符的表现并不相同。
+我们对于量子谐振子，我们构造了两个算符：\textbf{创造算符} 和 \textbf{湮灭算符}（统称为\textbf{升降算符}），他们将粒子数低的态映射至粒子数高的态。对于角动量理论，我们同样可以构造这样的算符。现在可以看到，在占有数表象下升降算符的引入不仅是必要的，而且是自然的。严格来说，创造算符应该定义为映射：
+\[
+b^\dagger: F_n \to F_{n+1},
+\]
+而湮灭算符则应当为定义为映射：
+\[
+b: F_n \to F_{n-1},
+\]
+而整个 Fock 空间则是这些 $n-$ 粒子子空间的\textbf{无交直积}。
+对于 Fermi 统计和 Bose 统计，升降算符的表现并不相同。
 
 对于 $n-$ 粒子态来说，我们定义算符 $b_s^\dagger$ 和 $b_s,$ 就像量子力学中那样，他们分别对应创造算符和湮灭算符。
 \[
     b_{s_i}^\dagger \Psi = \frac{1}{\sqrt{n+1}}\psi_{s_i} \otimes_\pm \Psi,
 \]
 \[
-    b_{s_i}\Psi = \frac{1}{\sqrt{n}}\psi_{s_i} \oslash_+ \Psi,
+    b_{s_i}\Psi = \frac{1}{\sqrt{n}}\psi_{s_i} \oslash_\pm \Psi,
 \]
 其中，$\otimes_+$ 代表对称地插入，$\oslash_+$ 代表对称地删除；换为减号的各个算符代表反对称的操作（对于第 $i$ 个位置乘因子 $(-1)^{i-1}$）。
 
@@ -109,8 +118,14 @@ N = \frac{1}{\sqrt{n!}},
 {b}_{\alpha }|\cdots ,{n}_{\beta },{n}_{\alpha },{n}_{\gamma },\cdots \rangle  = \sqrt{{n}_{\alpha }}|\cdots ,{n}_{\beta },{n}_{\alpha } - 1,{n}_{\gamma },\cdots \rangle . 
 \end{equation}\end{linenomath}
 
+而且若指定了一个真空态$\ket{0},$ 我们便可写出一般离子态的生成公式：
+\begin{linenomath}\begin{equation}
+\ket{[n_s]} = \prod_s \frac{(\hat{b}_s^\dagger)^{n_s}}{\sqrt{n_s!}}\ket{0}.
+\end{equation}\end{linenomath}
+
+
 而对于 Fermi 子来说也有类似的公式，只需要注意到 Fermi 子满足态的不相容性，以及插入的反对称系数和可能带来的负号。
-例如，对于服从 Fermi 统计的双态全同粒子来说，可以用态 $\ket{m,n}$ 来标记态，其中 $m, n$ 是 $0$ 或 $1.$ 让我们同样看态 $\ket{1,1}_- = =\dfrac{1}{\sqrt 2} (\psi_1\psi_2-\psi_2\psi_1),$ 这里的 $-$ 标明的是态的反对称性。经过计算我们有
+例如，对于服从 Fermi 统计的双态全同粒子来说，可以用态 $\ket{m,n}$ 来标记态，其中 $m, n$ 是 $0$ 或 $1.$ 让我们同样看态 $\ket{1,1}_- =\dfrac{1}{\sqrt 2} (\psi_1\psi_2-\psi_2\psi_1),$ 这里的 $-$ 标明的是态的反对称性。经过计算我们有
 
 \[
     c_1^\dagger \ket{1,1} = 0,
@@ -160,30 +175,3 @@ N = \frac{1}{\sqrt{n!}},
 \[
 \hat\Psi(\vec{q}) = \frac{1}{\sqrt{V}}\sum_{\vec{p}}\exp{\left( \frac{i}{\hbar}\vec{p}\cdot\vec{q} \right)} a_{\vec{p}}.
 \]
-
-\section{量子力学的密度矩阵表述}
-为了描述统计理论所要求的\textbf{按照不同概率出现的量子态，} 我们定义下述密度算符：
-\begin{linenomath}\begin{equation}
-\hat{\rho} := \sum_{\text{可能的量子态}\psi} p_\psi\ket{\psi}\bra{\psi}.
-\end{equation}\end{linenomath}
-其中，$p_\psi$ 是态 $\psi$ 在量子态空间中被找到的概率（严格定义将在下一章给出）。这样，我们能描述的态就不只局限于能用\textbf{波函数} 表出，而是可以构造出一些混合在一起但不相干的态，我们将前者称作 \textbf{纯态}，而把后者称为 \textbf{混合态}. 
-
-若在加和中的每一态都是 Schrodinger 方程的解，也就是服从下述方程：
-\[
-i\hbar\frac{\partial}{\partial t}\psi = \hat H \psi,
-\]
-那么我们可以计算
-\[
-\begin{aligned}
-    i\hbar \frac{\partial}{\partial t} \hat{\rho} &= i\hbar \frac{\partial}{\partial t} \sum_{\text{可能的量子态}\psi} p_\psi\ket{\psi}\bra{\psi} \\
-    &= i\hbar\sum_{\text{可能的量子态}\psi} p_\psi\frac{\partial}{\partial t}(\ket{\psi}\bra{\psi}) \\
-    &= \sum_{\text{可能的量子态}\psi} p_\psi \left( \hat{H}\ket{\psi}\bra{\psi}-\ket{\psi}\bra{\psi}\hat{H} \right) \\
-    &= \hat{H}\hat{\rho}-\hat{\rho}\hat{H}.
-\end{aligned}
-\]
-这就是 Liouville 定理，它给出了密度矩阵的运动方程：
-\begin{linenomath}\begin{equation}
-\boxed{i\hbar \frac{\partial}{\partial t} \hat{\rho} = \left[ \hat{H},\hat{\rho} \right]}.
-\end{equation}\end{linenomath}
-
-于是，只要密度算符不显性含时间，那么它就是运动积分。 注意，只要这些态是 Schrodinger 方程的本征态，那么密度矩阵就满足这个方程。我们看到，平衡态统计物理所研究的是平衡态的情形，于是密度算符对于时间的偏导必为 0，因而它是一个运动积分。

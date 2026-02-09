@@ -1,4 +1,135 @@
 \chapter{量子统计物理学的假设和基本原理}
+统计物理按照第一章序言所说，是\textbf{大量}服从 Schrodinger 方程的粒子的 \textbf{平衡态统计行为}。注意此处的\textbf{统计} 不是对于每一个粒子求统计平均，而是对于大量服从同样的 Schrodinger 方程的系统求统计平均。因此很必要先对这个概念进行厘清。为此，先介绍量子统计中的重要工具：密度算符。
+\section{量子力学的密度矩阵表述}
+\subsection{密度矩阵的定义和性质}
+为了描述统计理论所要求的\textbf{按照不同概率出现的量子态，} 我们定义下述密度算符：
+\begin{linenomath}\begin{equation}
+\hat{\rho} := \sum_{\text{可能的量子态}\psi} p_\psi\ket{\psi}\bra{\psi}.
+\end{equation}\end{linenomath}
+其中，$p_\psi$ 是态 $\psi$ 在量子态空间中被找到的概率（严格定义将在下一章给出）。注意，这里不是说量子态是某态有多大概率，而是一个\textbf{统计平均}。这样，我们能描述的态就不只局限于能用\textbf{波函数} 表出，而是可以构造出一些混合在一起但不相干的态，我们将前者称作 \textbf{纯态}，而把后者称为 \textbf{混合态}. 
+
+我们看到，因为概率是归一的，所以我们有
+\[
+\tr \hat{\rho} = \sum_i\sum_{\text{可能的量子态}\psi} p_\psi \braket{i|\psi}\braket{\psi|i}  = \sum_{\text{可能的量子态}\psi} p_\psi \braket{\psi|\psi} = 1.
+\]
+其中用到了\(\sum \ket{i}\bra{i} = \hat{I}.\) 所以，密度矩阵的迹是归一的。
+
+那么，如何判断一个密度矩阵所描述的是纯态还是混合态？我们可以看算符 $\hat{\rho}^2$ 的迹，
+\[
+\tr \hat{\rho}^2 = \sum_{\text{可能的量子态}\psi} p_\psi^2 \leq \sum_{\text{可能的量子态}\psi} p_\psi = 1.
+\]
+当且仅当是纯态时取等，在混合态的情形则是严格小于 1. 注意，在纯态情形，还成立 $\hat{\rho}^2 = \hat{\rho}.$
+
+当然，密度矩阵不必在本征态表象中写出，譬如我们便可以在坐标表象中写出矩阵的形式，只需要写出：
+\[
+\begin{aligned}
+    \hat{\rho} &= \int d^3\vec{q} d^3\vec{q'}\sum_{\text{可能的量子态} \psi} p_\psi \ket{\vec{q}}\braket{\vec{q}|\psi}\braket{\psi|\vec{q'}}\bra{\vec{q'}}\\
+    &= \sum_{\text{可能的量子态} \psi} p_\psi \int \psi^*(\vec{q'})\psi(\vec{q}) d^3\vec{q} d^3\vec{q'}\ket{\vec{q}}\bra{\vec{q'}},
+\end{aligned}
+\]
+那么，矩阵元就是
+\[
+\rho(\vec{q},\vec{q'}) = \sum_{\text{可能的量子态} \psi} p_\psi \psi^*(\vec{q'})\psi(\vec{q}).
+\]
+
+\subsection{部分迹与相干性}
+\label{partial}
+我们可以看到，若考虑了一个系统的全部自由度，那么它（理论上）便可以表示为 Schrodinger 方程的解，因此它便是一个纯态。所以，一个物理态可以被标为纯态，就意味着我们取得了对于这个系统的所有自由度的信息。但是，若我们只能获知其中一些自由度，而另一些自由度我们无从知道，那么我们便无法解出 Schrodinger 方程。
+\textbf{密度矩阵处理的就是信息缺失时的量子态计算。} 为了从所有自由度中取出一些自由度，而将剩下自由度“遮住”，我们可以引入下述运算：
+
+对于一个系统，可以分出它们的子系统 $A$ 和 $B,$ 它们分担了整个系统的自由度。于是我们便可以把算符 Banach 空间写成直积 $L=L_A\otimes L_B,$ 其中 $L_A$ 和 $L_B$ 分别对应了他们对应的自由度。
+
+那么系统的 Hamilton 矩阵可以写为
+\[
+\begin{pmatrix}
+  H_A
+  & \rvline & H_{int} \\
+\hline
+  H_{int}^\dagger & \rvline &
+  H_B
+\end{pmatrix},
+\]
+其中$H_A$ 和 $H_B$ 是两个子系统自身的 Hamilton 子矩阵，而 $H_{int}$ 是相互作用。同样，密度算符的矩阵可以写作
+\[
+\begin{pmatrix}
+  \rho_A
+  & \rvline & \rho_{ent} \\
+\hline
+  \rho_{ent}^\dagger & \rvline &
+  \rho_B
+\end{pmatrix},
+\]
+同样，非对角项描写的是子系统 $A$ 和 $B$ 之间的\textbf{量子相干}。但若我们只知道且只能测量子系统 $A$ 的自由度，我们可以定义以下的\textbf{部分迹}：
+\[
+\tr_B: L\to L_A, \hat{M} \mapsto \sum_{i} \braket{i|_B\hat{M}_B|i}.
+\]
+对于密度矩阵取迹，我们便得到了一个矩阵，这个矩阵只关涉子系统 $A$ 的自由度，这样得到的矩阵就是我们现在能够描述的关于这个量子系统的全部信息。部分迹操作不仅是数学上的简化，它在物理上代表了由于环境耦合导致的\textbf{退相干过程}。为了详细理解这一点，让我们计算两个二能级的粒子，他们是纠缠的：
+\[
+\ket\Psi = \alpha\ket{00}+\beta\ket{11}
+\]
+其中参数 $\alpha,\beta$ 满足归一化关系 $|\alpha|^2+|\beta|^2 = 1.$
+由这个纯态可以计算出密度矩阵:
+\[
+ \hat{\rho }_{AB} = \left( \begin{matrix} {\left| \alpha \right| }^{2} & 0 & 0 & \alpha {\beta }^{ * } \\  0 & 0 & 0 & 0 \\  0 & 0 & 0 & 0 \\  {\alpha }^{ * }\beta & 0 & 0 & {\left| \beta \right| }^{2} \end{matrix}\right) 
+\]
+可以看到，相干性体现在非对角项上。但当我们实行部分迹运算：
+\[ {\rho }_{A} = {\operatorname{tr}}_{B}\left( {\rho }_{AB}\right)  = \langle {\left. 0\right| }_{B}{\rho }_{AB}\left| {0{\rangle }_{B}+\langle 1{\left. \right| }_{B}{\rho }_{AB}}\right| 1{\rangle }_{B}  = \operatorname{diag}\left( |\alpha|^2 , |\beta|^2\right).\]
+这样，量子态就“退相干”了。这意味着子系统 $A$ 已经失去了量子相干性，它不再能发生干涉，其行为完全等同于一个“以 $|\alpha|^2$ 概率处于 $0$ 态，以 $|\beta|^2$ 概率处于 $1$ 态”的\textbf{经典随机系统}。这个事实有一个统计解释：当我们对于大量这样的系统进行平均时，因为环境（子系统 $B$） 的状态我们未加测量，所以我们观测到的子系统状态 $A$ 就是非相干的。这种解释被称作\textbf{系综解释}，这些大量相同系统所组成的集合被称为\textbf{系综}。
+\subsection{Liouville 定理}
+若在加和中的每一态都是 Schrodinger 方程的解，也就是服从下述方程：
+\[
+i\hbar\frac{\partial}{\partial t}\psi = \hat H \psi,
+\]
+那么我们可以计算
+\[
+\begin{aligned}
+    i\hbar \frac{\partial}{\partial t} \hat{\rho} &= i\hbar \frac{\partial}{\partial t} \sum_{\text{可能的量子态}\psi} p_\psi\ket{\psi}\bra{\psi} \\
+    &= i\hbar\sum_{\text{可能的量子态}\psi} p_\psi\frac{\partial}{\partial t}(\ket{\psi}\bra{\psi}) \\
+    &= \sum_{\text{可能的量子态}\psi} p_\psi \left( \hat{H}\ket{\psi}\bra{\psi}-\ket{\psi}\bra{\psi}\hat{H} \right) \\
+    &= \hat{H}\hat{\rho}-\hat{\rho}\hat{H}.
+\end{aligned}
+\]
+这就是 Liouville 定理，它给出了密度矩阵的运动方程：
+\begin{linenomath}\begin{equation}
+\boxed{i\hbar \frac{\partial}{\partial t} \hat{\rho} = \left[ \hat{H},\hat{\rho} \right]}.
+\end{equation}\end{linenomath}
+于是，只要密度算符不显性含时间，那么它就是运动积分。 注意，只要这些态是 Schrodinger 方程的本征态，那么密度矩阵就满足这个方程。我们看到，平衡态统计物理所研究的是平衡态的情形，于是密度算符对于时间的偏导必为 0，因而它是一个运动积分。但是在一般的多体系统中，守恒量有且仅有 $\text{能量} H, \text{总动量} \vec{P}, \text{总角动量}\vec{M}.$ 所以我们断定，
+\begin{linenomath}\begin{equation}
+\hat{\rho} = \hat{\rho}(\hat{H},\hat{\vec{P}},\hat{\vec{M}}).
+\end{equation}\end{linenomath}
+
 \section{统计物理的对象与特点}
-统计物理按照第一章序言所说，是\textbf{大量}服从 Schrodinger 方程的粒子的 \textbf{平衡态统计行为}。注意此处的\textbf{统计} 不是对于每一个粒子求统计平均，而是对于大量服从同样的 Schrodinger 方程的系统求统计平均。因此很必要先对这个概念进行厘清。
-\subsection{宏观物体和量子系综}
+
+\subsection{宏观物体和子系统}
+\noindent\textit{
+本部分可以参考 {Landau \& Lifschitz, para. 1.}}
+
+统计物理所关心的是大量微观粒子所形成的宏观物体，这些宏观物体内部粒子数众多，这些粒子不仅给物体本身的哈密顿量带来很多自由度，而且和环境也有各式各样的相互作用。因此按照 \ref{partial} 节所述，我们应该将宏观物体和环境的整体看作一个整体，由一个 Hamiltonian $H=H_{A} + H_{\text{环境}} + H_{int}$ 支配。所以我们在取子系统时，应将宏观物体取为关心的子系统，而把环境自由度通过部分迹操作去掉。这样得到了约化的密度矩阵 $\rho.$ 按照我们的讨论，现在物体的量子态是退相干的混合态。
+
+为了研究这个密度矩阵，我们写出原来（未约化）的哈密顿量的 Liouville 方程：
+\[
+i\hbar \frac{\partial}{\partial t} \hat{\rho}_A = \left[ \hat{H}_A,\hat{\rho}_{A} \right] + \left( \hat{H}_{int} \hat{\rho}_{ent}^\dagger - \hat{\rho}_{ent} \hat{H}_{int} ^\dagger\right).
+\]
+现在我们需要作出一个核心假设：因为外界与子系统之间的相互作用那样复杂，又那样随机，我们按照对称性便不能期望在远长于弛豫时间的平均下，这些相互作用的均值比起我们关心的物体自身的各观测量是可观测的。在数值上，这意味着：
+\[\langle H_{int} \rangle \ll H_A, \langle \rho_{ent} \rangle \ll \rho_A.\]
+在这个近似的意义上，我们便可以说约化后的 Hamilton 量和密度矩阵也满足 Liouville 定理。
+
+\subsection{系综平均与各态历经假设}
+我们的实验测量的事实上是一个算符 $\hat{O}$ 的时间平均值，这个时间间隔对我们来说足够短，但比起微观的粒子跃迁频率的倒数又十分长：
+\[
+\langle \hat{O} \rangle_T = \frac{1}{T} \int_0^T \langle \Psi(t) | \hat{O} | \Psi(t) \rangle dt.
+\]
+现在引入一个重要的假设：尽管 $H_{int}$ 相比起粒子自身的哈密顿量来说是很小的，但这一微扰的存在使得粒子并不能处于一个定态，而是在不同的态之间跃迁。具体来说，我们对于态之间的跃迁有 Fermi 黄金准则：
+系统从初态 $|i\rangle$ 跃迁到末态 $|f\rangle$ 的单位时间概率 $W_{i \to f}$ 为
+\[W_{i \to f} = \frac{2\pi}{\hbar} |\langle f | \hat{H}_{int} | i \rangle|^2 \delta(E_f - E_i),\]
+这意味着对于宏观物体的可观测状态 $E,$ 在微观层面上却在能壳 $[E-\Delta E/2,E+\Delta E/2]$ 间非常多不同的微观状态上不断地跃迁，这使我们可以假定在足够长的 $T$ 时间内，已经等概率地走遍了能壳内（在这里就是系综内）所有的量子态。在数学上，这就是\textbf{取部分迹}的操作。所以我们便可以引入这样的\textbf{各态历经假设}：
+\begin{linenomath}\begin{equation}
+\langle \hat{O} \rangle_T \to \sum_{\Psi} p_\Psi \langle \Psi(t) | \hat{O} | \Psi(t) \rangle = \sum_{\Psi}\tr\left( \hat\rho\hat O \right), T\to+\infty.
+\end{equation}\end{linenomath}
+这就是说，只要$T$ （严格地说，比起跃迁频率的倒数） 趋于无穷大，那么时间平均等于系综平均（大概是在 $\frac{1}{TH_{int}^2}$ 的量级上）。然而需要指出，就像 Landau 也曾指出的那样，按照不确定原理，宏观物体达到定态需要跃迁时间趋于无穷，而这是不可能的。但是在一个范围内，我们可以近似认为这物体处于定态，因此 Liouville 定理给出密度矩阵的近似不变性，当然是在给定的尺度上。一个简单的数值估计可以看出，这不仅是可能的，还是几乎自然就实现的。
+
+近年来，研究指出近于孤立的量子系统也显出统计系统的特性，也就是尽管没有 $H_{int},$ 量子系统也或许是各态历经的。这种各态历经性的根据在于当粒子数充分大时，量子混沌现象和随机矩阵具有关联。研究者们提出了所谓本征态热化假说（Eigenstate Thermalization Hypothesis），解释了统计性的纯粹量子起源。
+
+\subsection{系综平均和宏观可观测量}
+\subsubsection{固定能量的情形}
+我们先来研究固定能量的情形。但按照测量的不确定性原理，以及相互作用带来的能量的小展宽，同时考虑到取数学面所可能带来的奇异性，我们不能够直接将

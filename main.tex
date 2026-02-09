@@ -1,7 +1,10 @@
-\documentclass[lang=cn,device = normal,mode = fancy,black]{elegantbook}
+\documentclass[lang=cn,device = normal,mode = fancy,black,math=newtx]{elegantbook}
 \usepackage[switch,mathlines]{lineno}
 \usepackage{tikz-cd}
 \usepackage{braket}
+\newcommand{\tr}{\text{tr}}
+\newcommand{\bigzero}{\mbox{\normalfont\Large\bfseries 0}}
+\newcommand{\rvline}{\hspace*{-\arraycolsep}\vline\hspace*{-\arraycolsep}}
 \linenumbers
 \title{量子统计力学笔记}
 \author{梁莫言}
@@ -16,7 +19,7 @@
 \mainmatter
 \linenumbers
 \resetlinenumber
-
+\part{统计物理的基础}
 \include{chapters/sec_quant}
 \include{chapters/stat_princep}
 \end{document}
