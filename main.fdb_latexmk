@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1770627167.82667 0
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1770649475.04585 0
   "main.bcf" 0 -1 0 "pdflatex"
   "reference.bib" 0 -1 0 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1770627161.94031 "c:/Users/ramos/Desktop/stat/main.tex" "main.pdf" "main" 1770627167.82871 0
+["pdflatex"] 1770649469.82198 "c:/Users/ramos/Desktop/stat/main.tex" "main.pdf" "main" 1770649475.04746 0
   "c:/Users/ramos/Desktop/stat/main.tex" 1770626409 676 f8153ec503c07b773d1284a882ad3fc1 ""
   "c:/Windows/Fonts/msyh.ttc" 1749471029 19704352 1e10e74402e59d54499af795caf0b135 ""
   "c:/Windows/Fonts/simhei.ttf" 1711630440 9755440 983b60188a8e5a7c29c06c674f428b3d ""
@@ -510,17 +510,17 @@
   "c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1769427118 5587484 49bd08ff372a6985d7d70778694ddaac ""
   "c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1769427240 3636150 30f4376e2c79523a7c00642961b4ca9b ""
   "c:/texlive/2025/texmf.cnf" 1769423921 713 e69b156964470283e0530f5060668171 ""
-  "chapters/sec_quant.aux" 1770627165 7667 039063eed26c84290db7d41111fdbb24 "pdflatex"
+  "chapters/sec_quant.aux" 1770649473 7667 039063eed26c84290db7d41111fdbb24 "pdflatex"
   "chapters/sec_quant.tex" 1770626409 12820 8179ae5ad493ca7033483c340aff5ab7 ""
-  "chapters/stat_princep.aux" 1770627165 8227 44b321ed5b70aa134e34f0cd0de4d0f3 "pdflatex"
-  "chapters/stat_princep.tex" 1770627161 12064 9de789e7ab70c7518cd308c9b40236bb ""
+  "chapters/stat_princep.aux" 1770649473 8241 26939728229d09d05d17179a90e27011 "pdflatex"
+  "chapters/stat_princep.tex" 1770649463 12135 559f892eb29c72029cedeb4a9326080e ""
   "elegantbook.cls" 1770457396 46231 3524eca4aaec3eec633bdb8594ea48b2 ""
-  "main.aux" 1770627165 512 83e75d22f533e0f2555ebb8d9f5664b2 "pdflatex"
+  "main.aux" 1770649473 512 83e75d22f533e0f2555ebb8d9f5664b2 "pdflatex"
   "main.bbl" 0 -1 0 "biber main"
-  "main.out" 1770627165 1118 881ae6d13aeb85d48a936ba91aba2c6c "pdflatex"
-  "main.run.xml" 1770627165 2309 6d727e8fbe6c95686ac708ff30822a74 "pdflatex"
+  "main.out" 1770649473 1118 881ae6d13aeb85d48a936ba91aba2c6c "pdflatex"
+  "main.run.xml" 1770649473 2309 6d727e8fbe6c95686ac708ff30822a74 "pdflatex"
   "main.tex" 1770626409 676 f8153ec503c07b773d1284a882ad3fc1 ""
-  "main.toc" 1770627165 1600 2bce85834e4ddf00bf86a25477157660 "pdflatex"
+  "main.toc" 1770649473 1600 2bce85834e4ddf00bf86a25477157660 "pdflatex"
   (generated)
   "chapters/sec_quant.aux"
   "chapters/stat_princep.aux"
