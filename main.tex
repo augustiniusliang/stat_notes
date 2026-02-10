@@ -2,6 +2,7 @@
 \usepackage[switch,mathlines]{lineno}
 \usepackage{tikz-cd}
 \usepackage{braket}
+\setcounter{tocdepth}{3}
 \newcommand{\tr}{\text{tr}}
 \newcommand{\bigzero}{\mbox{\normalfont\Large\bfseries 0}}
 \newcommand{\rvline}{\hspace*{-\arraycolsep}\vline\hspace*{-\arraycolsep}}
@@ -14,13 +15,34 @@
 \begin{document}
 \frontmatter
 \nolinenumbers
-\maketitle
+\begin{titlepage}
+    \vspace{70cm}
+    \begin{center}
+        \begin{flushright}
+        {\Large \heiti 纯粹量子统计力学笔记} \\
+        {\large Notes on Pure Quantum Statistical Physics} \\
+        {\kaishu 梁莫言}
+        \vline
+    \end{flushright}
+    \vspace{20pt}
+    \begin{figure*}[htbp!]
+        \centering
+        \includegraphics[scale=0.4]{graphics/960px-Landau.jpg}\\
+        {\large {Lev D. Landau} }
+    \end{figure*}
+    \end{center}
+    
+    
+\end{titlepage}
 \tableofcontents
 \mainmatter
 \linenumbers
 \resetlinenumber
 \part{统计物理的基础}
-\include{chapters/sec_quant}
 \include{chapters/stat_princep}
+\include{chapters/thermodyn}
+\appendix
+\part{附录}
+\include{chapters/sec_quant}
 \end{document}
 

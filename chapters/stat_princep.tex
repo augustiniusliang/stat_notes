@@ -1,5 +1,5 @@
 \chapter{量子统计物理学的假设和基本原理}
-统计物理按照第一章序言所说，是\textbf{大量}服从 Schrodinger 方程的粒子的 \textbf{平衡态统计行为}。注意此处的\textbf{统计} 不是对于每一个粒子求统计平均，而是对于大量服从同样的 Schrodinger 方程的系统求统计平均。因此很必要先对这个概念进行厘清。为此，先介绍量子统计中的重要工具：密度算符。
+量子统计力学所研究的问题是\textbf{大量}服从 Schrodinger 方程的粒子的 \textbf{平衡态统计行为}。对于经典粒子来说，在粒子数变多时，解出这些粒子所服从的 Hamilton 方程已经不可能，找出满足它们的初值条件的特解更是不可能。在量子的情形下，要考虑这些粒子的相互作用下再解出 Schrodinger 方程，为人来说已经不可能。但是，粒子的大量性可以使我们做出一些遍历性的假设，进而发现这些粒子所满足的统计规律，这些规律不依赖于所要求的 Schrodinger 方程的初值条件和通解。注意此处的\textbf{统计} 不是对于每一个粒子求统计平均，而是对于大量服从同样的 Schrodinger 方程的系统求统计平均。因此很必要先对这个概念进行厘清。为此，先介绍量子统计中的重要工具：密度算符。本章的目标就是计算各种情形下的密度算符。
 \section{量子力学的密度矩阵表述}
 \subsection{密度矩阵的定义和性质}
 为了描述统计理论所要求的\textbf{按照不同概率出现的量子态，} 我们定义下述密度算符：
@@ -13,7 +13,6 @@
 \tr \hat{\rho} = \sum_i\sum_{\text{可能的量子态}\psi} p_\psi \braket{i|\psi}\braket{\psi|i}  = \sum_{\text{可能的量子态}\psi} p_\psi \braket{\psi|\psi} = 1.
 \]
 其中用到了\(\sum \ket{i}\bra{i} = \hat{I}.\) 所以，密度矩阵的迹是归一的。
-
 那么，如何判断一个密度矩阵所描述的是纯态还是混合态？我们可以看算符 $\hat{\rho}^2$ 的迹，
 \[
 \tr \hat{\rho}^2 = \sum_{\text{可能的量子态}\psi} p_\psi^2 \leq \sum_{\text{可能的量子态}\psi} p_\psi = 1.
@@ -74,7 +73,10 @@
 \]
 可以看到，相干性体现在非对角项上。但当我们实行部分迹运算：
 \[ {\rho }_{A} = {\operatorname{tr}}_{B}\left( {\rho }_{AB}\right)  = \langle {\left. 0\right| }_{B}{\rho }_{AB}\left| {0{\rangle }_{B}+\langle 1{\left. \right| }_{B}{\rho }_{AB}}\right| 1{\rangle }_{B}  = \operatorname{diag}\left( |\alpha|^2 , |\beta|^2\right).\]
-这样，量子态就“退相干”了。这意味着子系统 $A$ 已经失去了量子相干性，它不再能发生干涉，其行为完全等同于一个“以 $|\alpha|^2$ 概率处于 $0$ 态，以 $|\beta|^2$ 概率处于 $1$ 态”的\textbf{经典随机系统}。这个事实有一个统计解释：当我们对于大量这样的系统进行平均时，因为环境（子系统 $B$） 的状态我们未加测量，所以我们观测到的子系统状态 $A$ 就是非相干的。这种解释被称作\textbf{系综解释}，这些大量相同系统所组成的集合被称为\textbf{系综}。
+这样，量子态就“退相干”了。这意味着子系统 $A$ 已经失去了量子相干性，它不再能发生干涉，其行为完全等同于一个“以 $|\alpha|^2$ 概率处于 $0$ 态，以 $|\beta|^2$ 概率处于 $1$ 态”的\textbf{经典随机系统}。这个事实有一个统计解释：当我们对于大量这样的系统进行平均时，因为环境（子系统 $B$） 的状态我们未加测量，所以我们观测到的子系统状态 $A$ 就是非相干的。这种解释被称作\textbf{系综解释}，这些大量相同系统所组成的集合被称为\textbf{系综}。因此我们对于任意算符$\hat O,$ 在系综下都可以进行平均：
+\[
+\braket{O}_{e} := \sum_{\psi} p_\psi \braket{\psi|\hat{O}|\psi} = \tr\left( \hat{O}\hat{\rho} \right).
+\]
 \subsection{Liouville 定理}
 若在加和中的每一态都是 Schrodinger 方程的解，也就是服从下述方程：
 \[
@@ -97,14 +99,18 @@ i\hbar\frac{\partial}{\partial t}\psi = \hat H \psi,
 \begin{linenomath}\begin{equation}
 \hat{\rho} = \hat{\rho}(\hat{H},\hat{\vec{P}},\hat{\vec{M}}).
 \end{equation}\end{linenomath}
-
+我们看到，$\hat\rho$ 对于近独立的各个子系统是可乘的，因此$\ln\hat\rho$ 是可加的。因此
+\begin{linenomath}\begin{equation}
+\ln\hat\rho = \alpha + \beta \hat H + \vec\gamma \cdot\vec P + \vec\delta\cdot \vec M.
+\end{equation}\end{linenomath}
+对于每一个子系统成立。
 \section{统计物理的对象与特点}
 
 \subsection{宏观物体和子系统}
 \noindent\textit{
 本部分可以参考 {Landau \& Lifschitz, para. 1.}}
 
-统计物理所关心的是大量微观粒子所形成的宏观物体，这些宏观物体内部粒子数众多，这些粒子不仅给物体本身的哈密顿量带来很多自由度，而且和环境也有各式各样的相互作用。因此按照 \ref{partial} 节所述，我们应该将宏观物体和环境的整体看作一个整体，由一个 Hamiltonian $H=H_{A} + H_{\text{环境}} + H_{int}$ 支配。所以我们在取子系统时，应将宏观物体取为关心的子系统，而把环境自由度通过部分迹操作去掉。这样得到了约化的密度矩阵 $\rho.$ 按照我们的讨论，现在物体的量子态是退相干的混合态。
+统计物理所关心的是大量微观粒子所形成的宏观物体，这些宏观物体内部粒子数众多，这些粒子不仅给物体本身的哈密顿量带来很多自由度，而且和环境也有各式各样的相互作用。因此按照 \ref{partial} 节所述，我们应该将宏观物体和环境的整体看作一个整体，由一个 Hamiltonian $H=H_{A} + H_{\text{环境}} + H_{int}$ 支配。所以我们在取子系统时，应将宏观物体取为关心的子系统，而把环境自由度通过部分迹操作去掉。这样得到了约化的密度矩阵 $\rho.$ 按照我们的讨论，现在物体的量子态是退相干的混合态。因此对于任意一个本征态（在上述近似的意义下），我们有概率\[w_n=w(E_n)=\rho_{nn}.\]
 
 为了研究这个密度矩阵，我们写出原来（未约化）的哈密顿量的 Liouville 方程：
 \[
@@ -112,7 +118,7 @@ i\hbar \frac{\partial}{\partial t} \hat{\rho}_A = \left[ \hat{H}_A,\hat{\rho}_{A
 \]
 现在我们需要作出一个核心假设：因为外界与子系统之间的相互作用那样复杂，又那样随机，我们按照对称性便不能期望在远长于弛豫时间的平均下，这些相互作用的均值比起我们关心的物体自身的各观测量是可观测的。在数值上，这意味着：
 \[\langle H_{int} \rangle \ll H_A, \langle \rho_{ent} \rangle \ll \rho_A.\]
-在这个近似的意义上，我们便可以说约化后的 Hamilton 量和密度矩阵也满足 Liouville 定理。
+在这个近似的意义上，我们便可以说约化后的 Hamilton 量和密度矩阵也满足 Liouville 定理。事实上，这个假设也是我们可以给子系统 $A$ 定义（近似守恒）能量的前提。
 
 \subsection{系综平均与各态历经假设}
 我们的实验测量的事实上是一个算符 $\hat{O}$ 的时间平均值，这个时间间隔对我们来说足够短，但比起微观的粒子跃迁频率的倒数又十分长：
@@ -124,12 +130,195 @@ i\hbar \frac{\partial}{\partial t} \hat{\rho}_A = \left[ \hat{H}_A,\hat{\rho}_{A
 \[W_{i \to f} = \frac{2\pi}{\hbar} |\langle f | \hat{H}_{int} | i \rangle|^2 \delta(E_f - E_i),\]
 这意味着对于宏观物体的可观测状态 $E,$ 在微观层面上却在能壳 $[E-\Delta E/2,E+\Delta E/2]$ 间非常多不同的微观状态上不断地跃迁，这使我们可以假定在足够长的 $T$ 时间内，已经等概率地走遍了能壳内（在这里就是系综内）所有的量子态。在数学上，这就是\textbf{取部分迹}的操作。所以我们便可以引入这样的\textbf{各态历经假设}：
 \begin{linenomath}\begin{equation}
-\langle \hat{O} \rangle_T \to \sum_{\Psi} p_\Psi \langle \Psi(t) | \hat{O} | \Psi(t) \rangle = \sum_{\Psi}\tr\left( \hat\rho\hat O \right), T\to+\infty.
+\langle \hat{O} \rangle_T \to \sum_{\Psi} p_\Psi \langle \Psi(t) | \hat{O} | \Psi(t) \rangle = \sum_{\Psi}\tr\left( \hat\rho\hat O \right) = \braket{\hat O}_e, T\to+\infty.
 \end{equation}\end{linenomath}
 这就是说，只要$T$ （严格地说，比起跃迁频率的倒数） 趋于无穷大，那么时间平均等于系综平均（大概是在 $\frac{1}{TH_{int}^2}$ 的量级上）。然而需要指出，就像 Landau 也曾指出的那样，按照不确定原理，宏观物体达到定态需要跃迁时间趋于无穷，而这是不可能的。但是在一个范围内，我们可以近似认为这物体处于定态，因此 Liouville 定理给出密度矩阵的近似不变性，当然是在给定的尺度上。一个简单的数值估计可以看出，这不仅是可能的，还是几乎自然就实现的。
 
 近年来，研究指出近于孤立的量子系统也显出统计系统的特性，也就是尽管没有 $H_{int},$ 量子系统也或许是各态历经的。这种各态历经性的根据在于当粒子数充分大时，量子混沌现象和随机矩阵具有关联。研究者们提出了所谓本征态热化假说（Eigenstate Thermalization Hypothesis），解释了统计性的纯粹量子起源。
+\label{time}
+\section{一般统计分布}
+\subsection{固定子系统能量的情形：微正则分布}
+我们先来研究固定能量的情形。但按照测量的不确定性原理，以及相互作用带来的能量的小展宽，同时考虑到取数学面所可能带来的奇异性，我们不能够直接将能量表象下的分布函数写成 Dirac $\delta$ 函数，而是应该取一个小展宽 $\Delta E,$ 这个展宽应该比微观能级的间隙大（但是数量级相当），但在宏观上可以当成一个微元。
+还需要考虑，按照上节的论述，在这一能壳中的量子态是等可能遍历的。这样我们就可以写出这种情况下的密度矩阵：
+\begin{linenomath}\begin{equation}
+\hat{\rho}\left( E \right) = \frac{1}{\Delta \Gamma \left( E \right)} \sum_{E_n\in\left[ E-\frac{\Delta E}{2}, E+\frac{\Delta E}{2}\right]}\ket{n}\bra{n}.
+\label{microcan}\end{equation}\end{linenomath}
+这种系综和它导出的分布叫做\textbf{微正则系综}和\textbf{微正则分布}，其中 $\Delta \Gamma\left( E \right)$ 是在 $\left[ E-\frac{\Delta E}{2}, E+\frac{\Delta E}{2}\right]$ 能壳内的量子态数，或正像 Landau 称呼的那样，它叫作能量宏观态 $E$ 的 \textbf{统计权重}。通过引入小于等于 $E$ 的态数 $\Gamma \left( E \right),$ 我们可以写：
+\[
+\Delta \Gamma \left( E \right) \sim \frac{\partial\Gamma}{\partial E}\left( E \right)\Delta E := \Omega \left( E \right)\Delta E.
+\]
+对于能够分成很多个子系统的能量固定的大系统来说，我们看到，这时密度矩阵就是：
+\begin{linenomath}
+  \begin{equation}
+    \hat\rho = \frac{1}{\Delta\Gamma\left( E \right)}\sum_{E_i} \delta(\sum_{i} E_i - E)\prod_i \Delta\Gamma^{\left( i \right)}(E_i) {\hat\rho}^{\left( i \right)}\left( E_i \right),
+  \label{subsys}\end{equation}
+\end{linenomath}
 
-\subsection{系综平均和宏观可观测量}
-\subsubsection{固定能量的情形}
-我们先来研究固定能量的情形。但按照测量的不确定性原理，以及相互作用带来的能量的小展宽，同时考虑到取数学面所可能带来的奇异性，我们不能够直接将能量表象下的分布函数写成 Dirac delta 函数，而是应该 
+其中，对于密度矩阵的乘法是直积。在这里使用 Dirac $\delta$ 函数是恰当的，因为各个子系统的密度矩阵中已经自然包含展宽。如果我们不想关心能壳上的细致态分布，我们便可以将这个矩阵如同在 \ref{partial} 节中所讨论的那样，对于每一个子矩阵取部分迹，这时我们所得到的就是在能量表象下的密度矩阵：
+\[
+\hat{\tilde{\rho}}(\left[ E_i \right]) = \frac{1}{\Delta\Gamma\left( E \right)}\sum_{E_i} \delta(\sum_{i} E_i - E)\prod_i \Delta\Gamma^{\left( i \right)}(E_i),
+\]
+其中已经用到密度矩阵的迹是 $1.$ 如果我们将带 $\Delta$ 的符号全部换成微元号 $d$ （同样，这间隔比微观能级的间隙大，但在宏观上可以当成一个微元），便得到了按能量的概率分布：
+\begin{linenomath}\begin{equation}
+\hat{\tilde{\rho}}(\left[ E_i \right]) = \operatorname{const.} \sum_{E_i} \delta(\sum_{i} E_i - E)\prod_i d\Gamma^{\left( i \right)}(E_i).
+\end{equation}\end{linenomath}
+
+\subsection{熵与温度}
+子系统的\textbf{熵}定义为统计权重的对数： \[S(E):=k\ln\left( \Delta\Gamma\left( E \right) \right) = -k\ln\left( w(E) \right) = -\sum_n kw(E_n)\ln(w(E_n)).\]
+最后一个式子（称为熵的\textbf{ Gibbs 定义式}）是合理的，因为这里定义的熵是一个宏观量，也就是一个时间平均，关于这个时间的的论述可以见\ref{time}节。$k$ 是用来规定量纲的常数。用更一般的密度矩阵语言，我们可以写出\[S=-k\tr(\hat\rho\ln\hat\rho).\] 显然可以看到，S的大小表征了能壳内量子态的多少，也就是多少表征了粒子运动的“混乱程度”。
+
+我们定义\textbf{绝对温度}是\[T = \frac{1}{\frac{\partial{S}}{\partial{E}}},\] 因此我们见到温度的量纲是 $[E][k]^{-1}.$ 显然，熵 $S$ 、能量 $E$ 及温度 $T$ 在其中一者固定时，另外两者以这样或那样的函数形式互相依赖（或不变）；若其中二者固定，第三者也不变。
+
+这样，借助熵，我们就可以把密度矩阵重写成：
+\begin{linenomath}\begin{equation}
+\hat\rho = \frac{1}{\Delta\Gamma\left( E \right)}\sum_{E_i} \delta(\sum_{i} E_i - E)\prod_i e^{\frac{S_i}{k}} {\hat\rho}^{\left( i \right)}\left( E_i \right)=\operatorname{const.} \sum_{E_i} e^{\frac Sk} \delta(\sum_{i} E_i - E)\prod_i {\hat\rho}^{\left( i \right)}\left( E_i \right).
+\end{equation}\end{linenomath}
+
+若我们像上节那样，取这个密度矩阵关于所有子系统同一能量下的量子态的部分迹，我们便遇到一个困难：因为所有的密度矩阵都将会变成 $1,$ 从而无法计量能量的分布密度。为了解决这个困难，我们可以注意到
+\[
+d\Gamma_i=\prod_i\frac{d \Gamma_i}{d E_i}dE_i \sim \prod_i\frac{\Delta \Gamma_i}{\Delta E_i}d E_i = \operatorname{const.} e^{\frac Sk} \prod_i d E_i.
+\]
+因为比起随着状态而急遽变化的熵，能壳的宽度可以看作大致是一个常数 (或者认为这个能壳宽度已被吸收进熵的表达式里)。这样，我们就有：
+\begin{linenomath}\begin{equation}
+dw = \operatorname{const.} e^{\frac Sk} \delta(\sum_{i} E_i - E) \prod_i d E_i.
+\label{dist}
+\end{equation}\end{linenomath}
+其中前面的常数由约束 \[\int dw = 1\] 确定。
+
+最后，跟随 Landau，我们指出熵在微观上，表征了能级平均距离的负对数。这是自然的：因为能级越近，在能壳内便可能存在更多的态。
+\subsection{熵增定律}
+在统计中，我们研究的是最盖然情形，在这里就对应了统计权重最大的的情形。我们考虑多个子系统的分布，由 (\ref{dist}) 式可以看到，在一个封闭系统（或可以分为许多小子系统的封闭系统）中，最盖然的情形就是熵最大的情形。这使得我们按照概率论中类似的假设（比如，大数定律）可以引入下述假设：因为系统倾向于自发地从盖然的情形演化到更盖然的情形，所以系统的熵自发是不减少的。这就是\textbf{熵增定律，} 注意熵增定律并不依赖于系统的具体形式。
+
+但是，这里有一个矛盾：对于经典系统中，相空间运动方程总是时间反演对称的，这导致表观上所有遵循经典方程（或近似遵循它们）的粒子的运动都应该是可逆的，这与熵增定律构成一个矛盾。对此，我解释如下：我们所考虑的是大量相点的运动的规律，在很多相点以一种方向性运动，但另外少数相点以相反的方式运动时，我们在统计上就看到了一种方向性，尽管这两种方式都是力学上可能的。在这里所看到的，就是这种情形。
+\subsection{固定子系统温度的情形：Gibbs 分布}
+现在我们来看温度固定（换句话说，能量不固定）的情形。这里最方便的方式是将一个能量确定的大系统（因此微正则系综）中分出一个小系统 $A$，将剩下的看作环境（因为这里是固定温度的情形，所以我们将这个环境称为\textbf{热库}）。一个可能的质疑是：这里是否满足我们所说的条件 $H_{int} \ll H_A?$ 可做一个估计：对于线度 $L,$ 离子浓度 $n$ 的宏观物体，可以有 $H_{int} \sim n L^2 \delta, H_A \sim L^3 n,$ 其中 $\delta$ 是粒子的线度；我们现在有$H_{int}/H_A=\delta/L,$ 这就是说：在我们研究的情况下，不论如何划分系统，$H_{int} \ll H_A$ 几乎总是成立。
+
+\begin{remark}
+  现代纳米尺度物理和强耦合统计物理研究的内容，就是当 $H_{int} \ll H_A$ 不成立时的新奇物理现象。当子系统非常小（例如一个分子与热库接触）时，我们还是可以通过重整化 Hamilton 量的方式来使统计分布具有原来的形式，但是这是讨论能级已经失去意义了。例如，量子随机游走模型就是这种模型之一例。
+\end{remark}
+
+于是，我们现在承认这样的近似，并且对于环境量子态所有能量求和，并对对应的直和分量求部分迹。
+由 (\ref{subsys}) 式我们有：
+\[
+  \hat\rho = \frac{1}{\Delta\Gamma\left( E \right)}\sum_{E_i} \Delta\Gamma^{\left( A \right)}(E_i)\Delta\Gamma^{\prime}(E-E_i) .
+\]
+
+现在，让我们取某个特定的 $i,$ 这时就有 $\Delta\Gamma^{\left( A \right)}(E_i) = g(E_i),$ 其中 $g(E_i)$ 是能级 $E_i$ 的简并度，为了简便起见令它等于1. 并且
+\[
+ dw = \left[ \hat{\rho} \right]_{ii} \frac{1}{\Delta E} dE = \operatorname{const.} \frac{\Delta\Gamma^{\prime}(E-E_i)}{\Delta\Gamma\left( E \right)} dE_i.
+\]  
+因为取出的子系统相比起大热库是如此小，下述近似是容许的：
+\[
+  \frac{\Delta\Gamma^{\prime}(E-E_i)}{\Delta\Gamma\left( E \right)} \sim \frac{\Delta\Gamma(E-E_i)}{\Delta\Gamma\left( E \right)} = \exp\left( \frac1k\left( S(E-E_i)-S(E) \right) \right) = \exp\left( -\frac{E_i}{kT} \right),
+\]
+其中已经用到 $\frac{\partial S}{\partial E} = \frac{1}{T},$ 并考虑到 $E_i \leq E.$ 所以，
+\begin{linenomath}\begin{equation}
+\boxed{dw = A\exp\left( -\frac{E_i}{kT}\right) dE_i} ,
+\end{equation}\end{linenomath}
+若计及了简并度，那么就有 \[dw = Ag\left( E_i \right) \exp\left( -\frac{E_i}{kT} \right) dE_i.\]
+其中 $A$ 是归一化常数。这就是由\textbf{正则系综}（也就是上面将物体与大热库接触的构造）导出的\textbf{正则分布}，或 \textbf{Gibbs (1901) 分布}。这个式子从算符层面写出，就是：
+\begin{linenomath}\begin{equation}
+\hat{\rho} = \frac{1}{Z}\exp\left( -\frac{\hat{H}}{kT} \right).
+\end{equation}\end{linenomath}
+
+其中定义了配分函数 \[Z = \tr\left( \exp\left( -\frac{\hat{H}}{kT} \right) \right).\] 今后将会看到，配分函数蕴含了一个系统的全部统计信息。
+\subsection{Gibbs 分布和熵最大原理 *无偏见原则}
+从另一个方面也可以导出 Gibbs 分布，这种方面使人更加明了 Gibbs 分布满足熵最大的原理. 现在，我们使用带约束的变分法，将熵作为 Lagrangian：
+\[
+L = -k\tr(\hat{\rho}\ln\hat{\rho}) + (\alpha + 1) (\tr(\hat{\rho}) - 1) + \beta (\tr(\hat{\rho} \hat H) - E)
+\]
+将 $\hat{\rho}^\prime = \hat{\rho} + \delta\hat{\rho}$ 代入，求变分就得到：
+\[
+k\tr\left( \delta\hat{\rho}\left( \ln\left( \hat{\rho}  \right) - \alpha - \beta \hat{H} \right) \right) = 0.
+\]
+注意，引入 Lagrange 乘子后，变分就是任意的。所以我们有：
+\[
+k\ln\hat{\rho} = \alpha + \beta \hat{H}.
+\]
+这就是 Gibbs 分布的形式。以后我们也会记 $\beta := (kT)^{-1},$ 称为逸度。
+
+现在，让我们取二阶变分：
+\[
+\delta^2 L = -k\tr (\delta\hat \rho \delta\hat \rho \hat{\rho}^{-1}) \ll 0.
+\]
+其中用到了密度矩阵只有正数本征值。在Gibbs 分布的情形下，一个简单的估计可以看出在平衡位置附近，熵有一个尖锐的峰。这种方法直观地体现了为什么 Gibbs 分布是一个熵最大的分布。
+
+熵最大原则贯穿了整个统计物理，这一点在统计学上也有根据。一个统计问题本质上就是只知道一个系统的平均能量 $\langle E \rangle$时，对它的分布的推测问题。然而，根据这个信息，理论上存在无数种概率分布 $\{p_i\}$ 都能满足这个平均值。我们有很多选择，但是按照我们之前的讨论，如果我们选择了一个熵较小的分布，这意味着我们未加证明地假设了某些态出现的概率比其他态更高，而这种倾向性并没有任何物理观测证据支持。 这种无根据的倾向性，就是“偏见”。统计力学中的‘平衡态’，本质上是最不具偏见的描述状态。
+许多学生误以为平衡态是某种‘演化结果’。但从信息论视角看，平衡态其实是我们作为观测者，在已知有限宏观量的前提下，能对系统做出的最公正、最客观的推断。
+任何熵更小的状态（非平衡态），都隐含了某种尚未消失的‘秩序’或‘关联’（偏见）。随着系统发生跃迁和退相干，这些残余的‘秩序’被环境抹除，我们被迫放弃这些‘偏见’，最终回归到那个最无知、但也最正确的最大熵分布。
+
+\subsection{平均能量的计算}
+我们已经有配分函数 \[Z=\sum_{s} g(E_s)\exp\left( -\beta{E_s} \right)\]，我们现在就可以计算一些有关系统的参量，对于正则系综来说，这个量就是\textbf{平均能量。}
+藉由系综平均的表达式，我们看到平均能量就是 \[\bar{E} = \tr\left( \hat H\hat \rho \right) = \frac{1}{Z}\sum_{s} E_sg(E_s)\exp\left( -\beta{E_s} \right) = -\frac{\partial Z}{Z\partial \beta}.\]
+
+\section{全同粒子的统计}
+{\noindent \textit{本节需要第 \ref{sec_quant} 章内容。}}
+
+前述的统计中，大量粒子的统计使我们导出了 Gibbs 分布，这个分布的导出有一前提：态只和能量有关。这一前提在全同粒子的统计时被打破了，或者说：变得十分不方便，因为在这里粒子数成为标记本征态的唯一标记。同样值得注意的是，子系统不仅可以和外部环境交换能量，还可以交换粒子，这些粒子所带来的能量是无法确算的。更进一步，在容器内可能发生的化学反应或者物理-核物理过程也会带来新的粒子。所有这些都促使我们构造一种与粒子数直接相关的统计。我们要做的，就是和以前一样，对于除了粒子数之外的其他量子数求部分迹。
+\subsection{粒子数与化学势}
+我们从第 \ref{sec_quant} 章知道，对于全同粒子可以定义粒子数算符 $\hat{N} = a^\dagger a.$ 就和能量 $E$ 一样，我们知道在统计物理中算符 $\hat{N}$ 的定域本征值只有在一个尺度上是对的，因为对于墙壁，粒子总可以通过隧穿的方式进出。但是只要势垒的高度远高于粒子的能量，我们便可以认为这种近似是足够好的。同时我们要注意，这里要求在密度矩阵内关涉的态是 Hamilton 算符 $\hat H$ 和粒子数算符 $\hat N$ 的本征态。显然可以看出，在构造粒子的时候若采用哈密顿量的本征态，那么得到的波函数便是满足要求的。
+
+现在系统变得与粒子数显性相关，这使我们仿照温度定义一个新的物理（宏观统计）量：化学势。它的定义如下：
+\[\left( \frac{\partial S}{\partial N} \right)_E \equiv -\frac{\mu}{T}.\]
+化学势描述了在能量不变的情况下，加入一个粒子对于熵（混乱度）的增幅。注意到，化学势和能量具有同一量纲。所以，直觉上，它是某种“势能”，这将在下一章讨论。
+
+化学势 $\mu,$ 熵 $S$ 与 粒子数 $N$ 是三个变量，但只要其中两个固定（ $E,T $ 也固定），那么第三个也不变。因此，我们可以写出微分式：
+\begin{linenomath}\begin{equation}  dS = \frac{dE}{T} - \frac{\mu dN}{T}.\label{diff_chem}\end{equation}\end{linenomath}
+
+\subsection{带有粒子数算符的微正则分布与 Gibbs 分布}
+与能量不同，粒子数总是离散的，而且精确地以 $1$ 为单位。所以只要势垒足够高，粒子数的分布便可以很好地用 Dirac $\delta$ 函数来描述。于是我们可以类似 (\ref{microcan}) 写出带有粒子数的微正则分布：
+\begin{linenomath}\begin{equation}
+\hat{\rho}\left( E,N_0 \right) = \frac{1}{\Delta \Gamma(E,N_0)} \sum_{E_{(N,\sigma)}\sim E} \ket{N,\sigma}\bra{N,\sigma}\delta\left( N-N_0 \right).
+\end{equation}\end{linenomath}
+其中 $\sigma$ 代表除了粒子数之外的其他量子数，同时注意这里的 Dirac $\delta$ 函数本质上就是 Kronecker 符号。那么，对于多个子系统来说，我们自然有
+\begin{linenomath}\begin{equation}
+  \hat{\rho} = \frac{1}{\Delta\Gamma\left( E_0,N_0 \right)} \sum_{E_i,N_i} \delta\left( \sum E_i -E_0 \right)\delta\left(\sum N_i - N_0\right) \prod_i\Delta\Gamma(E_i,N_i) \hat{\rho}\left( E_i, N_i \right).
+\end{equation}\end{linenomath}
+我们现在将一个粒子数与能量守恒的系统分为一个小子系统和一个大\textbf{粒子库-热库}。现在我们对于粒子库-热库的能级求和，并对所有密度矩阵部分迹，就有：
+\begin{linenomath}\begin{equation}
+  dw(E_i,N_i) = \operatorname{const.} \frac{\Delta \Gamma'(E_0-E_i,N_0-N_i)}{\Delta \Gamma(E_0,N_0)} dE_i dN_i.
+\end{equation}\end{linenomath}
+在做和推导正则分布一样的近似，并注意到微分式 (\ref{diff_chem})，我们就有
+\begin{linenomath}\begin{equation}
+  dw(E_i,N_i) = A g(E_i,N_i)\exp\left( -\frac{E_i-\mu N_i}{kT} \right) dE_i dN_i,
+\end{equation}\end{linenomath}
+或写成算符形式
+\begin{linenomath}\begin{equation}
+  \hat\rho = \frac{1}{\Xi} exp\left( -\frac{\hat H-\mu{\hat{N}}}{kT} \right).
+\end{equation}\end{linenomath}
+这就是\textbf{巨正则系综}推导出的\textbf{巨正则分布}。其中定义了巨配分函数:
+\[
+\Xi = \tr\left( exp\left( -\frac{\hat H-\mu{\hat{N}}}{kT} \right) \right),
+\]
+这之中求和是对整个 Fock 空间。同样，巨配分函数也蕴含整个系统的所有统计信息。注意，这里$\rho$ 是否是运动积分取决于 $H$ 与 $N$ 是否对易。我们看到，对于那些不会凭空产生或湮灭粒子（比如 Hamilton 算符中没有类似 $a^\dagger a^\dagger$ 的项）的 Hamilton 算符，这样的条件一定是成立的，而这是大多数情况。
+
+正如在正则系综中，我们对于逸度求导可以得到平均能量一样，我们现在也可以通过对巨配分函数的求导得到巨正则分布的特征参量，就是\textbf{平均占有数。}具体来说，我们设参量 \[\alpha = \frac\mu T,\] 那么平均占有数就可以写成 \[ \bar N = \tr\left( \hat\rho \hat N \right) = \frac1Z \sum_iN_i \exp\left( \alpha N_i-\beta E_i \right) = \frac{\partial \Xi}{\Xi\partial \alpha}.\] 注意，平均能量的求法和正则系综一样。
+\subsection{Fermi 分布和 Bose 分布}
+对于全同的，各自具有能级 $\varepsilon_s$ 的不可分辨粒子，我们有占据数表象下的算符：
+\[
+\hat H = \sum_s \varepsilon_s \hat{n}_s,\quad  N = \sum_s \hat{n}_s.
+\]
+因此各个能级的密度矩阵是直积。我们想要求它的能级分布，则应该将它的粒子数取迹。因此对于 Bose 子，各个占有数可以是任意自然数，因此我们计算巨配分函数：
+\[
+\Xi_s = \sum_{n_s} \left[ \exp\left( -\frac{\varepsilon_s-\mu}{kT} \right)\right]^{n_s} = \frac{1}{\exp\frac{\mu-E_s}{kT}-1}
+\]
+因此 $\varepsilon_s$ 能级上的占有数期望值就是
+\begin{linenomath}\begin{equation}
+\boxed{\bar{n}_s = -\frac{1}{\exp\frac{\mu-E_s}{kT}-1}}. \label{bose}
+\end{equation}\end{linenomath}
+这叫做 \textbf{Bose-Einstein 分布。}
+
+而对于 Fermi 子，容许的占有数是 $0$ 和 $1.$ 于是巨配分函数就是 \[\Xi_s = \left( 1+\exp\left( \frac{\mu-E_s}{kT} \right) \right), \]而占有数期望值是：
+\begin{linenomath}\begin{equation}
+\boxed{\bar{n}_s = \frac{1}{\exp\frac{\mu-E_s}{kT}+1}}. \label{fermi}
+\end{equation}\end{linenomath}
+这叫做 \textbf{Fermi-Dirac 分布。}
+
+
+
+
+
+
+
+
+
