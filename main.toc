@@ -19,6 +19,8 @@
 \contentsline {subsection}{\numberline {1.4.2}带有粒子数算符的微正则分布与 Gibbs 分布}{11}{subsection.1.4.2}%
 \contentsline {subsection}{\numberline {1.4.3}Fermi 分布和 Bose 分布}{12}{subsection.1.4.3}%
 \contentsline {chapter}{\numberline {2}宏观热力学量与 Gibbs 分布}{13}{chapter.2}%
+\contentsline {section}{\numberline {2.1}内能}{13}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}准静态过程、可逆过程与元功}{13}{subsection.2.1.1}%
 \renewcommand {\cftchappresnum }{附录 }\renewcommand {\cftchapaftersnum }{}
 \contentsline {part}{第二部分\hspace {1em}附录}{14}{part.2}%
 \contentsline {chapter}{\numberline {A}量子多体问题和二次量子化}{15}{appendix.A}%

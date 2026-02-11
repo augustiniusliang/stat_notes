@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1770739465.5703 0
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1770776637.36346 0
   "main.bcf" 0 -1 0 "pdflatex"
   "reference.bib" 0 -1 0 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1770739447.51244 "c:/Users/ramos/Desktop/stat/main.tex" "main.pdf" "main" 1770739465.57388 0
+["pdflatex"] 1770776624.57527 "c:/Users/ramos/Desktop/stat/main.tex" "main.pdf" "main" 1770776637.36702 0
   "c:/Users/ramos/Desktop/stat/main.tex" 1770718976 1255 0d7cc1e2308634877213e84d360f62be ""
   "c:/Windows/Fonts/msyh.ttc" 1749471029 19704352 1e10e74402e59d54499af795caf0b135 ""
   "c:/Windows/Fonts/simhei.ttf" 1711630440 9755440 983b60188a8e5a7c29c06c674f428b3d ""
@@ -112,6 +112,7 @@
   "c:/texlive/2025/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei91.tfm" 1769423871 1172 af08f180dd0ec6a7129972d09ff61a98 ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei95.tfm" 1769423871 1172 5a7e9ba612e7803abcac167ef6c5a665 ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei96.tfm" 1769423871 1172 baafaa35cbf14b936974ec3a58b5f3e8 ""
+  "c:/texlive/2025/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei97.tfm" 1769423870 1172 909826a1f69146e1bd8f119157e28fcd ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei98.tfm" 1769423871 1172 1261ce7302f6ac3352bb5ce3d475a0d8 ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/zhmetrics/unihei/uniheiff.tfm" 1769423871 1172 753ad64262b81ffe372ea0e0ce61c8b9 ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/zhmetrics/unikai/unikai30.tfm" 1769423870 1172 94a4899058cb02d50d2382a329a7fd2a ""
@@ -122,6 +123,7 @@
   "c:/texlive/2025/texmf-dist/fonts/tfm/zhmetrics/unikai/unikai54.tfm" 1769423870 1172 8cb643ec9ebea0c9948345f88165981b ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/zhmetrics/unikai/unikai5b.tfm" 1769423870 1172 d516aa660e7b2f51136eb31f3c010a9f ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/zhmetrics/unikai/unikai5e.tfm" 1769423870 1172 7a2b8ef2e34aad12228c3359484aeb15 ""
+  "c:/texlive/2025/texmf-dist/fonts/tfm/zhmetrics/unikai/unikai5f.tfm" 1769423870 1172 b4b325627313a1f5e43fd1b5ea9c5f36 ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/zhmetrics/unikai/unikai67.tfm" 1769423870 1172 fd43fe90e3afb857339df06f886188a3 ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/zhmetrics/unikai/unikai68.tfm" 1769423870 1172 75e03a44185a12dfc0bf232fcade7174 ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/zhmetrics/unikai/unikai6b.tfm" 1769423870 1172 f8206c0950a07e64463fcedd3b11e8ca ""
@@ -516,20 +518,20 @@
   "c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1769427118 5587484 49bd08ff372a6985d7d70778694ddaac ""
   "c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1769427240 3636150 30f4376e2c79523a7c00642961b4ca9b ""
   "c:/texlive/2025/texmf.cnf" 1769423921 713 e69b156964470283e0530f5060668171 ""
-  "chapters/sec_quant.aux" 1770739459 7901 046f3a93d098bf747f3a91d2649030b7 "pdflatex"
+  "chapters/sec_quant.aux" 1770776633 7901 9842570b99b26c2f1a97294d1bfd345d "pdflatex"
   "chapters/sec_quant.tex" 1770717330 12205 c7fc2bfc2bb836aa9a930fa7b691f9b0 ""
-  "chapters/stat_princep.aux" 1770739459 12487 6becba078f12402885cc9e63f4b24115 "pdflatex"
-  "chapters/stat_princep.tex" 1770739426 32110 3001e758e9024432e9457174414e9e14 ""
-  "chapters/thermodyn.aux" 1770739459 5463 66ae90b7591d8da109ecfbd3c7aec81c "pdflatex"
-  "chapters/thermodyn.tex" 1770714190 296 e87820b3d7f2ebf85620ca024f04a29e ""
+  "chapters/stat_princep.aux" 1770776632 12518 f3ade9d0524dbbb7d4aaec93279aa700 "pdflatex"
+  "chapters/stat_princep.tex" 1770774411 32202 1b73890b9344eff9ed005a2a65699a18 ""
+  "chapters/thermodyn.aux" 1770776632 5960 333e2925ef5342120af4412e8c5f0ec1 "pdflatex"
+  "chapters/thermodyn.tex" 1770776609 1719 6f21aad0acdfefd1230e0a8cf39a6a42 ""
   "elegantbook.cls" 1770457396 46231 3524eca4aaec3eec633bdb8594ea48b2 ""
   "graphics/960px-Landau.jpg" 1770696232 149535 ef83067e4223c16af25831330331f2b2 ""
-  "main.aux" 1770739459 733 964e9b16eee7e7a4fb34e8c0d5ea13a1 "pdflatex"
+  "main.aux" 1770776633 733 955f2b3aa9d0c8171fc605c3bec7d760 "pdflatex"
   "main.bbl" 0 -1 0 "biber main"
-  "main.out" 1770739459 4673 75ef06dde8887f3493ec0ec864e6d66c "pdflatex"
-  "main.run.xml" 1770739459 2309 6d727e8fbe6c95686ac708ff30822a74 "pdflatex"
+  "main.out" 1770776633 4964 4e957a3aa41952c8b5a94cf020735bce "pdflatex"
+  "main.run.xml" 1770776633 2309 6d727e8fbe6c95686ac708ff30822a74 "pdflatex"
   "main.tex" 1770718976 1255 0d7cc1e2308634877213e84d360f62be ""
-  "main.toc" 1770739459 2718 35a85d645081583d76a7eb154c0f4c8d "pdflatex"
+  "main.toc" 1770776633 2895 7fc5d092ad78d29dd90e365fa2c608e0 "pdflatex"
   (generated)
   "chapters/sec_quant.aux"
   "chapters/stat_princep.aux"

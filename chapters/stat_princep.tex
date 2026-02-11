@@ -225,15 +225,15 @@ dw = \operatorname{const.} e^{\frac Sk} \delta(\sum_{i} E_i - E) \prod_i d E_i.
 \subsection{Gibbs 分布和熵最大原理 *无偏见原则}
 从另一个方面也可以导出 Gibbs 分布，这种方面使人更加明了 Gibbs 分布满足熵最大的原理. 现在，我们使用带约束的变分法，将熵作为 Lagrangian：
 \[
-L = -k\tr(\hat{\rho}\ln\hat{\rho}) + (\alpha + 1) (\tr(\hat{\rho}) - 1) + \beta (\tr(\hat{\rho} \hat H) - E)
+L = -k\tr(\hat{\rho}\ln\hat{\rho}) + (-\alpha + 1) (\tr(\hat{\rho}) - 1) - \beta (\tr(\hat{\rho} \hat H) - E)
 \]
 将 $\hat{\rho}^\prime = \hat{\rho} + \delta\hat{\rho}$ 代入，求变分就得到：
 \[
-k\tr\left( \delta\hat{\rho}\left( \ln\left( \hat{\rho}  \right) - \alpha - \beta \hat{H} \right) \right) = 0.
+k\tr\left( \delta\hat{\rho}\left( \ln\left( \hat{\rho}  \right) + \alpha + \beta \hat{H} \right) \right) = 0.
 \]
 注意，引入 Lagrange 乘子后，变分就是任意的。所以我们有：
 \[
-k\ln\hat{\rho} = \alpha + \beta \hat{H}.
+k\ln\hat{\rho} = -\alpha - \beta \hat{H}.
 \]
 这就是 Gibbs 分布的形式。以后我们也会记 $\beta := (kT)^{-1},$ 称为逸度。
 
@@ -292,7 +292,7 @@ k\ln\hat{\rho} = \alpha + \beta \hat{H}.
 \]
 这之中求和是对整个 Fock 空间。同样，巨配分函数也蕴含整个系统的所有统计信息。注意，这里$\rho$ 是否是运动积分取决于 $H$ 与 $N$ 是否对易。我们看到，对于那些不会凭空产生或湮灭粒子（比如 Hamilton 算符中没有类似 $a^\dagger a^\dagger$ 的项）的 Hamilton 算符，这样的条件一定是成立的，而这是大多数情况。
 
-正如在正则系综中，我们对于逸度求导可以得到平均能量一样，我们现在也可以通过对巨配分函数的求导得到巨正则分布的特征参量，就是\textbf{平均占有数。}具体来说，我们设参量 \[\alpha = \frac\mu T,\] 那么平均占有数就可以写成 \[ \bar N = \tr\left( \hat\rho \hat N \right) = \frac1Z \sum_iN_i \exp\left( \alpha N_i-\beta E_i \right) = \frac{\partial \Xi}{\Xi\partial \alpha}.\] 注意，平均能量的求法和正则系综一样。
+正如在正则系综中，我们对于逸度求导可以得到平均能量一样，我们现在也可以通过对巨配分函数的求导得到巨正则分布的特征参量，就是\textbf{平均占有数。}具体来说，我们设参量 \[\alpha = \frac\mu T,\] 那么平均占有数就可以写成 \[ \bar N = \tr\left( \hat\rho \hat N \right) = \frac1\Xi \sum_iN_i \exp\left( \alpha N_i-\beta E_i \right) = \frac{\partial \Xi}{\Xi\partial \alpha}.\] 注意，平均能量的求法和正则系综一样。
 \subsection{Fermi 分布和 Bose 分布}
 对于全同的，各自具有能级 $\varepsilon_s$ 的不可分辨粒子，我们有占据数表象下的算符：
 \[
@@ -304,13 +304,13 @@ k\ln\hat{\rho} = \alpha + \beta \hat{H}.
 \]
 因此 $\varepsilon_s$ 能级上的占有数期望值就是
 \begin{linenomath}\begin{equation}
-\boxed{\bar{n}_s = -\frac{1}{\exp\frac{\mu-E_s}{kT}-1}}. \label{bose}
+\boxed{\bar{n}_s =\frac{\partial \Xi_s}{\Xi_s\partial \alpha}= -\frac{1}{\exp\frac{\mu-E_s}{kT}-1}}. \label{bose}
 \end{equation}\end{linenomath}
 这叫做 \textbf{Bose-Einstein 分布。}
 
 而对于 Fermi 子，容许的占有数是 $0$ 和 $1.$ 于是巨配分函数就是 \[\Xi_s = \left( 1+\exp\left( \frac{\mu-E_s}{kT} \right) \right), \]而占有数期望值是：
 \begin{linenomath}\begin{equation}
-\boxed{\bar{n}_s = \frac{1}{\exp\frac{\mu-E_s}{kT}+1}}. \label{fermi}
+\boxed{\bar{n}_s =\frac{\partial \Xi_s}{\Xi_s\partial \alpha}= \frac{1}{\exp\frac{\mu-E_s}{kT}+1}}. \label{fermi}
 \end{equation}\end{linenomath}
 这叫做 \textbf{Fermi-Dirac 分布。}
 
