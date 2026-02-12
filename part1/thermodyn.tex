@@ -1,0 +1,383 @@
+\chapter{宏观热力学量与 Gibbs 分布}
+“宏观\textbf{热力学量}” 事实上是一个同语反复（\textit{*tautologos}），因为只有宏观量才能为我们所测量。本章的目标是：介绍常见的热力学量，并指出他们与 Gibbs 分布的参量之间的关系。我们已经知道了更一般的情况，就是粒子数可以变化（由化学势支配）的情况，让我们把这些情况也考虑在内。
+
+{\noindent \kaishu 本节采取略差异于俄派的记法，对于欧美派的记法比较可见下表.}
+\begin{table}[htbp!]
+    \centering
+    \begin{tabular}{lll}
+        \hline 
+        本稿记法及命名 & Landau \& Lifschitz & Kardar \\
+        \hline 
+        $E$ 内能 & $E$ 内能 & $U$ 内能 \\  
+        $W$ 焓 & $W$ 焓 & $H$ 焓 \\
+        $F$ 自由能 & $F$ 自由能 & $F$ Helmholtz 自由能 \\
+        $\Phi$ Gibbs 函数 & $\Phi$ 热力学势 & $G$ Gibbs 自由能 \\
+        $\Omega$ 热力学势 & $\Omega$ “另一种”热力学势 & $\Omega$ 巨势 \\
+        \hline \hline
+    \end{tabular}
+    \caption{记法及命名对照表}
+\end{table}
+\section{内能}
+我们已经知道，在系统与外界不发生宏观的相互作用时，我们可以写出下式：
+\[
+dE = -TdS + \sum_i\mu_idN_i.
+\]
+上式中已经计及多种粒子所具有的不同化学势。其中 $E$ 不是指物体的全部能量，而是在一个物体既不平动，也不转动的参考系中，系统的能量。（在转动参考系中，等效势能计入 $E.$） 这里的假设是物体的运动是经典的。
+这个式子的物理意义是：当没有宏观的相互作用时，物体与外界仅可通过传热和交换粒子传递相互作用。
+\subsection{准静态、可逆过程与元功}
+\label{work}
+现在想要知道当外界条件发生变化时，物体的内能将会发生怎样的变化。
+为了不破坏平衡态，我们认为引入相互作用的过程是如此的慢，以至于它在力学上可以使用准静态过程（对于力学量 $\lambda$ 来说，这要求 $\frac{d\lambda}{dt}\ll 1$ ）描述。但是若我们在引入相互作用时使熵 $S$ 和粒子数 $N$ 发生了改变，那么内能的形式将会难以写出。所以在这里我们只研究粒子数不变的可逆过程（ $S$ 不变）。
+
+在引入相互作用时，我们可以将熵随时间的变化 $d_t S$ 展成力学参量变化 $d_t \lambda$ 的级数，并假定这是引起熵变化的唯一来源（稍后将解释其中原因）。 由于平衡态的假设和熵增原理，我们可以知道领头阶的项是二阶的。于是：
+\[
+\frac{d S}{d t} = A \left( \frac{d \lambda}{d t} \right)^2.
+\]
+这就得到
+\[
+\frac{d S}{d \lambda} = A \frac{d \lambda}{d t}.
+\]
+这意味着只要 $d_t \lambda$ 趋于零，$S$ 就与 $\lambda$ 无关。这就是说，在一般情况下，当 $\lambda$ 的变化不引起其他使熵增大的改变（没有耗散或泄流），那么\textbf{可逆过程和准静态过程是等价的。} 在这种情况下，因为没有热化的传递，我们也把这种过程称为\textbf{绝热过程}。
+
+在可逆性的保证下，我们来研究外界对于宏观物体的作用。物体受到的作用用物体对外所做的 \textbf{元功} 表示，元功就是微小的功。我们将元功写成
+\[
+dW = \sum_{i } dW_i = \sum_i Y_idy_i,
+\]
+其中 $y_i$ 是表示物体与外界作用的\textbf{广义坐标}（一般要求可加），而 $Y_i$ 是与广义坐标共轭的\textbf{广义力}。因为功具有能量的量纲，这对于互为共轭的力和坐标也有量纲上的约束。这样我们就可以写出内能微元的一般表达式：
+\begin{linenomath}\begin{equation}
+dE= -\sum_{i} Y_idy_i + TdS + \sum_j \mu_jdN_j. \label{internal_energy}
+\end{equation}\end{linenomath}
+
+现在我们来证明一个重要的结论，就是平均能量对于广义坐标的求导就是可逆过程下物体所受的广义力。这一事实的需要用到经典力学中的一个结论：对于能量 $E(p,q,\lambda),$ 有 \[
+\frac{dE(p,q,\lambda)}{dt} = \frac{\partial E(p,q,\lambda)}{\partial t} +\left\{ E,E \right\} = \frac{\partial E(p,q,\lambda)}{\partial t},
+\]
+其中大括号表示经典 Poisson 括号。而因为只有 $\lambda$ 显含时间，我们便可在微观上写出
+\[
+\frac{dE}{dt} = \frac{\partial \bar E}{\partial \lambda} \frac{d \lambda}{dt}.
+\]
+但是在宏观上
+\[
+\frac{dE}{dt} = \left( \frac{\partial \bar E}{\partial \lambda} \right)_{S,\left\{ N_j \right\}} \frac{d \lambda}{dt},
+\]
+括号外的下标表示保持写出的参量不变。综合两式，我们就有
+\begin{linenomath}\begin{equation}\frac{\partial \bar E}{\partial \lambda} = \left( \frac{\partial  E}{\partial \lambda} \right)_{S,\left\{ N_j \right\}}.\label{macro_micro1}\end{equation}\end{linenomath}
+这样，我们便可以由统计计算出相应的参量，并和实验结果进行比较，这样就在微观与宏观之间建立联系。最后指出，宏观参量的改变导致微观能级的改变，从而将二者联系起来是可能的。
+\subsection{压强}
+与体积 $V$ 共轭的广义力被称为压强$p:$ \[p = -\left( \frac{\partial E}{\partial V} \right)_{S,\left\{ N_j \right\}}. \] 为了说明压强的物理意义，让我们只改变一个微元 $\delta \sigma$ 附近的柱状空间的体积，设我们改变了 $dl$ (向外为正)。  这时元功可以写成：
+\[dW = -p\delta \sigma dl.\] 又因为由力学知道 \[dW = -\delta F dl,\] 上式中 $F$ 向外为正。因此有 \[p = \frac{\delta F}{\delta \sigma},\] 就是说，\textbf{压强就是单位面积受的压力。}
+
+\subsection{内能对应的 Maxwell 关系}
+我们看到，内能满足了下述微分等式：
+\[
+dE = -pdV + TdS + \mu dN
+\]
+对此，我们现在假设 $dN = 0.$ 我们对于一个全微分 $dE$ 应该有 Cauchy-Riemann 条件
+\begin{linenomath}\begin{equation}
+\left( \frac{\partial T}{\partial V} \right)_{S,N} = -\left( \frac{\partial p}{\partial S} \right)_{V,N}.
+\end{equation}\end{linenomath}
+这个式子称为 \textbf{Maxwell 关系，} 它是内能作为能量所必然推出的，具有普适性。这就是说， $(p,V,T,S)$ 不是独立的变量，其中只有两个是独立的。将来我们要定义许多能量，每一个能量按照自己的全微分式都有自己的 Maxwell 关系。对于粒子数还有两个 Maxwell 关系：
+\[
+\left( \frac{\partial \mu}{\partial S} \right)_{V,N} = \left( \frac{\partial T}{\partial N} \right)_{V,S}
+\]
+和
+\[
+\left( \frac{\partial \mu}{\partial V} \right)_{S,N} = -\left( \frac{\partial p}{\partial N} \right)_{V,S}.
+\]
+
+\subsection{热容与熵\quad 宏观物体的平衡条件}
+我们已经知道，系统与外界的相互作用除了通过力学与交换粒子的方式，尚可以通过一种以熵为“广义坐标”（如果这么说不是对于这个词的滥用的话）的方式来传递“混乱度”，也就是所谓热化（见 \ref{entropy} 节），那么我们就将其称为传热，传热的表达式常用 $dQ = TdS$ 表示。为了讨论传热和温度的关系，我们可以定义下列热容：
+\[
+C_V = T \thermfrac{S}{T}{V,N}, C_p = T \thermfrac{S}{T}{p,N}.
+\]国内的教材常常将 $Q$ 前的字母 $d$ 加上横杠，成为表达式 $\bar{d}Q,$ 这是为了表达它不是全微分。它们对于功也采取了类似的写法。我们认为，这并不重要；但读者应该注意，在积分时只有对于全微分的积分才满足 Newton-Leibniz 公式，因为传热可能依赖于路径。做功不依赖于路径的条件是只有势力做功。
+
+经过上述讨论，熵的表达式可以写为（为了方便，设压强是唯一的广义力，并设只有一种粒子）：
+\[
+dS = \frac{dE}{T} + \frac{pdV}{T} -\frac{\mu dN}{T}.
+\]
+
+
+根据这个公式，我们可以讨论熵增原理导致的物体平衡条件。在讨论物体的平衡条件时，我们应当考虑一个小系统与环境大系统之间的总熵。按照我们之间所讨论的，我们知道熵应当取最大值。因此：
+\[
+S_0 = S_1 + S_{2}. (1\ll 2)
+\]
+最后一个式子是对于两个系统的体积，能量及粒子数说的。对此式取变分：
+\[
+\delta S_0 = \frac{\delta E_1}{T_1} + \frac{p_1\delta V_1}{T_1} -\frac{\mu_1 \delta N_1}{T_1} + \frac{\delta E_2}{T_2} + \frac{p_2\delta V_2}{T_2} -\frac{\mu_2 \delta N_2}{T_2}.
+\]
+考虑到能量守恒，体积守恒及粒子数守恒，我们有约束：
+\[
+\delta E_1 = -\delta E_2 = \delta E,\quad \delta V_1 = -\delta V_2 = \delta V,\quad \delta N_1 = -\delta N_2 = \delta N.
+\]
+于是有：
+\[
+\delta S_0 = \delta E\left( \frac1{T_1}-\frac1{T_2} \right) + \delta V\left( \frac{p_1}{T_1}-\frac{p_2}{T_2} \right) - \delta N\left( \frac{\mu_1}{T_1}-\frac{\mu_2}{T_2} \right) = 0.
+\]
+按照三个变量的独立性，我们就得到了平衡条件：
+\begin{linenomath}\begin{equation}
+\boxed{\begin{cases}
+    T_1 = T_2 = T\\
+    p_1 = p_2 = p.\\
+    \mu_1 = \mu_2 = \mu
+\end{cases}}
+\label{equil_cond}
+\end{equation}\end{linenomath}
+进一步，我们可以对于熵取二阶变分，按照我们之前的讨论，这个二阶变分应该是负定的。在这里我们采取这样的方式：只看外部系统的熵变化，将它用内部参量表示。这就是说，让我们使用 $\delta S_1 = \delta S$ 作为一个独立的变分变量。
+\[
+\begin{aligned}
+    \delta^2 S_0 &= \delta^2 S_2 \\ &= -\frac{\delta E\delta T}{T^2} + \frac{\delta p\delta V}{T} - \frac{\delta T\delta S}{T} - \frac{\delta\mu\delta N}{T} -\left( -p\delta V + T\delta S + \mu \delta N \right)\frac{\delta T}{T^2}\\
+    &=  \frac{\delta p\delta V - \delta T\delta S - \delta\mu\delta N}{T}. \\
+\end{aligned}
+\]
+最后一个等号使用了内能 $E$ 的展开。让我们使用 $(V,T,N)$ 作为独立的变分变量，则对于其他的变量我们有
+\[
+\begin{cases}
+    \delta p &= \left( \dfrac{\partial p}{\partial V} \right)_{T,N} \delta V + \left(\dfrac{\partial p}{\partial T}\right)_{V,N} \delta T + \left( \dfrac{\partial p}{\partial N} \right)_{T,V} \delta N \\
+    \delta S &= \left( \dfrac{\partial S}{\partial V} \right)_{T,N} \delta V + \left(\dfrac{\partial S}{\partial T}\right)_{V,N} \delta T + \left( \dfrac{\partial S}{\partial N} \right)_{T,V} \delta N. \\
+    \delta \mu &= \left( \dfrac{\partial \mu}{\partial V} \right)_{T,N} \delta V + \left(\dfrac{\partial \mu}{\partial T}\right)_{V,N} \delta T + \left( \dfrac{\partial \mu}{\partial N} \right)_{T,V} \delta N
+\end{cases}
+\]
+考虑到上节中得到的三个 Maxwell 关系，我们就有：
+\[
+\delta^2 S_0 = \frac1T\left( \left( \dfrac{\partial p}{\partial V} \right)_{T,N} \delta V^2 - \left(\dfrac{\partial S}{\partial T}\right)_{V,N} \delta T^2 - \left( \dfrac{\partial \mu}{\partial N} \right)_{T,V} \delta N^2 \right).
+\]
+因为熵的二阶变分是负定的，因此我们的稳定平衡条件就是：
+\begin{linenomath}\begin{equation}
+\begin{cases}
+    \left( \dfrac{\partial p}{\partial V} \right)_{T,N} &< 0\\
+    \left(\dfrac{\partial S}{\partial T}\right)_{V,N} &>0.\\
+    \left( \dfrac{\partial \mu}{\partial N} \right)_{T,V} &>0
+\end{cases}
+\label{stab_cond}
+\end{equation}\end{linenomath}
+第二式就是说， $C_V>0.$
+
+\section{其他热力学函数}
+\subsection{内能的 Legendre 变换}
+在物理中，Legendre 变换就是对于一个全微分式加上或减去一对或几对共轭变量的乘积的全微分。譬如对于全微分式 \[dZ(x,y) = Xdx + Ydy,\] 当我们减去 $d(Xx)$ 时，我们就得到新的量 \[d(Z-Xx) = -xdX + Ydy.\] 注意，这时候量 $Z' = Z -Xx$ 就变成 $X$ 与 $y$ 的函数。
+
+内能有三对共轭变量，对于他们的 Legendre 变换（算上内能自己）一共有 8 种。但是考虑到实用性，我们除了内能 $E$ 外，最常用的有 4 种热力学函数：
+\begin{itemize}
+    \item 焓 $W := E+pV = W(p,S,N),$
+    \item 自由能 $F := E-TS = F(V,T,N),$
+    \item Gibbs 函数 $\Phi := E+pV-TS = W-TS = \Phi(p,T,N),$
+    \item 热力学势 $\Omega := E-TS-\mu N = F-\mu N = \Phi(V,T,\mu).$
+\end{itemize}
+对于这些热力学函数，我们同样可以写出它们的全微分式：对于焓，
+\begin{linenomath}\begin{equation}
+dW = Vdp+TdS+\mu dN,
+\end{equation}\end{linenomath}对于自由能，
+\begin{linenomath}\begin{equation}
+dF = -SdT-pdV+\mu dN,
+\end{equation}\end{linenomath}对于吉布斯函数，
+\begin{linenomath}\begin{equation}
+d\Phi = -SdT + Vdp + \mu dN,
+\end{equation}\end{linenomath}对于热力学势，
+\begin{linenomath}\begin{equation}
+d\Omega = -SdT - pdV - Nd \mu.
+\end{equation}\end{linenomath}
+\subsection{广延量与强度量\quad Gibbs-Duhem 关系}
+回忆在 \ref{work} 节我们定义元功时，一般对于广义坐标要求是可加性的量。我们现在称这些坐标具有\textbf{广延量}的性质。注意，不是只有在表征空间中真的具有广延的才是广延量；所有热力学函数、粒子数和熵都是这样的量。与广延量共轭的量称为\textbf{强度量}。温度、压强、化学势和所有作用于宏观物体的力一般都是强度量。
+既然如此，让我们将多粒子的情形下系统的热力学函数与只有一个粒子的系统热力学函数联系起来。这就是说：
+\begin{linenomath}\begin{equation}
+\frac{E(V,S,N)}{N} = E\left( \frac{V}{N},\frac{S}{N},1 \right),
+\end{equation}\end{linenomath}
+及
+\begin{linenomath}\begin{equation}
+\frac{F(V,T,N)}{N} = F\left( \frac{V}{N},T,1 \right),
+\end{equation}\end{linenomath}
+及
+\begin{linenomath}\begin{equation}
+\frac{\Phi(p,T,N)}{N} = \Phi\left( p,T,1 \right).
+\end{equation}\end{linenomath}
+但是另一方面，我们又有：
+\begin{linenomath}\begin{equation}
+\mu = \left( \frac{\partial E}{\partial N} \right)_{V,S} = \left( \frac{\partial F}{\partial N} \right)_{V,T} = \left( \frac{\partial \Phi}{\partial N} \right)_{p,T} = \Phi(p,T,1).
+\end{equation}\end{linenomath}
+这样就有
+\begin{linenomath}\begin{equation}
+\Phi(p,T,N) = N\mu(p,T).
+\end{equation}\end{linenomath}
+这就是说，\textbf{化学势就是单个粒子的 Gibbs 函数。} 因此，我们对于热力学势就有 $\Omega = F - \Phi = -pV.$ 因此直接写出全微分式就得到
+\begin{linenomath}\begin{equation}
+d\Omega  = -pdV - Vdp = -SdT - pdV - Nd \mu.
+\end{equation}\end{linenomath}
+因此得到 \textbf{Gibbs-Duhem 关系}：
+\begin{linenomath}\begin{equation}
+Vdp - SdT - Nd\mu = 0.
+\end{equation}\end{linenomath}
+这个关系是 $p$ 与 $T$ 作为强度量的必然结果。这意味着强度量之间不是独立的，它们之间至少存在一个约束。强度量的自由度个数在相变理论中将作详细讨论，最后将会得到称为 Gibbs 相律的结论。
+\subsection{和统计结果的关联\quad 热力学函数无穷小增量的等价性}
+现在设除了压强之外，系统与外界还通过一些力学参量连接起来. 那么现在就写有：
+\begin{linenomath}\begin{equation}
+dE= pdV + TdS + \mu dN -\sum_{i} Y_idy_i,
+\end{equation}\end{linenomath}
+及\begin{linenomath}\begin{equation}
+dW = Vdp+TdS+\mu dN-\sum_{i} Y_idy_i,
+\end{equation}\end{linenomath}及
+\begin{linenomath}\begin{equation}
+dF = -SdT-pdV+\mu dN-\sum_{i} Y_idy_i,
+\end{equation}\end{linenomath}及
+\begin{linenomath}\begin{equation}
+d\Phi = -SdT + Vdp + \mu dN-\sum_{i} Y_idy_i,
+\end{equation}\end{linenomath}及
+\begin{linenomath}\begin{equation}
+d\Omega = -SdT - pdV - Nd \mu-\sum_{i} Y_idy_i.
+\end{equation}\end{linenomath}
+我们在 \ref{work} 节中，已经藉由内能的全微分式推出了将微观与宏观联系在一起的 (\ref{macro_micro1}) 式。现在我们首先注意到下面的式子：
+\begin{linenomath}\begin{equation}
+\left( dE \right)_{V,S,N}=\left( dW \right)_{p,S,N} = \left( dF \right)_{T,V,N} = \left(d\Phi\right)_{T,p,N} = \left(d\Omega\right)_{T,V,\mu}.
+\end{equation}\end{linenomath}
+这个式子被 Landau 称为\textbf{小增量定理，}这表示在固定对应参量的情况下，对每一个热力学函数取微元都得到同样的结果。所以我们直接将(\ref{macro_micro1}) 式中的 $E$ 换为 $F$ 及 $\Omega,$ 就可以得到：
+\begin{linenomath}\begin{equation}
+\frac{\partial \bar E}{\partial y_i} = \left( \frac{\partial  F}{\partial y_i} \right)_{T,V,N,\text{其他}y_j}\label{macro_micro2}
+\end{equation}\end{linenomath}
+及
+\begin{linenomath}\begin{equation}
+\frac{\partial \bar E}{\partial y_i} = \left( \frac{\partial  \Omega}{\partial y_i} \right)_{T,V,\mu,\text{其他}y_j}\label{macro_micro3}
+\end{equation}\end{linenomath}
+我们看到，这就是正则系综与巨正则系综所固定的参量，因此自然可以想见它们与对应的分布函数的密切联系。我们进一步注意到自由能与热力学势具有这样的普适性质，就是\textbf{内能可以用它们的偏导表示}。具体来说，我们对于自由能：
+\[
+S = -\thermfrac{F}{T}{p,N,y_i},\quad E = F + TS = \thermfrac{\left(\frac FT  \right)}{\frac{1}{T}}{p,N,y_i}.
+\]
+我们将这个式子与在推导平均能量时得到的 \[E = -\ppp{\ln Z}{\beta}\quad \left( \beta = \frac{1}{kT} \right)\] 相比较，我们就得到了精确等式：
+\begin{linenomath}\begin{equation}
+F = -kT\ln Z.
+\end{equation}\end{linenomath}
+这样就可以写出正则分布的准确形式：\begin{linenomath}\begin{equation}
+\rho_{\text{canon}} = \exp\left( \frac{F-\hat{H}}{kT} \right).
+\end{equation}\end{linenomath}
+ 类似的，对于热力学势，有：
+\begin{linenomath}\begin{equation}
+\Omega = -kT\ln \Xi.
+\end{equation}\end{linenomath}
+同样可以写出
+\begin{linenomath}\begin{equation}
+\rho_{\text{grand}} = \exp\left( \frac{\Omega - \hat{H} + \mu \hat{N}}{kT} \right).
+\end{equation}\end{linenomath}
+
+
+\subsection{其他 Maxwell 关系}
+按照 Maxwell 关系导出的一般法则，我们还可以写出下列 Maxwell 关系式：（这里只限于写出粒子数不变的关系）
+\begin{linenomath}\begin{equation}
+\left( \frac{\partial T}{\partial p} \right)_S = \left( \frac{\partial V}{\partial S} \right)_p
+\label{maxwell2}
+\end{equation}\end{linenomath}
+及
+\begin{linenomath}\begin{equation}
+\left( \frac{\partial S}{\partial V} \right)_T = \left( \frac{\partial p}{\partial T} \right)_V
+\label{maxwell3}
+\end{equation}\end{linenomath}
+及
+\begin{linenomath}\begin{equation}
+\left( \frac{\partial S}{\partial p} \right)_T = -\left( \frac{\partial V}{\partial T} \right)_p.
+\label{maxwell4}
+\end{equation}\end{linenomath}
+化学势不变的 Maxwell 关系可以由热力学势以及它的 Legendre 变换得出。
+
+\section{热力学量间的关系}
+\subsection{Jacobi 行列式}
+我们先介绍热力学关系的导出中的一个重要工具，就是 \textbf{Jacobi 行列式}技术。 Jacobi 行列式是下列行列式：
+\[
+\jacobian{u}{v}{x}{y} := \left| \begin{matrix}
+    \ppp{u}{x} & \ppp{u}{y} \\
+    \ppp{v}{x} & \ppp{v}{y}
+\end{matrix} \right|.
+\]
+熟悉的读者可能认出，这就是坐标变换的行列式。在热力学中，我们主要关心这个行列式的下述性质：
+\begin{itemize}
+    \item 反对称性：\[\jacobian{v}{u}{x}{y} = - \jacobian{u}{v}{x}{y}.\]
+    \item 保持一个参量的求导：\[\jacobian{u}{y}{x}{y} = \ppp{u}{x} - \ppp{u}{y}\ppp{y}{x} =  \thermfrac{u}{x}{y}.\]
+    \item 链式法则：\[\jacobian{u}{v}{x}{y} = \jacobian{u}{v}{a}{b}\cdot\jacobian{a}{b}{x}{y}.\]
+\end{itemize}
+
+现在来看比 $\jacobian{p}{V}{T}{S}.$ 由上面的性质，我们有：
+\[
+    \jacobian{p}{V}{T}{S} = \jacobian{p}{V}{T}{V}\jacobian{T}{V}{T}{S} = \frac{\thermfrac{p}{T}{V}}{\thermfrac{S}{V}{T}} = \frac{\thermfrac{p}{T}{V}}{\thermfrac{p}{T}{V}} = 1.
+\]
+其中已经用到 Maxwell 关系 (\ref{maxwell3}). 现在我们继续研究热力学量之间的关系。
+\subsection{热容与热容的导数}
+我们首先研究热容如何表示为热力学函数的导数。我们有：\[
+C_V = T\thermfrac{S}{T}{V,N} = \thermfrac{E}{T}{V,N}
+\]及\[
+C_p = T\thermfrac{S}{T}{p,N} = \thermfrac{W}{T}{p,N}.
+\]
+又因为\[
+\thermfrac{E}{V}{T} = T\thermfrac{S}{V}{T}-p=T\thermfrac{P}{T}{V}-p
+\]以及
+\[
+\thermfrac{W}{P}{T} = -T\thermfrac{V}{T}{p}+V,
+\]
+我们现在就可以写出全微分式：
+\[
+dE = C_VdT + \left( T\thermfrac{p}{T}{V}-p \right)dV,
+\]及
+\[
+dW = C_pdT + \left( -T\thermfrac{V}{T}{p}+V \right)dp.
+\]
+因此按照 Cauchy-Riemann 条件，我们有：
+\[
+\thermfrac{C_V}{V}{T} = T \left( \frac{\partial^2 p }{\partial T^2} \right)_V
+\]
+及
+\[
+\thermfrac{C_p}{p}{T} = -T \left( \frac{\partial^2 V }{\partial T^2} \right)_p.
+\]
+如此，我们就可以通过系统的状态方程来计算系统的热容。接下来，关于 $C_p$ 和 $C_V$ 的关系我们有
+\[
+\begin{aligned}
+    C_v &= T\thermfrac{S}{T}{V} = T \jacobian{S}{V}{T}{V} = T\frac{\jacobian{S}{V}{T}{p}}{\jacobian{T}{V}{T}{p}}\\
+    &= T\frac{\thermfrac{S}{T}{p}\thermfrac{V}{p}{T} - \thermfrac{S}{p}{T}\thermfrac{V}{T}{p}}{\thermfrac{V}{p}{T}} \\
+    &= C_p-T\frac{\thermfrac{S}{p}{T}\thermfrac{V}{T}{p}}{\thermfrac{V}{p}{T}} = C_p-T\frac{\thermfrac{V}{T}{p}^2}{\thermfrac{V}{p}{T}}.
+\end{aligned}
+\]
+对于稳定的系统，正如我们在 (\ref{stab_cond}) 的第一式中所指出的那样，导数 $\thermfrac{V}{P}{T}$ 总是负的，因此我们推出：
+\begin{linenomath}\begin{equation}
+C_p>C_V.
+\end{equation}\end{linenomath}
+用 $p$ 的相关公式，我们也可以得到：
+\[
+C_p - C_V = -T\frac{\thermfrac{p}{T}{V}^2}{\thermfrac{p}{V}{T}}.
+\]
+
+\subsection{绝热条件下状态参量的导数}
+下面的公式可以适用于宏观物体准静态绝热地膨胀（或压缩）时。在这类过程中，熵 $S$ 保持不变。对于绝热膨胀的温度变化：
+\[
+\thermfrac{T}{V}{S} = \jacobian{T}{S}{V}{S} = \jacobian{T}{S}{V}{T} / \jacobian{V}{S}{V}{T} = -\frac{\thermfrac{S}{V}{T}}{\thermfrac{S}{T}{V}} = -\frac{T}{C_V}\thermfrac{p}{T}{V}.
+\]
+对于绝热加压的温度变化：
+\[
+\thermfrac{T}{p}{S} = \frac{T}{C_p} \thermfrac{V}{T}{p}.
+\]
+而对于绝热过程中的压强与体积也可以类似写出：
+\[
+\thermfrac{V}{P}{S} = \jacobian{V}{S}{P}{S} = \frac{\jacobian{V}{S}{V}{T}\jacobian{V}{T}{P}{T}}{\jacobian{P}{S}{P}{T}} = \frac{C_V}{C_p} \thermfrac{V}{P}{T}.
+\]
+利用上节推出的关于 $C_p-C_V$ 的公式，我们可以写出关于 $C_p$ 的公式：
+\[
+\thermfrac{V}{p}{S} = \thermfrac{V}{p}{T} + \frac{T}{C_p}\thermfrac{V}{T}{p}
+\] 及关于 $C_V$ 的公式 \[
+\thermfrac{p}{V}{S} = \thermfrac{p}{V}{T} - \frac{T}{C_V}\thermfrac{p}{T}{V}.
+\]
+\section{现实热力学问题}
+下面讨论几个现实中首先会碰到的热力学问题。
+\subsection{温标的测定}
+对于一个任意的温度计，它标示的是某个经验温标 $\tau.$ 然而，我们想要知道它与绝对温标 $T$ 的关系，为了方便，可以假设两者是一一对应的。我们的思路是利用 Maxwell 关系：对于传热 $dQ,$ 可以写出
+\[
+\thermfrac{Q}{p}{T} = -T\thermfrac{S}{p}{T} = -T\thermfrac{V}{T}{p}.
+\]
+现在利用一一对应的性质，我们有
+\[
+\thermfrac{Q}{p}{T} = -T\thermfrac{V}{\tau}{p} \frac{d\tau}{dT}.
+\]
+这样 \[
+\frac{d\ln T}{d\tau} = -\frac{\thermfrac{V}{\tau}{p}}{\thermfrac{Q}{p}{\tau}}.
+\]
+右边的两项可以设计等压与等温过程，分别测定（后者需要从外界间接测量）。
+\subsection{气体的 Joule-Thomson 过程}
+现在
+
+\subsection{各种条件下的最大做功}
+
+\subsection{热机\quad Carnot 循环}
+
+

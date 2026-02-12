@@ -73,7 +73,7 @@
 \]
 可以看到，相干性体现在非对角项上。但当我们实行部分迹运算：
 \[ {\rho }_{A} = {\operatorname{tr}}_{B}\left( {\rho }_{AB}\right)  = \langle {\left. 0\right| }_{B}{\rho }_{AB}\left| {0{\rangle }_{B}+\langle 1{\left. \right| }_{B}{\rho }_{AB}}\right| 1{\rangle }_{B}  = \operatorname{diag}\left( |\alpha|^2 , |\beta|^2\right).\]
-这样，量子态就“退相干”了。这意味着子系统 $A$ 已经失去了量子相干性，它不再能发生干涉，其行为完全等同于一个“以 $|\alpha|^2$ 概率处于 $0$ 态，以 $|\beta|^2$ 概率处于 $1$ 态”的\textbf{经典随机系统}。这个事实有一个统计解释：当我们对于大量这样的系统进行平均时，因为环境（子系统 $B$） 的状态我们未加测量，所以我们观测到的子系统状态 $A$ 就是非相干的。这种解释被称作\textbf{系综解释}，这些大量相同系统所组成的集合被称为\textbf{系综}。因此我们对于任意算符$\hat O,$ 在系综下都可以进行平均：
+这样，量子态就“退相干”了。这种大量态的平均引起的退相干称为\textbf{热化}，这就是数学上部分迹引起的物理结果。这意味着子系统 $A$ 已经失去了量子相干性，它不再能发生干涉，其行为完全等同于一个“以 $|\alpha|^2$ 概率处于 $0$ 态，以 $|\beta|^2$ 概率处于 $1$ 态”的\textbf{经典随机系统}。这个事实有一个统计解释：当我们对于大量这样的系统进行平均时，因为环境（子系统 $B$） 的状态我们未加测量，所以我们观测到的子系统状态 $A$ 就是非相干的。这种解释被称作\textbf{系综解释}，这些大量相同系统所组成的集合被称为\textbf{系综}。因此我们对于任意算符$\hat O,$ 在系综下都可以进行平均：
 \[
 \braket{O}_{e} := \sum_{\psi} p_\psi \braket{\psi|\hat{O}|\psi} = \tr\left( \hat{O}\hat{\rho} \right).
 \]
@@ -164,6 +164,7 @@ i\hbar \frac{\partial}{\partial t} \hat{\rho}_A = \left[ \hat{H}_A,\hat{\rho}_{A
 \end{equation}\end{linenomath}
 
 \subsection{熵与温度}
+\label{entropy}
 子系统的\textbf{熵}定义为统计权重的对数： \[S(E):=k\ln\left( \Delta\Gamma\left( E \right) \right) = -k\ln\left( w(E) \right) = -\sum_n kw(E_n)\ln(w(E_n)).\]
 最后一个式子（称为熵的\textbf{ Gibbs 定义式}）是合理的，因为这里定义的熵是一个宏观量，也就是一个时间平均，关于这个时间的的论述可以见\ref{time}节。$k$ 是用来规定量纲的常数。用更一般的密度矩阵语言，我们可以写出\[S=-k\tr(\hat\rho\ln\hat\rho).\] 显然可以看到，S的大小表征了能壳内量子态的多少，也就是多少表征了粒子运动的“混乱程度”。
 
@@ -223,7 +224,7 @@ dw = \operatorname{const.} e^{\frac Sk} \delta(\sum_{i} E_i - E) \prod_i d E_i.
 
 其中定义了配分函数 \[Z = \tr\left( \exp\left( -\frac{\hat{H}}{kT} \right) \right).\] 今后将会看到，配分函数蕴含了一个系统的全部统计信息。
 \subsection{Gibbs 分布和熵最大原理 *无偏见原则}
-从另一个方面也可以导出 Gibbs 分布，这种方面使人更加明了 Gibbs 分布满足熵最大的原理. 现在，我们使用带约束的变分法，将熵作为 Lagrangian：
+从另一个方面也可以导出 Gibbs 分布，这种方面使人更加明了 Gibbs 分布满足熵最大的原理. 我们使用带约束的变分法，将熵作为 Lagrangian：
 \[
 L = -k\tr(\hat{\rho}\ln\hat{\rho}) + (-\alpha + 1) (\tr(\hat{\rho}) - 1) - \beta (\tr(\hat{\rho} \hat H) - E)
 \]
@@ -243,7 +244,7 @@ k\ln\hat{\rho} = -\alpha - \beta \hat{H}.
 \]
 其中用到了密度矩阵只有正数本征值。在Gibbs 分布的情形下，一个简单的估计可以看出在平衡位置附近，熵有一个尖锐的峰。这种方法直观地体现了为什么 Gibbs 分布是一个熵最大的分布。
 
-熵最大原则贯穿了整个统计物理，这一点在统计学上也有根据。一个统计问题本质上就是只知道一个系统的平均能量 $\langle E \rangle$时，对它的分布的推测问题。然而，根据这个信息，理论上存在无数种概率分布 $\{p_i\}$ 都能满足这个平均值。我们有很多选择，但是按照我们之前的讨论，如果我们选择了一个熵较小的分布，这意味着我们未加证明地假设了某些态出现的概率比其他态更高，而这种倾向性并没有任何物理观测证据支持。 这种无根据的倾向性，就是“偏见”。统计力学中的‘平衡态’，本质上是最不具偏见的描述状态。
+熵最大原则贯穿了整个统计物理，这一点在统计学上也有根据。一个统计问题本质上就是只知道一个系统的平均能量 $\langle E \rangle$ 时，对它的分布的推测问题。然而，根据这个信息，理论上存在无数种概率分布 $\{p_i\}$ 都能满足这个平均值。我们有很多选择，但是按照我们之前的讨论，如果我们选择了一个熵较小的分布，这意味着我们未加证明地假设了某些态出现的概率比其他态更高，而这种倾向性并没有任何物理观测证据支持。 这种无根据的倾向性，就是“偏见”。统计力学中的‘平衡态’，本质上是最不具偏见的描述状态。
 许多学生误以为平衡态是某种‘演化结果’。但从信息论视角看，平衡态其实是我们作为观测者，在已知有限宏观量的前提下，能对系统做出的最公正、最客观的推断。
 任何熵更小的状态（非平衡态），都隐含了某种尚未消失的‘秩序’或‘关联’（偏见）。随着系统发生跃迁和退相干，这些残余的‘秩序’被环境抹除，我们被迫放弃这些‘偏见’，最终回归到那个最无知、但也最正确的最大熵分布。
 
@@ -284,13 +285,13 @@ k\ln\hat{\rho} = -\alpha - \beta \hat{H}.
 \end{equation}\end{linenomath}
 或写成算符形式
 \begin{linenomath}\begin{equation}
-  \hat\rho = \frac{1}{\Xi} exp\left( -\frac{\hat H-\mu{\hat{N}}}{kT} \right).
+  \hat\rho = \frac{1}{\Xi} \exp\left( -\frac{\hat H-\mu{\hat{N}}}{kT} \right).
 \end{equation}\end{linenomath}
 这就是\textbf{巨正则系综}推导出的\textbf{巨正则分布}。其中定义了巨配分函数:
 \[
-\Xi = \tr\left( exp\left( -\frac{\hat H-\mu{\hat{N}}}{kT} \right) \right),
+\Xi = \tr\left( \exp\left( -\frac{\hat H-\mu{\hat{N}}}{kT} \right) \right),
 \]
-这之中求和是对整个 Fock 空间。同样，巨配分函数也蕴含整个系统的所有统计信息。注意，这里$\rho$ 是否是运动积分取决于 $H$ 与 $N$ 是否对易。我们看到，对于那些不会凭空产生或湮灭粒子（比如 Hamilton 算符中没有类似 $a^\dagger a^\dagger$ 的项）的 Hamilton 算符，这样的条件一定是成立的，而这是大多数情况。
+这之中求和是对整个 Fock 空间。同样，巨配分函数也蕴含整个系统的所有统计信息。注意，这里$\rho$ 是否是运动积分取决于 $H$ 与 $N$ 是否对易。如果我们像我们一开始说的那样，对于一个与粒子数无关的系统作二次量子化，那么不会有任何问题。但我们看到，在 Hamilton 算符 $H$ 依赖于升降算符时，只要 Hamilton 量不会凭空产生或湮灭粒子（比如 Hamilton 算符中没有类似 $a^\dagger a^\dagger$ 的项），这样的条件也一定是成立的，而这是大多数情况。
 
 正如在正则系综中，我们对于逸度求导可以得到平均能量一样，我们现在也可以通过对巨配分函数的求导得到巨正则分布的特征参量，就是\textbf{平均占有数。}具体来说，我们设参量 \[\alpha = \frac\mu T,\] 那么平均占有数就可以写成 \[ \bar N = \tr\left( \hat\rho \hat N \right) = \frac1\Xi \sum_iN_i \exp\left( \alpha N_i-\beta E_i \right) = \frac{\partial \Xi}{\Xi\partial \alpha}.\] 注意，平均能量的求法和正则系综一样。
 \subsection{Fermi 分布和 Bose 分布}
