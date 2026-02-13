@@ -47,6 +47,7 @@ dW = \sum_{i } dW_i = \sum_i Y_idy_i,
 \begin{linenomath}\begin{equation}
 dE= -\sum_{i} Y_idy_i + TdS + \sum_j \mu_jdN_j. \label{internal_energy}
 \end{equation}\end{linenomath}
+这个式子被称为\textbf{热力学第一定律。}
 
 现在我们来证明一个重要的结论，就是平均能量对于广义坐标的求导就是可逆过程下物体所受的广义力。这一事实的需要用到经典力学中的一个结论：对于能量 $E(p,q,\lambda),$ 有 \[
 \frac{dE(p,q,\lambda)}{dt} = \frac{\partial E(p,q,\lambda)}{\partial t} +\left\{ E,E \right\} = \frac{\partial E(p,q,\lambda)}{\partial t},
@@ -67,9 +68,11 @@ dE= -\sum_{i} Y_idy_i + TdS + \sum_j \mu_jdN_j. \label{internal_energy}
 \[dW = -p\delta \sigma dl.\] 又因为由力学知道 \[dW = -\delta F dl,\] 上式中 $F$ 向外为正。因此有 \[p = \frac{\delta F}{\delta \sigma},\] 就是说，\textbf{压强就是单位面积受的压力。}
 
 \subsection{内能对应的 Maxwell 关系}
+{\noindent \textit{从现在开始，不加说明可假设只有一种粒子.}}
+
 我们看到，内能满足了下述微分等式：
 \[
-dE = -pdV + TdS + \mu dN
+dE = -pdV + TdS + \mu dN.
 \]
 对此，我们现在假设 $dN = 0.$ 我们对于一个全微分 $dE$ 应该有 Cauchy-Riemann 条件
 \begin{linenomath}\begin{equation}
@@ -354,13 +357,52 @@ C_p - C_V = -T\frac{\thermfrac{p}{T}{V}^2}{\thermfrac{p}{V}{T}}.
 \]
 利用上节推出的关于 $C_p-C_V$ 的公式，我们可以写出关于 $C_p$ 的公式：
 \[
-\thermfrac{V}{p}{S} = \thermfrac{V}{p}{T} + \frac{T}{C_p}\thermfrac{V}{T}{p}
+\thermfrac{V}{p}{S} = \thermfrac{V}{p}{T} + \frac{T}{C_p}\thermfrac{V}{T}{p}^2
 \] 及关于 $C_V$ 的公式 \[
-\thermfrac{p}{V}{S} = \thermfrac{p}{V}{T} - \frac{T}{C_V}\thermfrac{p}{T}{V}.
+\thermfrac{p}{V}{S} = \thermfrac{p}{V}{T} - \frac{T}{C_V}\thermfrac{p}{T}{V}^2.
 \]
+\section{最大非体积功\quad 热力学函数的极值性质}
+我们到现在为止只能通过熵的不减性来判断平衡是否达成，在这种情况下，熵是取\textbf{极大值。} 但是，在物体未达平衡而可与外界自由传热或交换粒子时（比如说，温度和体积固定时），仅仅依赖于熵的判别式就略显不力。在热力学中，一个同样重要的问题是计算在各种约束条件下系统能够做出的最大功（体积功除外，因为平衡物体也可以做这种功）。这与热力学函数的极值性质密切相关。但是只用熵判断，在非平衡态时便会遇到困难。在进行具体的讨论之前，我们需要先作物理情景的假设：这里所讨论的是在建立平衡的过程中，物体所能对外做出的最大的功。这是因为现实中使用热力学手段的做功常常依靠所谓\textbf{热机}。一般来说，热机是一个三元组 (工质, $T_1, T_2$). 工质是一个热力学系统，通过将它与高低温热源接触来不断地做功。可见，最大做功与取得热平衡的方式非常相关。
+
+为了研究此事，我们还是可以将环境与系统作为一个整体来研究。根据能量守恒和体积的守恒，我们可以转而研究外部系统的变化，这个系统所具有的性质很好，因为它的温度、压强与化学势都可以近似为不变。
+\subsection{一般情形}
+一般地，系统和外界能够以做功、传热及交换粒子来相互作用。我们考虑外部环境的变化，\[
+\Delta E_{ext} = \Delta R - p_0\Delta V_{ext} + T_0\Delta S_{ext} + \mu_0\Delta N_{ext}. 
+\]
+其中，不带下标的 $\Delta R$ 是系统向外界做的非体积功。现在，根据下述等式（守恒量）以及熵增原理：
+\[\Delta E_{ext} + \Delta E = 0, \quad \Delta V_{ext}+\Delta V = 0, \quad \Delta N_{ext} +\Delta N = 0, \quad \Delta S_{ext}+\Delta S \geq 0.\]
+我们于是有：
+\[
+\Delta R \leq -\Delta E +T_0\Delta S-P_0\Delta V+\mu_0\Delta N.
+\]
+这里的等号当过程可逆时成立。这个量又可以写成：
+\[
+\Delta R \leq \Delta R_{\max} = -\Delta\left( E-T_0S + P_0V-\mu_0\Delta N \right).
+\]
+这就是最大非体积功功的一般公式，在可逆过程中取等。
+\subsection{封闭的情形}
+一个封闭系统按照定义来说是不与外部环境交换粒子的情形。这时，系统与外界的相互作用就是只通过做功和传热进行，就是说，$\Delta N = 0.$ 于是，根据固定（不变，但不一定与外界保持平衡）的变量，我们可以写出下述四种情况：
+\begin{itemize}
+    \item $\left( V,S \right).$ 这意味着物体既无法做体积功，也无法传热，按照假设也无法交换粒子，这就是说：\[\Delta R_{\max} = -\Delta E\left( V,S,N \right).\] 这里 $\Delta E$ 的意义，就是现在的内能到平衡时的内能。
+    \item $\left( p,S \right).$ 这里类似的有 \[\Delta R_{\max} = -\Delta H.\]
+    \item $\left( p,T\right).$ 这时，我们需要系统与外界之间温度相等（平衡）。\[\Delta R_{\max} = -\Delta \Phi.\]
+    \item $\left( V,T\right).$ 这里有 \[\Delta R_{\max} = -\Delta F.\]
+\end{itemize}
+为了清楚起见，我们假定这里除了做体积功、传热和交换粒子之外，我们还有其他与外界相互作用的方式（例如磁化、化学反应等等）。
+\subsection{极值性质}
+我们对一个系统任其自然，使其趋于平衡状态时，它的内部就发生不可逆的过程。因此，按照我们对于最大功的讨论，就有量：
+\begin{itemize}
+    \item $\left( V,S \right):\Delta E \leq 0.$ 就是说平衡状态内能在绝热、定体的情况下取最小。
+    \item $\left( p,S \right):\Delta W \leq 0.$ 就是说平衡状态焓在绝热、等压的情况下取最小。
+    \item $\left( V,T \right):\Delta F \leq 0.$ 就是说平衡状态自由能在等温、定体的情况下取最小。
+    \item $\left( p,T \right):\Delta \Phi \leq 0.$ 就是说平衡状态 Gibbs 函数在等温、等压的情况下取最小。
+\end{itemize}
+通过这些关系中的每一个，我们都可以推导出平衡状态下的平衡条件和稳定条件。这就是说，这些判据全部等价，且全部与熵判据等价。
 \section{现实热力学问题}
-下面讨论几个现实中首先会碰到的热力学问题。
-\subsection{温标的测定}
+下面讨论几个现实中首先会碰到的热力学问题。我们可以先接续上节，继续讨论热机的效率（最大功）问题。
+\subsection{Carnot 热机与效率}
+
+\subsection{温标的测定\quad 热力学温标}
 对于一个任意的温度计，它标示的是某个经验温标 $\tau.$ 然而，我们想要知道它与绝对温标 $T$ 的关系，为了方便，可以假设两者是一一对应的。我们的思路是利用 Maxwell 关系：对于传热 $dQ,$ 可以写出
 \[
 \thermfrac{Q}{p}{T} = -T\thermfrac{S}{p}{T} = -T\thermfrac{V}{T}{p}.
@@ -373,11 +415,26 @@ C_p - C_V = -T\frac{\thermfrac{p}{T}{V}^2}{\thermfrac{p}{V}{T}}.
 \frac{d\ln T}{d\tau} = -\frac{\thermfrac{V}{\tau}{p}}{\thermfrac{Q}{p}{\tau}}.
 \]
 右边的两项可以设计等压与等温过程，分别测定（后者需要从外界间接测量）。
+
+现在我们
 \subsection{气体的 Joule-Thomson 过程}
-现在
+现在我们特别考虑气体的下述过程：在绝热管气体从多孔塞的一端进入，此端的压强固定为 $p_1;$ 从另一端排出，此端的压强固定为 $p_2.$ 需要指出，这个过程是不可逆的，因为气体一般来说与多孔塞存在摩擦。
+对于从左到右通过的气体，它的传热为 $0$，通过的压强由 $p$ 变为 $p+dp.$ 我们可以写：
+\[
+dE = dW = -pdV - Vdp = -d\left( pV \right).
+\]
+第二项被称为\textbf{体积功}。我们从上式中可以看出焓守恒： \[dW = 0.\]
+\begin{figure}[htbp!]
+    \centering
+    \includegraphics{graphics/joule-thom.pdf}
+    \caption{Joule-Thomson 过程}
+\end{figure}
+在压强作微小变化时，可研究温度的变化，这是由等焓情况下的导数 $\thermfrac{T}{p}{W}$ 给定的。我们计算如下：
+\[
+\thermfrac{T}{p}{W} = \jacobian{T}{W}{p}{W} = -\frac{\thermfrac{W}{p}{T}}{\thermfrac{W}{T}{p}} = \frac1C_p\left[ T\thermfrac{V}{T}{p}-V \right].
+\]
+最后指出，气体的自由膨胀过程也可以等效为一个节流过程。
 
-\subsection{各种条件下的最大做功}
 
-\subsection{热机\quad Carnot 循环}
 
 
