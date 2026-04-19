@@ -3,26 +3,26 @@
 \section{半经典统计}
 \subsection{例子：箱内的粒子}
 我们现在考虑一个简单的问题：一个无限深的三维势阱中的粒子能级。设势阱的维度是 $l_a, l_b, l_c,$ 则粒子能级为
-\[
+\begin{linenomath}\begin{equation}
 E_{n_a, n_b, n_c} = \frac{\hbar^2 \pi^2}{2m} \left( \frac{n_a^2}{l_a^2} + \frac{n_b^2}{l_b^2} + \frac{n_c^2}{l_c^2} \right),
-\]
+\end{equation}\end{linenomath}
 其中 $n_a, n_b, n_c$ 是正整数。我们可以看到，能级是离散的，并且随着 $n_a, n_b, n_c$ 的增大，能级也会增大。当 $l_a, l_b, l_c$ 足够大时，严格来说就是：
-\[
+\begin{linenomath}\begin{equation}
 E \gg \frac{\hbar^2 \pi^2}{2ml^2}
-\]时，
+\end{equation}\end{linenomath}时，
 能级之间的间隔就会变得非常小，我们可以近似地将能级看成是连续的。
 在这种情况下，在 $(E, E+\Delta E)$ 范围内的能级数可以如此求：我们可以将 $\left( \frac{n_a}{l_a}, \frac{n_b}{l_b}, \frac{n_c}{l_c} \right)$ 看成是三维空间中的一个点，那么能级 $E$ 就对应于一个球面，能级 $E+\Delta E$ 就对应于另一个球面。我们需要计算这两个球面之间的体积，这个体积就对应于能级数。具体来说，能级数 $g(E) \Delta E$ 可以通过以下公式计算：
-\[
+\begin{linenomath}\begin{equation}
 g(E) \Delta E = n_{E+\Delta E} - n_E,
-\]
+\end{equation}\end{linenomath}
 其中 $n_E$ 是满足 $E_{n_a, n_b, n_c} = E$ 的 $n_a, n_b, n_c$ 的值。但是，$n_E$ 的数值可以近似地通过计算上述三维空间的体积关系来得到：
-\[
+\begin{linenomath}\begin{equation}
 n_E \cdot \frac{1}{l_al_bl_c} = \frac 43 \pi \left( \frac{E}{\hbar^2 \pi^2 / (2m)} \right)^{3/2}
-\]
+\end{equation}\end{linenomath}
 因此，我们可以得到能级数 $g(E) \Delta E$ 的表达式：
-\[
+\begin{linenomath}\begin{equation}
 g(E) \Delta E = \frac{4\pi l_al_bl_c}{3} \left( \frac{2m}{\hbar^2 \pi^2} \right)^{3/2} E^{1/2} \Delta E.
-\]
+\end{equation}\end{linenomath}
 这就是
 \begin{linenomath}\begin{equation}
 g(E) = \frac{4\pi l_al_bl_c}{3} \left( \frac{2m}{\hbar^2 \pi^2} \right)^{3/2} E^{1/2}.
@@ -82,9 +82,9 @@ P(E) dE = \frac{g(E) e^{-\beta E}}{Z} dE = \frac{4\pi V}{\lambda^3} \left( \frac
     \frac{1}{N!h^{3N}}\int d^N\vec{p} \ket{\vec{p_1},\vec{p_2},\cdots, \vec{p_N}} \bra{\vec{p_1},\vec{p_2},\cdots, \vec{p_N}} = 1.
 \end{equation}\end{linenomath}
 其中的 $h^{3N}$ 来自动量波函数的箱归一化，并取 $V\to \infty$ 的极限（因而化求和为积分是容许的）。具体来说，对于长度是 $\left( l_1,l_2,l_3 \right)$的箱来说， $\vec{p} = \frac{2\pi\hbar}{L}\left( n_1,n_2,n_3 \right),$ 因此可以知道在动量空间中每个态占据的体积是 $\left( \frac{2\pi\hbar}{L} \right)^3 = \frac{h^3}{V}.$ 在 $V\to \infty$ 的极限下，化求和为积分，就有
-\[
+\begin{linenomath}\begin{equation}
 \sum_p \to \frac{V}{h^3} \int d^3\vec{p}. 
-\]
+\end{equation}\end{linenomath}
 这样，我们就有：
 \begin{linenomath}\begin{equation}
     \begin{aligned}
@@ -212,8 +212,151 @@ P(E) dE = \frac{g(E) e^{-\beta E}}{Z} dE = \frac{4\pi V}{\lambda^3} \left( \frac
 \begin{linenomath}\begin{equation}
     \boxed{\Xi = \sum_{N=0}^\infty e^{-\alpha N} Z_N}.
 \end{equation}\end{linenomath}
+\section{示例：谐振子}
+\subsection{单个谐振子}
+让我们计算一个具体的粒子来说明这一点。单个谐振子的哈密顿量是
+\begin{linenomath}\begin{equation}
+\hat{H} = \frac{\hat{p}^2}{2m} + \frac{1}{2} m \omega^2 \hat{q}^2.
+\end{equation}\end{linenomath}
+在半经典情况下，配分函数的计算很简单：
+\begin{linenomath}\begin{equation}
+    Z = \frac{1}{h} \int_{-\infty}^\infty dq \int_{-\infty}^\infty dp e^{-\beta \left( \frac{p^2}{2m} + \frac{1}{2} m \omega^2 q^2 \right)} = \frac{1}{\beta \hbar \omega}.
+\end{equation}\end{linenomath}
+粒子处在 $dpdq$ 的概率是
+\begin{linenomath}\begin{equation}
+    P(p,q) dp dq = \frac{1}{Z} e^{-\beta \left( \frac{p^2}{2m} + \frac{1}{2} m \omega^2 q^2 \right)} dp dq = \frac{\beta \omega}{2\pi} e^{-\beta \left( \frac{p^2}{2m} + \frac{1}{2} m \omega^2 q^2 \right)} dp dq.
+\end{equation}\end{linenomath}
+在经典的情况下，粒子在相空间中的分布是一个高斯分布，中心在 $p=0$ 和 $q=0$，宽度由温度 $T$ 和谐振子的频率 $\omega$ 决定。这个结果中不含有 $\hbar,$ 因而可以由经典统计力学得到。
 
-\section{按 $\hbar^{-1}$ 的幂次展开\quad 展开的图技术}
+让我们来看看量子统计具有什么样的结果。在量子力学中，通过解 Schrodinger 方程，我们可以得到单个谐振子的能级是
+\begin{linenomath}\begin{equation}
+E_n = \hbar \omega \left( n + \frac{1}{2} \right), \quad n=0,1,2,\cdots.
+\end{equation}\end{linenomath}
+每一个能级的简并度都是 $1$。于是在能量表象下对于密度矩阵取迹，我们可以得到单个谐振子的配分函数是
+\begin{linenomath}\begin{equation}
+    Z = \sum_{n=0}^\infty e^{-\beta \hbar \omega \left( n + \frac{1}{2} \right)} = \frac{e^{-\beta \hbar \omega / 2}}{1 - e^{-\beta \hbar \omega}}.
+\end{equation}\end{linenomath}
+在量子统计中，我们无法同时知道粒子的位置和动量。因此，我们无法得到粒子在相空间中的分布情况。但是，我们可以得到粒子在位置空间中的分布情况。这种分布是通过如下的方式计算出来的。
+
+考虑正则分布的密度矩阵在坐标表象下的表达式。按照式 (\ref{coord_basis}) 可以写出
+\begin{linenomath}\begin{equation}
+    \bra{q} e^{-\beta \hat{H}} \ket{q} = \frac1Z\sum_{n=0}^\infty e^{-\beta E_n} |\psi_n(q)|^2,
+\end{equation}\end{linenomath}
+其中 $\psi_n(q)$ 是单个谐振子第 $n-$ 个能级的波函数。由量子力学熟知这些波函数的显式表达式是：
+\begin{linenomath}\begin{equation}
+    \psi_n(q) = \left( \frac{m\omega}{\pi \hbar} \right)^{1/4} \frac{1}{\sqrt{2^n n!}} e^{-\frac{m\omega q^2}{2\hbar}} H_n\left( \sqrt{\frac{m\omega}{\hbar}} q \right) = \sqrt{\frac{\alpha}{2^n n!\pi}} e^{-\frac{\xi^2}{2}} H_n\left( \xi \right),
+\end{equation}\end{linenomath}
+其中 $H_n(x)$ 是第 $n-$ 个 Hermite 多项式，最后一个等号中使用了简化记号 $\alpha = m\omega/\hbar$ 和 $\xi = \sqrt{\alpha} q.$ 代入上式，我们可以得到单个谐振子在位置空间中的分布情况：
+\begin{linenomath}\begin{equation}
+    P(q) dq = \bra{q} e^{-\beta \hat{H}} \ket{q} dq = (1-\exp(-\beta\hbar \omega))\frac{\alpha}{\sqrt{\pi}} \sum_{n=0}^\infty \exp\left( -n\beta\hbar\omega \right)\frac{1}{2^n n!} e^{-\xi^2} H_n^2\left( \xi \right) dq.
+\end{equation}\end{linenomath}
+考虑函数
+\begin{linenomath}
+    \begin{align}
+        f(\xi):&=\sum_{n=0}^\infty \exp\left( -n\beta\hbar\omega \right)\frac{1}{2^n n!} H_n^2\left( \xi \right)\\
+        &=\sum_{n=0}^\infty \frac{1}{n!}\left(  \frac{\exp(-\beta\hbar\omega)}{2} \right)^n  H_n^2\left( \xi \right).\\
+        f^\prime(\xi) &= 2\sum_{n=0}^{\infty} \frac{1}{n!}\left(  \frac{\exp(-\beta\hbar\omega)}{2} \right)^n H_n\left( \xi \right)H_n^\prime\left( \xi \right) \\
+        &= 2\sum_{n=0}^{\infty}\frac{1}{n!} \left(  \frac{\exp(-\beta\hbar\omega)}{2} \right)^n H_n\left( \xi \right) \cdot 2n H_{n-1}\left( \xi \right) \\
+        &= 4\sum_{n=1}^{\infty} \frac{1}{\left( n-1 \right)!}\left(  \frac{\exp(-\beta\hbar\omega)}{2} \right)^n \left( 2\xi H_{n-1}\left( \xi \right) - H_{n-1}^\prime\left( \xi \right)\right) \cdot  H_{n-1}\left( \xi \right) \\
+        &= 8\xi\sum_{n=1}^{\infty} \frac{1}{\left( n-1 \right)!}\left(  \frac{\exp(-\beta\hbar\omega)}{2} \right)^n  H_{n-1}\left( \xi \right)H_{n-1}\left( \xi \right) \\&\quad\quad\qquad- 4\sum_{n=1}^{\infty} \frac{1}{\left( n-1 \right)!}\left(  \frac{\exp(-\beta\hbar\omega)}{2} \right)^n H_{n-1}\left( \xi \right)H_{n-1}^{\prime}\left( \xi \right) \\
+        &= 4\exp(-\beta\hbar\omega) \xi f\left( \xi \right) - \exp(-\beta\hbar\omega) f^\prime\left( \xi \right) 
+    \end{align}
+\end{linenomath}
+这样就有微分方程：
+\begin{linenomath}\begin{equation}
+    \left(1 + \exp(-\beta\hbar\omega) \right)f^\prime(\xi) = 4\exp(-\beta\hbar\omega) \xi f\left( \xi \right).
+\end{equation}\end{linenomath}
+这个微分方程的解是：
+\begin{linenomath}
+    \begin{equation}
+        f\left( \xi \right) = f\left( 0 \right) \exp\left( \frac{2\xi^2}{1+\exp\left( \beta\hbar\omega \right)} \right)
+    \end{equation}
+\end{linenomath}
+结合初值条件是：
+\begin{linenomath}
+    \begin{equation}
+        f\left( 0 \right) = \sum_{n=0}^\infty \frac1{n!}\left(\frac{\exp\left( -\beta\hbar\omega \right)}{2}\right)^n H_n^2(0).
+    \end{equation}
+\end{linenomath}
+为了求解它，我们需要知道 $H_n(0)$ 的值。我们知道，$H_n(x)$ 是一个 $n-$ 次多项式，因此当 $n$ 是奇数时，$H_n(0) = 0$. 当 $n$ 是偶数时，$H_n(0) = (-1)^{n/2} \frac{n!}{(n/2)!}$. 代入上式，我们可以得到：
+\begin{linenomath}
+    \begin{equation}
+        f\left( 0 \right) = \sum_{n=0}^\infty \frac1{n!}\left(\frac{\exp\left( -\beta\hbar\omega \right)}{2}\right)^n \left( (-1)^n \frac{(2n)!}{n!} \right)^2 = \sum_{n=0}^\infty \frac{(2n)!}{(n!)^2}\left(\frac{\exp\left( -\beta\hbar\omega \right)}{2}\right)^n.
+    \end{equation}
+\end{linenomath}
+这个无穷级数的求和结果是 
+\begin{linenomath}
+    \begin{equation}
+        f(0) = \frac{1}{\sqrt{1-\exp\left( -2\beta\hbar\omega \right)}}.
+    \end{equation}
+\end{linenomath}
+代入上式，我们可以得到单个谐振子在位置空间中的分布情况：
+\begin{linenomath}\begin{equation}
+    f(\xi) = \frac{1}{\sqrt{1-\exp\left( -2\beta\hbar\omega \right)}} \exp\left( \frac{2\xi^2}{1+\exp\left( \beta\hbar\omega \right)} \right)
+\end{equation}\end{linenomath}
+及
+\begin{linenomath}\begin{equation}
+    P(q) dq = (1-\exp(-\beta\hbar \omega))\frac{\alpha}{\sqrt{\pi}} \frac{\exp\left( -\xi^2 \right)}{\sqrt{1-\exp\left( -2\beta\hbar\omega \right)}} \exp\left( \frac{2\xi^2}{1+\exp\left( \beta\hbar\omega \right)} \right) dq.
+\end{equation}\end{linenomath}
+整理得
+\begin{linenomath}
+    \begin{equation}
+        \boxed{
+        P\left( q \right) dq = \sqrt{\frac{m\omega\tanh\left( \frac{\beta\hbar\omega}{2} \right)}{\pi\hbar}}\exp\left( -\tanh\left( \frac{\beta\hbar\omega}{2} \right) \frac{m\omega q^2}{\hbar} \right) dq.}
+    \end{equation}
+\end{linenomath}
+在温度很高 ($\beta \ll 1$) 的情形下，这个分布退回到经典的 Boltzmann 分布，这一点容易验证。而在温度很低 ($\beta \gg 1$) 时，$\tanh \left( \beta\hbar\omega/2 \right)\to 1.$ 这时这个分布变成了基态的波函数模方：
+\begin{linenomath}
+    \begin{equation}
+        P(q) dq = \sqrt{\frac{m\omega}{\pi\hbar}} \exp\left( -\frac{m\omega q^2}{\hbar} \right) dq.
+    \end{equation}
+\end{linenomath}
+
+在单个谐振子的的情形下，我们看到，整个密度矩阵的表达式都是可以求出的，（Landau \& Lifschitz, \S 30）求得的方法如下：首先写出单个谐振子在位置表象下的密度矩阵的表达式：
+\begin{linenomath}\begin{equation}
+    \rho\left( q,q' \right) = \frac{1}{Z}\sum_{0}^{\infty} \exp\left(-\beta \left( n+\frac{1}{2} \right) \hbar \omega \right) \psi_n^*(q')\psi_n(q).
+\end{equation}\end{linenomath}
+将波函数的显式代入得到：
+\begin{linenomath}
+    \begin{equation}
+        \rho\left( q,q^{\prime} \right)=(1-\exp(-\beta\hbar \omega))\frac{\alpha}{\sqrt{\pi}} \sum_{n=0}^\infty \exp\left( -n\beta\hbar\omega \right)\frac{1}{2^n n!} e^{-\frac{\xi^2+\eta^2}{2}} H_n\left( \eta \right) H_n\left( \xi \right).
+    \end{equation}
+\end{linenomath}
+其中 $\eta = \sqrt{\alpha} q'$. 现在定义新变量：
+\begin{linenomath}
+    \begin{equation}
+        \begin{aligned}
+            x &= \frac{\xi + \eta}{2} \\
+            y &= \frac{\xi - \eta}{2}
+        \end{aligned}
+    \end{equation}
+\end{linenomath}将密度矩阵的表达式用 $x,y$ 改写得到：
+\begin{linenomath}
+    \begin{equation}
+        \rho\left( q,q^{\prime} \right) = (1-\exp(-\beta\hbar \omega))\frac{\alpha}{\sqrt{\pi}} e^{-x^2-y^2} \sum_{n=0}^\infty \exp\left( -n\beta\hbar\omega \right)\frac{1}{2^n n!} H_n\left( x-y \right) H_n\left( x+y \right).
+    \end{equation}
+\end{linenomath}
+现在考虑二元函数：
+\begin{linenomath}
+    \begin{equation}
+        f(x,y) = \sum_{n=0}^\infty \exp\left( -n\beta\hbar\omega \right)\frac{1}{2^n n!} H_n\left( x-y \right) H_n\left( x+y \right).
+    \end{equation}
+\end{linenomath}
+可以导出对于 $y$ 的偏微分方程：
+\begin{linenomath}
+    \begin{align}
+        \partial_y f(x,y)&=\sum_{n=0}^{\infty} \exp(-n\beta \hbar\omega)\frac{1}{2^n n!} \left[ \left( -H_n^\prime (x-y) \right) H_n(x+y) + H_n(x-y)H_n^\prime(x+y) \right] \\
+        &=\sum_{n=0}^{\infty} \exp(-n\beta \hbar\omega)\frac{1}{2^n \left( n-1 \right)!} [ \left( 2\left( x+y \right) H_{n-1}\left( x+y \right) - H_{n-1}^{\prime}\left( x+y \right) \right) H_{n-1}\left( x-y \right) \\  &\quad\quad\quad  -\left( 2\left( x-y \right) H_{n-1}\left( x-y \right) - H_{n-1}^{\prime}\left( x-y \right) \right) H_{n-1}(x+y)]\\
+        &=\sum_{n=0}^{\infty} \exp(-n\beta \hbar\omega)\frac{1}{2^n \left( n-1 \right)!} [ 4y H_{n-1}\left( x+y \right) H_{n-1}\left( x-y \right) \\  &\quad\quad\quad - 2(H_{n-1}\left( x+y \right) H_{n-1}^{\prime}\left( x-y \right)  - H_{n-1}^{\prime}\left( x+y \right) H_{n-1}\left( x-y \right)) ] \\
+        &=
+    \end{align}
+\end{linenomath}
+\subsection{大量全同谐振子}
+考虑 $N$ 个全同的一维谐振子。现在根据粒子的统计性质，应当分成 Fermi 子和 Bose 子分别考虑。
+
+
+
+
 
 
 
