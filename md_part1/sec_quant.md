@@ -1,0 +1,243 @@
+# 量子多体问题和二次量子化
+
+## 量子多体问题的表述
+
+一个量子多体问题本质上是一个 Schrodinger 方程的求解问题：
+
+$$
+\frac{\partial}{\partial t} \Psi  = \hat H\left(\hat{\vec{q}}_1,\hat{\vec{p}}_1,\cdots,\hat{\vec{q}}_n,\hat{\vec{p}}_n\right) \Psi =  \sum_{i = 1}^{n} \left( \frac{\hat{\vec{p}}_i^2 }{2m}  + U (\hat{\vec{q}}_i ,t) \right)\Psi + V_{int} \left (\hat{\vec{q}}_1,\cdots,\hat{\vec{q}}_n \right )\Psi.
+
+$$
+
+在量子统计物理中，我们大多研究的是全同粒子的统计问题。因此，在 (\ref{schrodinger}) 中首先有 
+$$
+m_i = m \quad (i = 1,2,\cdots, n).
+$$
+
+其次，粒子间的相互作用项形如：
+
+$$
+\hat V_{int} = \frac{1}{2!}\sum_{i\neq j} \hat{V_2}(\hat{\vec q}_i,\hat{\vec q}_j,t) + \frac{1}{3!}\sum_{ i \neq j \neq k} \hat{V_3}(\hat {\vec q}_i, \hat {\vec q}_j, \hat {\vec q}_k,t) + \cdots
+$$
+
+粒子的全同性首先表现在 Hamilton 量上：当对于上面写出的哈密顿量 $H$ 实行变换 
+$$
+\left( \hat{\vec {q}}_i,\hat{\vec p}_i \right) \leftrightarrow \left(\hat{\vec q}_j,\hat{\vec p}_j\right)
+$$
+ 时，哈密顿量的形式不变。这要求对于每一个相互作用势能项对于坐标 $\{\hat{\vec{q}}_i\}$ 的置换保持不变——这是符合直觉的。于是，我们由于 Hamilton 量具有这样的对称性，自然想到波函数具有这样的对称性：也就是对于坐标与动量的对换 $\left( \hat{\vec {q}}_i,\hat{\vec p}_i \right) \leftrightarrow \left(\hat{\vec q}_j,\hat{\vec p}_j\right),$ 在坐标表象下成立
+
+$$
+\Psi\left(\vec{q}_1,\cdots,\vec{q}_i,\cdots,\vec{q}_j,\cdots,\vec{q}_n\right) = e^{i\alpha}\Psi\left(\vec{q}_1,\cdots,\vec{q}_j,\cdots,\vec{q}_i,\cdots,\vec{q}_n\right). 
+
+$$
+
+其中考虑到了波函数模方的不变性。 这个式子的物理意义是：**粒子的交换不带来物理态的改变，或全同粒子的分辨在物理上是不可能的。** 两种自然的情况是 $\alpha = 0$ 和 $\alpha = \pi,$ 在这些情况下粒子分别被称为满足 **Bose 统计** 与 **Fermi 统计**。
+
+## 二次量子化和 Fock 空间
+
+我们只考虑一个粒子的情形，这时 Hamilton 量是：
+
+$$
+\hat H = \frac{\hat{\vec{p}}^2 }{2m}  + U (\hat{\vec{q}} ,t)
+$$
+
+我们由 Schrodinger 方程可以解出一组完备的解 $\left\{\psi_s(\vec{q})\right\},$ 其中 $s$ 是某些量子数。这些波函数张成 **波函数 Hilbert 空间** $L^2(\mathbb{R} )$ 的一组基底，因此任何函数可用这一组本征函数展开。
+
+于是我们现在可以构造多粒子波函数的空间，它是$n$个单粒子波函数空间的 **直积空间。**  直觉上它的基底是形如 
+
+$$
+\psi_{s_1}(\vec{q}_1) \otimes \psi_{s_2}(\vec{q}_2) \otimes \cdots \otimes \psi_{s_n}(\vec{q}_n)
+$$
+
+的向量。然而，我们发现这样的选择不是物理的：因为它们并不能反映出粒子的全同性。事实上，服从 Fermi 统计的波函数与服从 Bose 统计的波函数构成这个直积空间的两个无穷维子空间（这可以由 (\ref{commuta}) 得到，只需要注意到（反）对称波函数的线性组合还是（反）对称波函数），这两个子空间被称为 **Fock 空间**。 张成它们的基底才是我们关心的对象。
+
+### 基向量的构造
+
+我们现在实行一种 **对称化** 与 **反对称化** 操作，这样它们便可以张成对应的子空间。利用置换，我们可以写：
+
+$$
+\Psi_B(s_1,s_2,\cdots,s_n)\left[\vec{q}_1,\cdots,\vec{q}_n\right] = N \sum_{\pi\in S_n}\bigotimes_{i = 1}^{n} \psi_{s_{\pi(i)}}\left(\vec{q}_i\right)
+$$
+
+以及
+
+$$
+\Psi_F(s_1,s_2,\cdots,s_n)\left[\vec{q}_1,\cdots,\vec{q}_n\right] = N' \sum_{\pi\in S_n}(-1)^{\pi}\bigotimes_{i = 1}^{n} \psi_{s_{\pi(i)}}\left(\vec{q}_i\right)
+$$
+
+其中 $(-1)^{\pi}$ 是置换 $\pi$ 的符号，$N$ 和 $N'$ 是归一化常数，他们的值将在稍后确定。但是，显而易见的是现在的波函数的确是（反）对称的。他们的正交性可以验证，只需要注意到一次量子化的波函数具有的正交归一性。
+
+对于 Bose 统计，我们有：
+
+$$
+\begin{aligned}
+        \Psi_B(s_1,s_2,s_3,\cdots,s_n)\Psi_B(s_1',s_2',s_3',\cdots,s_n') &= NN'\sum_{\pi}\sum_{\pi'}\int \prod_{i=1}^{n} d^3\vec{q}_i \psi^*_{s_{\pi(i)}}(\vec{q}_i)\psi^{}_{s_{\pi'(i')}}(\vec{q}_i) \\
+        &= NN' \sum_{\pi}\sum_{\pi'} \delta_{s_{\pi(i)}s_{\pi'(i')}} \\
+        &= n!NN' \sum_{\pi}\delta_{s_{\pi(i)i'}}.
+    \end{aligned}
+$$
+
+对于处于不同物理态的粒子，我们看到上面的内积等于$0$。对于同一个态的内积，我们注意到这些$s_i$ 可能是重复的，所以做计算时应该注意。
+
+$$
+N = \frac{1}{\sqrt{n!\prod_s n_s!}},
+$$
+
+$n_s$ 是$s$所标示的能级的占有数。
+
+对于 Fermi 统计，我们同样可以做计算：
+
+$$
+\begin{aligned}
+        \Psi_F(s_1,s_2,s_3,\cdots,s_n)\Psi_F(s_1',s_2',s_3',\cdots,s_n') &= NN'\sum_{\pi}\sum_{\pi'}\int \prod_{i=1}^{n} d^3\vec{q}_i \psi^*_{s_{\pi(i)}}(\vec{q}_i)\psi^{}_{s_{\pi'(i')}}(\vec{q}_i) (-1)^\pi(-1)^{\pi'}\\
+        &= NN' \sum_{\pi}\sum_{\pi'} \delta_{s_{\pi(i)}s_{\pi'(i')}} (-1)^\pi(-1)^{\pi'}\\
+        &= n!NN' \sum_{\pi}\delta_{s_{\pi(i)i'}}(-1)^{\pi}.
+    \end{aligned}
+$$
+
+同样，对于处于不同物理态的粒子，我们看到上面的内积等于$0$。对于 Fermi 统计还需注意，每一个能级上至多只能占有一个粒子（如果不然，那么交换两个处于同一能级上的粒子将得到波函数为0）。因此：
+
+$$
+N = \frac{1}{\sqrt{n!}},
+$$
+
+因为 $n_s = 0 $ 或 $1.$
+
+我们看到，这个表象下的基底自然变成了**占有数表象，** 也就是说，我们可以将一个态写成一个列表 $\ket{[n_s]},$ $n_s$ 是能级 $s$ 的占有数。对于 Fermi 统计，每个能级的占有数只能为 $0$ 或 $1;$ 对于 Bose 统计则没有此限。
+
+### 创造算符与湮灭算符
+
+我们对于量子谐振子，我们构造了两个算符：**创造算符** 和 **湮灭算符**（统称为**升降算符**），他们将粒子数低的态映射至粒子数高的态。对于角动量理论，我们同样可以构造这样的算符。现在可以看到，在占有数表象下升降算符的引入不仅是必要的，而且是自然的。严格来说，创造算符应该定义为映射：
+
+$$
+b^\dagger: F_n \to F_{n+1},
+$$
+
+而湮灭算符则应当为定义为映射：
+
+$$
+b: F_n \to F_{n-1},
+$$
+
+而整个 Fock 空间则是这些 $n-$ 粒子子空间的**无交直积**。
+对于 Fermi 统计和 Bose 统计，升降算符的表现并不相同。
+
+对于 $n-$ 粒子态来说，我们定义算符 $b_s^\dagger$ 和 $b_s,$ 就像量子力学中那样，他们分别对应创造算符和湮灭算符。
+
+$$
+b_{s_i}^\dagger \Psi = \frac{1}{\sqrt{n+1}}\psi_{s_i} \otimes_\pm \Psi,
+$$
+
+$$
+b_{s_i}\Psi = \frac{1}{\sqrt{n}}\psi_{s_i} \oslash_\pm \Psi,
+$$
+
+其中，$\otimes_+$ 代表对称地插入，$\oslash_+$ 代表对称地删除；换为减号的各个算符代表反对称的操作（对于第 $i$ 个位置乘因子 $(-1)^{i-1}$）。
+
+譬如，对于服从 Bose 统计的双态全同粒子来说，可以用态 $\ket{m,n}$ 来标记态，其中 $m, n$ 是非负整数，分别象征低能级和高能级的占有数。
+现在对于态 $\ket{1,1}=\dfrac{1}{\sqrt 2} (\psi_1\psi_2+\psi_2\psi_1),$ 看对于低能态的创造算符与湮灭算符：
+
+$$
+\begin{aligned}
+    b_1^\dagger\ket{1,1} &= \frac{1}{\sqrt{2}}\left(b_1^\dagger\psi_1\psi_2 + b_1^\dagger\psi_2\psi_1\right)\\
+    &= \frac{1}{\sqrt{2}}\left( \dfrac{2}{\sqrt{3}}\left( \psi_1 \psi_1 \psi_2 + \psi_1 \psi_2 \psi_1 + \psi_2 \psi_1 \psi_1\right) \right)\\
+    &=\sqrt{2} \ket{2,1},
+\end{aligned}
+$$
+
+以及类似有
+
+$$
+b_1^\dagger\ket{1,1} =  \ket{0,1}.
+$$
+
+一般的，对于服从 Bose 统计的粒子或 Bose 子，我们有 
+
+$$
+{b}_{\alpha }^{ \dagger  }|\cdots ,{n}_{\beta },{n}_{\alpha },{n}_{\gamma },\cdots \rangle  = \sqrt{{n}_{\alpha } + 1}|\cdots ,{n}_{\beta },{n}_{\alpha } + 1,{n}_{\gamma },\cdots \rangle ,
+$$
+
+ 
+
+$$
+{b}_{\alpha }|\cdots ,{n}_{\beta },{n}_{\alpha },{n}_{\gamma },\cdots \rangle  = \sqrt{{n}_{\alpha }}|\cdots ,{n}_{\beta },{n}_{\alpha } - 1,{n}_{\gamma },\cdots \rangle .
+$$
+
+而且若指定了一个真空态$\ket{0},$ 我们便可写出一般离子态的生成公式：
+
+$$
+\ket{[n_s]} = \prod_s \frac{(\hat{b}_s^\dagger)^{n_s}}{\sqrt{n_s!}}\ket{0}.
+$$
+
+而对于 Fermi 子来说也有类似的公式，只需要注意到 Fermi 子满足态的不相容性，以及插入的反对称系数和可能带来的负号。
+例如，对于服从 Fermi 统计的双态全同粒子来说，可以用态 $\ket{m,n}$ 来标记态，其中 $m, n$ 是 $0$ 或 $1.$ 让我们同样看态 $\ket{1,1}_- =\dfrac{1}{\sqrt 2} (\psi_1\psi_2-\psi_2\psi_1),$ 这里的 $-$ 标明的是态的反对称性。经过计算我们有
+
+$$
+c_1^\dagger \ket{1,1} = 0,
+$$
+
+以及
+
+$$
+c_1 \ket{1,1} = -\ket{1,0}.
+$$
+
+对于 Fermi 子，我们同样可以写出一般公式： 
+
+$$
+{c}_{\alpha }^{ \dagger  }|\cdots ,{n}_{\beta },{n}_{\alpha },{n}_{\gamma },\cdots \rangle  = ( - 1{)}^{\mathop{\sum }\limits_{{\beta  < \alpha }}{n}_{\beta }}\sqrt{1 - {n}_{\alpha }}|\cdots ,{n}_{\beta },1 + {n}_{\alpha },{n}_{\gamma },\cdots \rangle
+$$
+
+与
+
+$$
+{c}_{\alpha }|\cdots ,{n}_{\beta },{n}_{\alpha },{n}_{\gamma },\cdots \rangle  = ( - 1{)}^{\mathop{\sum }\limits_{{\beta  < \alpha }}{n}_{\beta }}\sqrt{{n}_{\alpha }}|\cdots ,{n}_{\beta },1 - {n}_{\alpha },{n}_{\gamma },\cdots \rangle .
+$$
+
+但显然这个公式的系数是配凑得到的，不是自然的。
+
+### 正则对易关系与场算符
+
+对于 Bose 子来说，我们对于升降算符，正如同量子力学中那样，可以验证对易关系
+
+$$
+\left[ b_s,b_{s'} \right] = \left[ b_s^\dagger, b_{s'}^\dagger \right] = 0, \left[ b_s,b_{s'}^\dagger \right] = \delta_{ss'}.
+$$
+
+对于 Fermi 子来说，因为反对称性的要求，我们要将对易关系换成反对易关系：
+
+$$
+\left[ c_s,c_{s'} \right]_- = \left[ c_s^\dagger, c_{s'}^\dagger \right]_- = 0, \left[ c_s,c_{s'}^\dagger \right]_- = \delta_{ss'}.
+$$
+
+对于一个配备了升降算符的 Fock 空间（ Fermi 子或 Bose 子），我们便可以定义场算符
+
+$$
+\hat\Psi \left( \vec{q}\right)  = \mathop{\sum }\limits_{s }{\psi }_{s}\left( \vec{q}\right) {a}_{s } ,
+$$
+
+及
+
+$$
+{\hat\Psi }^{ \dagger  }\left( \vec{q}\right)  = \mathop{\sum }\limits_{s}{\psi }_{s}^{ * }\left( \vec{q}\right) {a}_{s }^{ \dagger  }.
+$$
+
+粗略的来说，这些场算符（和它的 Hermite 共轭）是在$\vec{q}$处湮灭（对应地，产生）粒子的算符。这些算符具有对易关系
+
+$$
+\left[ \hat\Psi(\vec{q}),\hat\Psi^\dagger(\vec{\tilde q}) \right]_{\pm} = \delta^3(\vec{q}-\vec{\tilde q}).
+$$
+
+这就是所谓二次量子化的波函数。 我们看到，二次量子化的一般方法就是写出这样的场算符形式。在量子场论当中这种形式的出现是自然的。
+
+作为示例，我们考虑 $U=0$ 的情形，这时单粒子波函数（如用箱归一化）是形如
+
+$$
+\psi_{\vec{p}}(\vec{q}) = \frac{1}{\sqrt{V}} \exp{\left( \frac{i}{\hbar}\vec{p}\cdot\vec{q} \right)}
+$$
+
+的波函数，因此场算符具有形式：
+
+$$
+\hat\Psi(\vec{q}) = \frac{1}{\sqrt{V}}\sum_{\vec{p}}\exp{\left( \frac{i}{\hbar}\vec{p}\cdot\vec{q} \right)} a_{\vec{p}}.
+$$
