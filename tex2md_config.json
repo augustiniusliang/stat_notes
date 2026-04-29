@@ -1,0 +1,110 @@
+{
+  "theorem_envs": [
+    "theorem",
+    "corollary",
+    "remark",
+    "proof",
+    "proposition",
+    "definition",
+    "assumption",
+    "example",
+    "lemma"
+  ],
+  "tikz_envs": [
+    "tikzpicture",
+    "tikzcd"
+  ],
+  "asymptote_envs": [
+    "asy",
+    "asymptote"
+  ],
+  "standalone_packages": [
+    "amsmath",
+    "amssymb",
+    "bm"
+  ],
+  "tikz_standalone": {
+    "font_size": "11pt",
+    "border": "2pt"
+  },
+  "asymptote_standalone": {
+    "font_size": "11pt",
+    "border": "2pt"
+  },
+  "heading_levels": [
+    "chapter",
+    "section",
+    "subsection",
+    "subsubsection"
+  ],
+  "list_envs": [
+    "itemize",
+    "enumerate"
+  ],
+  "graphics_extensions": [
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".pdf",
+    ".svg",
+    ".webp"
+  ],
+  "graphics_cleanup_patterns": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.fdb_latexmk",
+    "*.fls",
+    "*.lof",
+    "*.log",
+    "*.lot",
+    "*.out",
+    "*.toc",
+    "*.nav",
+    "*.snm",
+    "*.vrb",
+    "*.synctex*",
+    "*.synctex.gz",
+    "*.synctex.gz(busy)",
+    "*.pdf"
+  ],
+  "protected_math_envs": [
+    "alignedat*",
+    "aligned",
+    "cases",
+    "matrix",
+    "pmatrix",
+    "bmatrix",
+    "Bmatrix",
+    "vmatrix",
+    "Vmatrix",
+    "smallmatrix",
+    "array"
+  ],
+  "macro_rules": [
+    [
+      "\\\\thermfrac\\s*\\{((?:[^{}]|\\{(?:[^{}]|\\{[^{}]*\\})*\\})*)\\}\\s*\\{((?:[^{}]|\\{(?:[^{}]|\\{[^{}]*\\})*\\})*)\\}\\s*\\{((?:[^{}]|\\{(?:[^{}]|\\{[^{}]*\\})*\\})*)\\}",
+      "\\\\left( \\\\frac{\\\\partial \\1}{\\\\partial \\2} \\\\right)_{\\3}"
+    ],
+    [
+      "\\\\jacobian\\s*\\{((?:[^{}]|\\{(?:[^{}]|\\{[^{}]*\\})*\\})*)\\}\\s*\\{((?:[^{}]|\\{(?:[^{}]|\\{[^{}]*\\})*\\})*)\\}\\s*\\{((?:[^{}]|\\{(?:[^{}]|\\{[^{}]*\\})*\\})*)\\}\\s*\\{((?:[^{}]|\\{(?:[^{}]|\\{[^{}]*\\})*\\})*)\\}",
+      "\\\\frac{\\\\partial \\\\left(\\1, \\2\\\\right)}{\\\\partial \\\\left(\\3, \\4\\\\right)}"
+    ],
+    [
+      "\\\\ppp\\s*\\{((?:[^{}]|\\{(?:[^{}]|\\{[^{}]*\\})*\\})*)\\}\\s*\\{((?:[^{}]|\\{(?:[^{}]|\\{[^{}]*\\})*\\})*)\\}",
+      "\\\\frac{\\\\partial \\1}{\\\\partial \\2}"
+    ],
+    [
+      "\\\\tr(?![A-Za-z])",
+      "\\\\mathrm{tr}"
+    ],
+    [
+      "\\\\bigzero(?![A-Za-z])",
+      "\\\\mbox{\\\\normalfont\\\\Large\\\\bfseries 0}"
+    ],
+    [
+      "\\\\rvline(?![A-Za-z])",
+      "\\\\hspace*{-\\\\arraycolsep}\\\\vline\\\\hspace*{-\\\\arraycolsep}"
+    ]
+  ]
+}
