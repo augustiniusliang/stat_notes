@@ -1,51 +1,61 @@
 \chapter{量子理想气体}
-现在我们已经准备好了一切必要的工具来分析理想气体的统计性质。理想气体指的是：粒子间没有相互作用的气体。在全同性的假设下，粒子自然地分为 Bose 统计与 Fermi 统计两类。我们将分别分析这两类气体的性质。一般来说，低温下和高温下量子理想气体的性质很不一样，这是因为低温下，粒子的 de Broglie 波长会变得很大，粒子之间的量子统计效应会变得很显著；或者说粒子的简并度会变得很高；但其中一种粒子是玻色子，而另一种是费米子，所以在低温下它们的表现很不一样。而在高温下，两种粒子的表现趋同，便成为近经典理想气体。前一种情况称为简并气体，后一种情况称为非简并气体。我们先研究简并气体，它与我们熟悉的理想气体最为相似。
+现在我们已经准备好了一切必要的工具来分析理想气体的统计性质。理想气体指的是：粒子间没有相互作用的气体。在全同性的假设下，粒子自然地分为 Bose 统计与 Fermi 统计两类。我们将分别分析这两类气体的性质。一般来说，低温下和高温下量子理想气体的性质很不一样，这是因为低温下，粒子的 de Broglie 波长会变得很大，粒子之间的量子统计效应会变得很显著；或者说粒子的简并度会变得很高；但其中一种粒子是玻色子，而另一种是费米子，所以在低温下它们的表现很不一样。而在高温下，两种粒子的表现趋同，便成为近经典理想气体。前一种情况称为简并气体，后一种情况称为非简并气体。我们先研究非简并气体，它与我们熟悉的经典理想气体最为相似。
 \section{非简并量子气体的热力学量}
 我们看到，对于两种气体来说，巨配分函数的对数可以统一的写成如下形式：
 \begin{linenomath}\begin{equation}
-    \ln \varXi = g \frac{1}{h^3}\int d^3p d^3 q D(p,q)\ln \left( 1 +g e^{-\beta(\varepsilon(p) - \mu)} \right).
+    \ln \varXi = g \int d^3p d^3 q D(p,q)\ln \left( 1 +g e^{-\beta(\varepsilon(p) - \mu)} \right).
 \end{equation}\end{linenomath}
 其中 $g\in\left\{ 1,-1 \right\}, g=1$ 对应 Fermi 气体，$g=-1$ 对应 Bose 气体。在 \ref{fermi_bose_boltzmann} 节中我们已经分析过，Bose 与 Fermi 统计在稀薄、高温的极限下会趋近于 Boltzmann 统计，现在根据量子力学我们知道，这实际上就是粒子非简并的条件。
 
-现在写出态密度，我们可以先不计及简并度：
+这里 $g$ 只表示统计符号，不表示自旋简并度。先取内部简并度为 $1$；若有 $d=2s+1$ 个能量相同的内部态，则下列广延量及压强均乘以 $d$。相空间态密度为：
 \begin{linenomath}\begin{equation}
     D(p,q) = \frac{1}{h^3}.
 \end{equation}\end{linenomath}
-对于经典气体，我们有色散关系 $\varepsilon = \frac{p^2}{2m}.$ 变到能量表象，这就是：
+这里 $d\mathcal{N}=d^3q\,d^3p/h^3$ 是单粒子态数，$h=2\pi\hbar$。这可由边长 $L$ 的周期盒中每个动量态占据 $(2\pi\hbar/L)^3$ 的动量空间体积得到；连续积分取热力学极限，忽略边界修正。相空间因子 $h^{-3}$ 只能计入一次。
+对于非相对论自由粒子，我们有色散关系 $\varepsilon = \frac{p^2}{2m}.$ 由 $dp/d\varepsilon=m/p$，我们得到 $p^2dp=\frac12(2m)^{3/2}\varepsilon^{1/2}d\varepsilon$。因此变到能量表象，态密度为：
 \begin{linenomath}\begin{equation}
-    D(\varepsilon) = \frac{V}{h^3} 4\pi (2m)^{\frac32} \varepsilon^{\frac12}.
+    D(\varepsilon) = \frac{V}{h^3} 2\pi (2m)^{\frac32} \varepsilon^{\frac12}.
 \end{equation}\end{linenomath}
 这样，巨配分函数的对数就是：
 \begin{linenomath}\begin{equation}
-    \ln \varXi = g \frac{V}{h^3} 4\pi (2m)^{\frac32} \int_{0}^{\infty} \varepsilon^{\frac{1}{2}} \ln \left( 1 +g e^{-\beta(\varepsilon - \mu)} \right) d\varepsilon.
+    \ln \varXi = g \frac{V}{h^3} 2\pi (2m)^{\frac32} \int_{0}^{\infty} \varepsilon^{\frac{1}{2}} \ln \left( 1 +g e^{-\beta(\varepsilon - \mu)} \right) d\varepsilon.
 \end{equation}\end{linenomath}
-现在对这个式子作分部积分，得到：
+现在对这个式子作分部积分。边界项 $\varepsilon^{3/2}\ln(1+gz e^{-\beta\varepsilon})$ 在两端为零，其中 $z=e^{\beta\mu}$；Bose 情形取 $0<z\leq1$，即使 $z=1$，原点处的对数奇性也不影响边界项。因此得到：
 \begin{linenomath}\begin{equation}
-    \ln \varXi = \frac{2}{3k_BT}\frac{V}{h^3} 4\pi (2m)^{\frac32} \int_{0}^{\infty} \frac{\varepsilon^{\frac{3}{2}}\exp(-\beta(\varepsilon - \mu))}{1 + g\exp(-\beta(\varepsilon - \mu))} d\varepsilon.
+    \ln \varXi = \frac{2}{3k_BT}\frac{V}{h^3} 2\pi (2m)^{\frac32} \int_{0}^{\infty} \frac{\varepsilon^{\frac{3}{2}}\exp(-\beta(\varepsilon - \mu))}{1 + g\exp(-\beta(\varepsilon - \mu))} d\varepsilon.
 \end{equation}\end{linenomath}
 其中已经用到 $g^2=1.$ 因此巨热力学势为
 \begin{linenomath}\begin{equation}
-    \Omega = -k_B T \ln \varXi = - \frac{2}{3}\frac{V}{h^3} 4\pi (2m)^{\frac32} \int_{0}^{\infty} \frac{\varepsilon^{\frac{3}{2}}\exp(-\beta(\varepsilon - \mu))}{1 + g\exp(-\beta(\varepsilon - \mu))} d\varepsilon.
+    \Omega = -k_B T \ln \varXi = - \frac{2}{3}\frac{V}{h^3} 2\pi (2m)^{\frac32} \int_{0}^{\infty} \frac{\varepsilon^{\frac{3}{2}}\exp(-\beta(\varepsilon - \mu))}{1 + g\exp(-\beta(\varepsilon - \mu))} d\varepsilon.
 \end{equation}\end{linenomath}
 按照第一章中所述的方式，我们便可以获得其他所有的热力学量：
 粒子数：
 \begin{linenomath}\begin{equation}
-    N = -\left( \frac{\partial \Omega}{\partial \mu} \right)_{V,T} = \frac{V}{h^3} 4\pi (2m)^{\frac32} \int_{0}^{\infty} \frac{\varepsilon^{\frac{1}{2}}}{e^{\beta(\varepsilon - \mu)} + g} d\varepsilon.
+    N = -\left( \frac{\partial \Omega}{\partial \mu} \right)_{V,T} = \frac{V}{h^3} 2\pi (2m)^{\frac32} \int_{0}^{\infty} \frac{\varepsilon^{\frac{1}{2}}}{e^{\beta(\varepsilon - \mu)} + g} d\varepsilon.
 \end{equation}\end{linenomath}
 内能：
 \begin{linenomath}\begin{equation}
-    U = \Omega + TS + \mu N = \frac{V}{h^3} 4\pi (2m)^{\frac32} \int_{0}^{\infty} \frac{\varepsilon^{\frac{3}{2}}}{e^{\beta(\varepsilon - \mu)} + g} d\varepsilon.
+    U = \Omega + TS + \mu N = \frac{V}{h^3} 2\pi (2m)^{\frac32} \int_{0}^{\infty} \frac{\varepsilon^{\frac{3}{2}}}{e^{\beta(\varepsilon - \mu)} + g} d\varepsilon.
 \end{equation}\end{linenomath}
 压强：
 \begin{linenomath}\begin{equation}
-    p = -\left( \frac{\partial \Omega}{\partial V} \right)_{\mu,T} = \frac{2}{3}\frac{1}{h^3} 4\pi (2m)^{\frac32} \int_{0}^{\infty} \frac{\varepsilon^{\frac{3}{2}}}{e^{\beta(\varepsilon - \mu)} + g} d\varepsilon.
+    p = -\left( \frac{\partial \Omega}{\partial V} \right)_{\mu,T} = \frac{2}{3}\frac{1}{h^3} 2\pi (2m)^{\frac32} \int_{0}^{\infty} \frac{\varepsilon^{\frac{3}{2}}}{e^{\beta(\varepsilon - \mu)} + g} d\varepsilon.
 \end{equation}\end{linenomath}
+以上求导均以单粒子能谱不随温度、化学势变化为前提。直接由巨配分函数可检查
+\begin{linenomath}\begin{align}
+    N &= z\left(\frac{\partial\ln\varXi}{\partial z}\right)_{\beta,V}
+      =\int_0^\infty\frac{D(\varepsilon)}{z^{-1}e^{\beta\varepsilon}+g}\,d\varepsilon,\\
+    U &= -\left(\frac{\partial\ln\varXi}{\partial\beta}\right)_{z,V}
+      =\int_0^\infty\frac{\varepsilon D(\varepsilon)}{z^{-1}e^{\beta\varepsilon}+g}\,d\varepsilon.
+\end{align}\end{linenomath}
+注意固定 $z$ 与固定 $\mu$ 不同：$-(\partial_\beta\ln\varXi)_{\mu,V}=U-\mu N$。又因连续谱中 $\Omega$ 正比于 $V$，故 $p=-\Omega/V$，并且 $U=3pV/2$。这些关系对任意简并程度均成立，但凝聚态须另计基态占据数。
+
 \subsection{广义 Zeta 函数}
 可以看到，以上的积分都具有如下的形式：
 \begin{linenomath}\begin{equation}
     I_g(s,\mu)=\int_{0}^{\infty} \frac{\varepsilon^{s-1}}{e^{\beta(\varepsilon - \mu)} + g} d\varepsilon.
 \end{equation}\end{linenomath}
-我们可以通过级数展开计算这个积分：
+对 $s>0$、$0<z=e^{\beta\mu}<1$，可以逐项积分（绝对收敛），得到：
 \begin{linenomath}\begin{equation}
     I_g(s,\mu) = \int_{0}^{\infty} \frac{\varepsilon^{s-1}}{e^{\beta(\varepsilon - \mu)} + g} d\varepsilon = \frac{\Gamma(s)}{\beta^s} \sum_{n=1}^{\infty} \frac{(-g)^{n-1} e^{n\beta\mu}}{n^s}.
 \end{equation}\end{linenomath}
@@ -57,25 +67,34 @@
 \begin{linenomath}\begin{equation}
     I_g(s,\mu) = \frac{\Gamma(s)}{\beta^s} \zeta_g(s,e^{\beta\mu}).
 \end{equation}\end{linenomath}
-所以我们便可以将热力学量写成用广义 Zeta 函数写成的形式：
+级数定义的收敛范围不能忽略：Fermi 气体在 $z>1$ 时应以积分 $\zeta_1(s,z)=\Gamma(s)^{-1}\int_0^\infty x^{s-1}/(z^{-1}e^x+1)\,dx$ 定义延拓，不能直接使用上述幂级数。Bose 气体在 $z=1$ 时须 $s>1$，此时 $\zeta_{-1}(s,1)=\zeta(s)$。此外，$z\partial_z\zeta_g(s,z)=\zeta_g(s-1,z)$，可用来检查粒子数的求导。
+所以我们便可以将热力学量写成广义 Zeta 函数的形式；必须保留换元 $x=\beta\varepsilon$ 带来的 $\beta^{-s}$：
 \begin{linenomath}
     \begin{equation}
-        \Omega = - \frac{2}{3}\frac{V}{h^3} 4\pi (2m)^{\frac32} \Gamma\left( \frac{5}{2} \right) \zeta_g\left( \frac{5}{2}, e^{\beta\mu} \right) = - k_BT \frac{V}{\lambda^3}\zeta_g\left( \frac{5}{2}, e^{\beta\mu} \right).
+        \Omega = - \frac{2}{3}\frac{V}{h^3} 2\pi (2m)^{\frac32} \beta^{-5/2}\Gamma\left( \frac{5}{2} \right) \zeta_g\left( \frac{5}{2}, e^{\beta\mu} \right) = - k_BT \frac{V}{\lambda^3}\zeta_g\left( \frac{5}{2}, e^{\beta\mu} \right).
     \end{equation}
 \end{linenomath}
 \begin{linenomath}\begin{equation}
-    N = \frac{V}{h^3} 4\pi (2m)^{\frac32} \Gamma\left( \frac{3}{2} \right) \zeta_g\left( \frac{3}{2}, e^{\beta\mu} \right) = \frac{V}{\lambda^3} \zeta_g\left( \frac{3}{2}, e^{\beta\mu} \right).
+    N = \frac{V}{h^3} 2\pi (2m)^{\frac32} \beta^{-3/2}\Gamma\left( \frac{3}{2} \right) \zeta_g\left( \frac{3}{2}, e^{\beta\mu} \right) = \frac{V}{\lambda^3} \zeta_g\left( \frac{3}{2}, e^{\beta\mu} \right).
 \end{equation}\end{linenomath}
 \begin{linenomath}\begin{equation}
-    U = \frac{V}{h^3} 4\pi (2m)^{\frac32} \Gamma\left( \frac{5}{2} \right) \zeta_g\left( \frac{5}{2}, e^{\beta\mu} \right) = \frac{3}{2} k_BT \frac{V}{\lambda^3} \zeta_g\left( \frac{5}{2}, e^{\beta\mu} \right).
+    U = \frac{V}{h^3} 2\pi (2m)^{\frac32} \beta^{-5/2}\Gamma\left( \frac{5}{2} \right) \zeta_g\left( \frac{5}{2}, e^{\beta\mu} \right) = \frac{3}{2} k_BT \frac{V}{\lambda^3} \zeta_g\left( \frac{5}{2}, e^{\beta\mu} \right).
 \end{equation}\end{linenomath}
 \begin{linenomath}\begin{equation}
-    p = \frac{2}{3} \frac{1}{h^3} 4\pi (2m)^{\frac32} \Gamma\left( \frac{5}{2} \right) \zeta_g\left( \frac{5}{2}, e^{\beta\mu} \right) = k_BT \frac{1}{\lambda^3}\zeta_g\left( \frac{5}{2}, e^{\beta\mu} \right).
+    p = \frac{2}{3} \frac{1}{h^3} 2\pi (2m)^{\frac32} \beta^{-5/2}\Gamma\left( \frac{5}{2} \right) \zeta_g\left( \frac{5}{2}, e^{\beta\mu} \right) = k_BT \frac{1}{\lambda^3}\zeta_g\left( \frac{5}{2}, e^{\beta\mu} \right).
 \end{equation}\end{linenomath}
-其中 $\lambda = \sqrt{\frac{2\pi\hbar^2}{mk_BT}}$ 是热波长。
+由 $\ln\varXi=-\beta\Omega$，还可直接写成
+\begin{linenomath}\begin{equation}
+ \ln\varXi=\frac{V}{\lambda^3}\zeta_g(5/2,z).
+\end{equation}\end{linenomath}
+其中 $\lambda = \sqrt{\frac{2\pi\hbar^2}{mk_BT}}$ 是热波长，等价于 $\lambda=h/\sqrt{2\pi m k_BT}$。用 $\Gamma(3/2)=\sqrt\pi/2$、$\Gamma(5/2)=3\sqrt\pi/4$ 可检查
+\begin{linenomath}\begin{equation}
+ \frac{2\pi V(2m)^{3/2}}{h^3}\Gamma(3/2)\beta^{-3/2}=\frac{V}{\lambda^3}.
+\end{equation}\end{linenomath}
+$D(\varepsilon)$ 的量纲为能量的倒数，$I_g(s,\mu)$ 的量纲为能量的 $s$ 次方；因此 $N,\ln\varXi$ 无量纲，$U,\Omega$ 为能量，$p$ 为能量每体积。非简并极限 $\zeta_g(s,z)=z+O(z^2)$ 给出 $N\simeq Vz/\lambda^3$，验证了归一化。含内部简并度时为 $N\simeq dVz/\lambda^3$。
 
 \subsection{高温展开}
-在高温下，粒子非简并，因此 $e^{\beta\mu} \ll 1.$（见3.1.3节） 这时我们可以将广义 Zeta 函数展开成 $e^{\beta\mu}$ 的幂级数：
+在固定数密度下，高温使 $x=N\lambda^3/V\ll1$，粒子非简并，因此 $e^{\beta\mu} \ll 1.$（见3.1.3节） 这时我们可以将广义 Zeta 函数展开成 $e^{\beta\mu}$ 的幂级数：
 \begin{linenomath}\begin{equation}
     \zeta_g(s,e^{\beta\mu}) = e^{\beta\mu} - g \frac{e^{2\beta\mu}}{2^s} + g^2 \frac{e^{3\beta\mu}}{3^s} + \cdots
 \end{equation}\end{linenomath}
@@ -93,7 +112,7 @@
 零阶的解是： $\mu_0 = \frac{1}{\beta} \ln \left( \frac{N}{V} \lambda^3 \right).$ 现在，因为 $\exp(\beta\mu) \ll 1,$ 修正项带来的影响很小。因此我们可以设
 \begin{linenomath}
     \begin{equation}
-        \mu = \mu_0 + \delta \mu, \quad \frac{\delta \mu}{\mu_0} = \mathcal{O}\left( \frac{N}{V} \lambda^3 \right).
+        \mu = \mu_0 + \delta \mu, \quad \beta\delta \mu = \mathcal{O}\left( \frac{N}{V} \lambda^3 \right).
     \end{equation}
 \end{linenomath}
 这样便可以作展开：
@@ -142,20 +161,27 @@
 \begin{linenomath}\begin{equation}
     p = \frac{N k_B T}{V} \left( 1 + g \frac{1}{2^{5/2}} \frac{N}{V} \lambda^3 + \cdots \right).
 \end{equation}\end{linenomath}
+更明确地，对 $x=N\lambda^3/V$ 反演粒子数级数可得
+\begin{linenomath}\begin{align}
+ z&=x+\frac{g}{2^{3/2}}x^2+\left(\frac14-\frac{1}{3^{3/2}}\right)x^3+O(x^4),\\
+ \frac{\mu}{k_BT}&=\ln x+\frac{g}{2^{3/2}}x+\left(\frac{3}{16}-\frac{1}{3^{3/2}}\right)x^2+O(x^3),\\
+ \frac{pV}{Nk_BT}=\frac{2U}{3Nk_BT}&=1+\frac{g}{2^{5/2}}x+\left(\frac18-\frac{2}{3^{5/2}}\right)x^2+O(x^3).
+\end{align}\end{linenomath}
+若有内部简并度 $d$，只需将这里及高温展开中的 $x$ 换为 $N\lambda^3/(dV)$。展开应在固定 $N,V$ 下反演 $z$，不能将固定 $z$ 的展开直接当作固定密度的结果。
 我们可以看到，Fermi 气体的压强比理想气体的压强要大，这说明 Fermi 子之间存在有效排斥；而对于 Bose 子来说，这种效果则是有效吸引。这种效应是由于粒子全同造成的交换效应，所以也被称为交换力。
 
 \section{简并理想 Fermi 气体}
-我们已经分析了非简并量子气体的热力学量，现在我们来分析一下简并量子气体的热力学量。简并极限就是 $N\to \infty, T\to 0.$ 这时，Fermi 气体与 Bose 气体的表现完全不同。我们可以先分析 Fermi 气体。
+我们已经分析了非简并量子气体的热力学量，现在我们来分析一下简并量子气体的热力学量。简并条件是 $T\ll T_F=\varepsilon_F/k_B$，并不要求粒子数趋于无穷；连续谱近似另需热力学极限（固定 $N/V$）。 这时，Fermi 气体与 Bose 气体的表现完全不同。我们可以先分析 Fermi 气体。
 
 Fermi 气体的能级简并度需要计及自旋简并度。对于三维空间中的 Fermi 气体来说，这个态密度是
 \begin{linenomath}\begin{equation}
-    D(p,q) = 2s+1,
+    D(p,q) = \frac{2s+1}{h^3},
 \end{equation}\end{linenomath}
 因此
 \begin{linenomath}\begin{equation}
     \ln \varXi = \frac{2s+1}{h^3}\int d^3p d^3 q \ln \left( 1 + e^{-\beta(\varepsilon(p) - \mu)} \right).
 \end{equation}\end{linenomath}
-于是各能级上占据的粒子数为
+于是同一动量下对全部自旋态求和的平均粒子数为（单个自旋态的占据数须再除以 $2s+1$）
 \begin{linenomath}\begin{equation}
     \langle n(p) \rangle = \frac{2s+1}{e^{\beta(\varepsilon(p) - \mu)} + 1}.
 \end{equation}\end{linenomath}
@@ -183,7 +209,7 @@ Fermi 气体的能级简并度需要计及自旋简并度。对于三维空间�
 \end{equation}\end{linenomath}
 因此粒子数密度 $n=\frac{N}{V}$ 便和化学势 $\mu$ 的关系为
 \begin{linenomath}\begin{equation}
-    \mu = \frac{1}{2m}\left( \frac{6\pi^2 n}{2s+1} \right)^{\frac{2}{3}}.
+    \mu = \frac{\hbar^2}{2m}\left( \frac{6\pi^2 n}{2s+1} \right)^{\frac{2}{3}}.
 \end{equation}\end{linenomath}
 这个化学势 $\mu$ 也被称为 \textbf{Fermi 能量} $\varepsilon_F.$ 量 $(\frac{6\pi^2 n}{2s+1})^{\frac13}$ 具有波矢量纲，因此记作 $k_F,$ 被称为 Fermi 波矢。我们可以看到， Fermi 能量与 Fermi 波矢的关系为
 \begin{linenomath}\begin{equation}
@@ -191,7 +217,7 @@ Fermi 气体的能级简并度需要计及自旋简并度。对于三维空间�
 \end{equation}\end{linenomath}
 这时， Fermi 气体的内能是
 \begin{linenomath}\begin{equation}
-    U = V\int_{0}^{p_F}\frac{p^2}{2m} 4\pi p^2 dp  = \frac{3}{5}N\varepsilon_F.
+    U = \frac{(2s+1)V}{h^3}\int_{0}^{p_F}\frac{p^2}{2m} 4\pi p^2 dp  = \frac{3}{5}N\varepsilon_F.
 \end{equation}\end{linenomath}
 压强是：
 \begin{linenomath}
@@ -206,87 +232,33 @@ Fermi 气体的能级简并度需要计及自旋简并度。对于三维空间�
 \subsection{低温下 Fermi 气体的 Sommerfeld 展开}
 在 $T$ 很低时，Fermi 分布与阶梯函数产生了偏离，但若 $T$ 足够低，理想上我们便可以将这个偏离展成 $T$ 的级数。这种技术的系统展开方法首先是由 Sommerfeld 提出的，因此被称为 Sommerfeld 展开。
 
-核心问题是计算如下的积分：
-\begin{linenomath}\begin{equation}
-    I(T) = \int_{0}^{\infty} \frac{f(\varepsilon) (2s+1)}{e^{\beta(\varepsilon - \varepsilon_F)} + 1} d\varepsilon.     
-\end{equation}\end{linenomath}
-其中 $f(\varepsilon)$ 是一个在 $\varepsilon = \varepsilon_F$ 处光滑的函数。
-现在，将 $f(\varepsilon)$ 在 $\varepsilon<0$ 处定义为 $0,$ 这样我们就可以将积分的下限改为 $-\infty$：
-\begin{linenomath}\begin{equation}
-    I(T) = \int_{-\infty}^{\infty} \frac{f(\varepsilon) (2s+1)}{e^{\beta(\varepsilon - \mu)} + 1} d\varepsilon.
-\end{equation}\end{linenomath}
-定义函数$\tilde{\Theta}(x)$ 如下：
-\begin{linenomath}\begin{equation}
-    \tilde{\Theta}(z-z_F) = \begin{cases}
-        1, & x<0\\
-        \frac12, & x = 0\\
-        0, & x>0
-    \end{cases}.
-\end{equation}\end{linenomath}
-我们看到，有
-\begin{linenomath}\begin{equation}
-    \int_{0}^{\mu} f(\varepsilon)  d\varepsilon = \int_{-\infty}^{\infty} f(\varepsilon) \tilde{\Theta}(\beta(\varepsilon-\mu)) d\varepsilon.
-\end{equation}\end{linenomath}
-则我们可以将积分分离为零温极限与温度修正项：
-\begin{linenomath}\begin{equation}
-    I(T) = \int_{0}^{\mu} f(\varepsilon) (2s+1) d\varepsilon + (2s+1)\int_{-\infty}^{\infty} f(\varepsilon) g(\varepsilon) d\varepsilon,
-\end{equation}\end{linenomath}
-其中 
-\begin{linenomath}
-    \begin{equation}
-        g(\varepsilon) = \frac{1}{e^{\beta(\varepsilon - \mu)} + 1} - \tilde{\Theta}(\varepsilon-\mu).
-    \end{equation}
-\end{linenomath}
-我们在能量空间对二者作 Laplace 变换：
-\begin{linenomath}\begin{equation}
-    \tilde{f}(p) = \int_{0}^{\infty} e^{-p\varepsilon} f(\varepsilon) d\varepsilon, \quad \tilde{g}(p) = \int_{-\infty}^{\infty} g(\varepsilon) e^{p\varepsilon} d\varepsilon.
-\end{equation}\end{linenomath}
-利用复平面上的解析性质，温度修正项的积分可以化为：
-\begin{linenomath}\begin{equation}
-    \int_{-\infty}^{\infty} f(\varepsilon) g(\varepsilon) d\varepsilon = \frac{1}{2\pi i} \int_{-i\infty}^{i\infty} \tilde{f}(p) \tilde{g}(p) dp.
-\end{equation}\end{linenomath}
-下面我们求出 $\tilde{g}(p)$ 的表达式：
-\begin{linenomath}
-        \begin{align}
-            \tilde{g}(p) &= \int_{-\infty}^{\infty} g(\varepsilon) e^{p\varepsilon} d\varepsilon\\
-            &= \int_{-\infty}^{\infty} \left( \frac{1}{e^{\beta(\varepsilon - \mu)} + 1} - \tilde{\Theta}(\varepsilon-\mu) \right) e^{p\varepsilon} d\varepsilon\\
-            &= e^{p\mu}\int_{-\infty}^{\infty} \left( \frac{1}{e^{\beta(\varepsilon - \mu)} + 1} - \tilde{\Theta}(\beta(\varepsilon-\mu)) \right) e^{px} dx\\
-            &= e^{p\mu}\int_{-\infty}^{\infty} \frac{e^{p\varepsilon}}{e^{\beta(\varepsilon - \mu)} + 1} dx - \frac1p e^{p\mu}.
-        \end{align}
-\end{linenomath}
-我们可以通过留数定理求出 $\int_{-\infty}^{\infty} \frac{e^{p\varepsilon}}{e^{\beta(\varepsilon - \mu)} + 1} d\varepsilon$ 的值，现在直接给出结果：
-\begin{linenomath}\begin{equation}
-    \int_{-\infty}^{\infty} \frac{e^{p\varepsilon}}{e^{\beta(\varepsilon - \mu)} + 1} d\varepsilon = \frac{\pi}{\beta\sin \left( \frac{\pi p}{\beta} \right)}.
-\end{equation}\end{linenomath}
-将 $\beta = \frac{1}{k_BT}$ 代入得到：
-\begin{linenomath}\begin{equation}
-    \tilde{g}(p) = {e^{p\mu}} \left( \frac{\pi  k_B T}{\sin(\pi p k_B T)} - \frac1p \right).
-\end{equation}\end{linenomath}
-这是一个复平面上解析的函数。把括号内的函数记作 $G(p)$ 在 $p=0$ 处展开成 Taylor 级数：
-\begin{linenomath}\begin{equation}
-    G(p) = \frac{\pi^2}{6}(k_B T)^2 p + \frac{7\pi^4}{360}(k_B T)^4 p^3 + \frac{31\pi^6}{15120}(k_B T)^6 p^5 + \dots = \sum_{k=1}^{\infty} c_{2k} (k_B T)^{2k} p^{2k-1}.
-\end{equation}\end{linenomath}
-将此级数代回复积分中，并交换积分与求和顺序：
+核心问题是计算 $J(T)=\int_0^\infty f(\varepsilon)/(e^{\beta(\varepsilon-\mu)}+1)\,d\varepsilon$。这里应使用有限温度的 $\mu(T)$，而不是预先置为 $\varepsilon_F$；自旋因子可包含在 $f$ 中，不能重复计数。
+令 $a=k_BT$，将积分在 $\mu$ 两侧分开并令 $x=|\varepsilon-\mu|/a$，精确得到
 \begin{linenomath}\begin{align}
-    \frac{1}{2\pi i} \int_{-i\infty}^{i\infty} \tilde{f}(p) e^{p\mu} \left[ \sum_{k=1}^{\infty} c_{2k} (k_B T)^{2k} p^{2k-1} \right] dp &= \sum_{k=1}^{\infty} c_{2k} (k_B T)^{2k} \left[ \frac{1}{2\pi i} \int_{-i\infty}^{i\infty} p^{2k-1} \tilde{f}(p) e^{p\mu} dp \right].
+ J(T)-\int_0^\mu f(\varepsilon)d\varepsilon
+ &=a\int_0^{\mu/a}\frac{f(\mu+ax)-f(\mu-ax)}{e^x+1}dx
+   +a\int_{\mu/a}^\infty\frac{f(\mu+ax)}{e^x+1}dx.
 \end{align}\end{linenomath}
-根据 Laplace 逆变换的导数定理，对于平滑函数 $f(\varepsilon)$，其 Laplace 变换 $\tilde{f}(p)$ 乘以 $p^n$ 的逆变换，恰好对应于对 $\varepsilon$ 求 $n$ 阶导数。因此方括号内的复积分严格等于：
+当 $\mu/a\gg1$，且 $f$ 在 $\mu$ 附近足够光滑、远处至多多项式增长时，远离 $\mu$ 的贡献指数小。在邻域内将差展开为奇数阶导数，逐项使用
 \begin{linenomath}\begin{equation}
-    \frac{1}{2\pi i} \int_{-i\infty}^{i\infty} \left[ p^{2k-1} \tilde{f}(p) \right] e^{p\mu} dp = \left. \frac{d^{2k-1}}{d\varepsilon^{2k-1}} f(\varepsilon) \right|_{\varepsilon = \mu} = f^{(2k-1)}(\mu).
+ \int_0^\infty\frac{x^{2k-1}}{e^x+1}dx
+ =(1-2^{1-2k})\Gamma(2k)\zeta(2k)
 \end{equation}\end{linenomath}
-由于化学势 $\mu > 0$，函数 $f(\varepsilon)$ 在积分下限 $\varepsilon = 0$ 处的截断（即使得 $f(\varepsilon<0)=0$ 引入的阶跃函数及其求导产生的 $\delta(\varepsilon)$ 等奇点）并不会对 $\varepsilon = \mu$ 处的导数值产生任何影响。
-因此我们得到了 Sommerfeld 展开的最终结果：
+便得到渐近展开
 \begin{linenomath}\begin{equation}
-    \boxed{ \int_{0}^{\infty} \frac{f(\varepsilon)}{e^{\beta(\varepsilon - \mu)} + 1} d\varepsilon = \int_{0}^{\mu} f(\varepsilon) d\varepsilon + \sum_{k=1}^{\infty} \left.\frac{d^{2k}}{dp^{2k}}\left(\frac{p\pi}{\sin\left( p\pi \right)} - 1\right)\right|_{p=0} \frac{(k_B T)^{2k}}{(2k)!} f^{(2k-1)}(\mu) }
+ J(T)\sim\int_0^\mu f(\varepsilon)d\varepsilon+
+ \sum_{k=1}^\infty 2(1-2^{1-2k})\zeta(2k)(k_BT)^{2k}f^{(2k-1)}(\mu).
 \end{equation}\end{linenomath}
-代入前几项系数，可以直接写出：
+因此前几项是
 \begin{linenomath}\begin{equation}
-    \int_{0}^{\infty} \frac{f(\varepsilon)}{e^{\beta(\varepsilon - \mu)} + 1} d\varepsilon = \int_{0}^{\mu} f(\varepsilon) d\varepsilon + \frac{\pi^2}{6}(k_B T)^2 f'(\mu) + \frac{7\pi^4}{360}(k_B T)^4 f^{(3)}(\mu) + \mathcal{O}(T^6).
+ J(T)=\int_0^\mu f(\varepsilon)d\varepsilon+
+ \frac{\pi^2}{6}(k_BT)^2f'(\mu)+\frac{7\pi^4}{360}(k_BT)^4f^{(3)}(\mu)+O((k_BT)^6).
 \end{equation}\end{linenomath}
+上述精确分解取 $\mu>0$，低温展开取 $\mu/(k_BT)\to\infty$。这里的无穷级数一般不是收敛的恒等式；有限阶余项需要相应的光滑性假设，能带底还可能给出指数小的修正。实积分推导避免了将 Laplace 核的局部 Taylor 级数未经论证地沿无穷积分路径逐项积分。
 \subsection{三维低温理想 Fermi 气体}
 现在我们使用 Sommerfeld 展开来计算三维情况下的低温理想 Fermi 气体相对于零温 Fermi 气体的微扰。对于三维理想 Fermi 气体来说，能量与动量的关系为 $\varepsilon = \frac{p^2}{2m},$ 因此态密度为 
 \begin{linenomath}\begin{equation}
-D(\varepsilon) = V\frac{(2s+1)}{h^3} 4\pi p^2 \frac{dp}{d\varepsilon} = V\frac{(2s+1)}{h^3} 4\pi (2m)^{\frac32} \varepsilon^{\frac12}=\frac23N\frac{\varepsilon^{\frac12}}{\varepsilon_F^{\frac32}}.
+D(\varepsilon) = V\frac{(2s+1)}{h^3} 4\pi p^2 \frac{dp}{d\varepsilon} = V\frac{(2s+1)}{h^3} 2\pi (2m)^{\frac32} \varepsilon^{\frac12}=\frac32N\frac{\varepsilon^{\frac12}}{\varepsilon_F^{\frac32}}.
 \end{equation}\end{linenomath}
 这样，在有限温度下粒子数与化学势的关系为
 \begin{linenomath}\begin{equation}
@@ -294,11 +266,11 @@ D(\varepsilon) = V\frac{(2s+1)}{h^3} 4\pi p^2 \frac{dp}{d\varepsilon} = V\frac{(
 \end{equation}\end{linenomath}
 用 Sommerfeld 展开，精确到 $T^2$ 的项，我们有
 \begin{linenomath}\begin{equation}
-    N = N\left( \frac{\mu}{\mu_F} \right)^{\frac32} + \frac{\pi^2}{6}(k_B T)^2 D'(\mu) + \mathcal{O}(T^4) \doteq N\left( \frac{\mu}{\mu_F} \right)^{\frac32} + \frac{\pi^2}{6}(k_B T)^2 D'(\mu).
+    N = N\left( \frac{\mu}{\varepsilon_F} \right)^{\frac32} + \frac{\pi^2}{6}(k_B T)^2 D'(\mu) + \mathcal{O}(T^4) \doteq N\left( \frac{\mu}{\varepsilon_F} \right)^{\frac32} + \frac{\pi^2}{6}(k_B T)^2 D'(\mu).
 \end{equation}\end{linenomath}
-设 $\mu = \varepsilon_F + \delta\mu,$ 其中 $\delta\mu$ 是一个小量，我们可以将上式中的 $\left( \frac{\mu}{\mu_F} \right)^{\frac32}$ 展开成 $\delta\mu$ 的级数：
+设 $\mu = \varepsilon_F + \delta\mu,$ 其中 $\delta\mu$ 是一个小量，我们可以将上式中的 $\left( \frac{\mu}{\varepsilon_F} \right)^{\frac32}$ 展开成 $\delta\mu$ 的级数：
 \begin{linenomath}\begin{equation}
-    \left( \frac{\mu}{\mu_F} \right)^{\frac32} = 1 + \frac{3}{2}\frac{\delta\mu}{\varepsilon_F} + \mathcal{O}(\delta\mu^2).
+    \left( \frac{\mu}{\varepsilon_F} \right)^{\frac32} = 1 + \frac{3}{2}\frac{\delta\mu}{\varepsilon_F} + \mathcal{O}(\delta\mu^2).
 \end{equation}\end{linenomath}
 代入得到：
 \begin{linenomath}\begin{equation}
@@ -306,7 +278,7 @@ D(\varepsilon) = V\frac{(2s+1)}{h^3} 4\pi p^2 \frac{dp}{d\varepsilon} = V\frac{(
 \end{equation}\end{linenomath}
 解出
 \begin{linenomath}\begin{equation}
-    \delta\mu = -\frac{\pi^2}{6}(k_B T)^2 \frac{D'(\varepsilon_F)}{N} \varepsilon_F = -\frac{\pi^2}{12}(k_B T)^2 \frac{1}{\varepsilon_F}.
+    \delta\mu = -\frac{\pi^2}{9}(k_B T)^2 \frac{D'(\varepsilon_F)}{N} \varepsilon_F = -\frac{\pi^2}{12}(k_B T)^2 \frac{1}{\varepsilon_F}.
 \end{equation}\end{linenomath}
 因此得到化学势的领头阶修正：
 \begin{linenomath}\begin{equation}
@@ -326,22 +298,29 @@ D(\varepsilon) = V\frac{(2s+1)}{h^3} 4\pi p^2 \frac{dp}{d\varepsilon} = V\frac{(
 \end{equation}\end{linenomath}
 这说明在低温下，Fermi 气体的热容是
 \begin{linenomath}\begin{equation}
-    C_V = \left( \frac{\partial U}{\partial T} \right)_V = \frac{\pi^2}{2} N k_B \frac{k_B T}{\varepsilon_F} + \mathcal{O}(T^3).
+    C_V = \left( \frac{\partial U}{\partial T} \right)_{N,V} = \frac{\pi^2}{2} N k_B \frac{k_B T}{\varepsilon_F} + \mathcal{O}(T^3).
 \end{equation}\end{linenomath}
 因此在低温下， Fermi 气体的热容与温度成正比，而不是像经典气体那样与温度无关。这和热力学第三定律是完全一致的，因为当 $T\to 0$ 时，热容 $C_V \to 0.$
 
 下面研究压强的表达式：
 \begin{linenomath}\begin{equation}
-    p = -\left( \frac{\partial U}{\partial V} \right)_{N} = \frac{2}{5}\frac{N}{V}\varepsilon_F + \frac{\pi^2}{6} N k_B^2 \frac{T^2}{\varepsilon_F V} + \mathcal{O}(T^4).
+    p = \frac{2U}{3V} = \frac{2}{5}\frac{N}{V}\varepsilon_F + \frac{\pi^2}{6} N k_B^2 \frac{T^2}{\varepsilon_F V} + \mathcal{O}(T^4).
 \end{equation}\end{linenomath}
-求导时要注意，$\varepsilon_F$ 是与 $V$ 相关的。因此在低温下， Fermi 气体的压强也会有一个 $T^2$ 的修正项。
+有限温度下应使用 $p=-(\partial F/\partial V)_{T,N}$，或 $p=-(\partial U/\partial V)_{S,N}$，不能使用固定温度的内能偏导。由 $U=3pV/2$ 可直接得到上式。求导时还要注意，$\varepsilon_F$ 是与 $V$ 相关的。因此在低温下， Fermi 气体的压强也会有一个 $T^2$ 的修正项。
 \section{理想 Bose 气体}
 理想 Bose 气体的巨配分函数的对数可以写成：
 \begin{linenomath}\begin{equation}
-    \ln \varXi = -\frac{1}{h^3}\int d^3p d^3 q D(p,q)\ln \left( 1 - e^{-\beta(\varepsilon(p) - \mu)} \right).
+    \ln \varXi = -\int d^3p d^3 q D(p,q)\ln \left( 1 - e^{-\beta(\varepsilon(p) - \mu)} \right).
 \end{equation}\end{linenomath}
-对于 Bose 气体来说，能级简并度也是 $D(p,q) = 2s+1,$ 但这里 $s$ 是整数。
+对于 Bose 气体来说，相空间态密度也是 $D(p,q) = \frac{2s+1}{h^3},$ 但这里 $s$ 是整数。
 
 
 
 
+
+若能量零点选在最低能级，则 $\mu\leq0$。连续谱给出的是激发态的体积领头项。讨论 Bose 凝聚时须单独保留基态：
+\begin{linenomath}\begin{equation}
+ \ln\varXi=-d\ln(1-z)+\frac{dV}{\lambda^3}\zeta_{-1}(5/2,z),\qquad
+ N=\frac{dz}{1-z}+\frac{dV}{\lambda^3}\zeta_{-1}(3/2,z).
+\end{equation}\end{linenomath}
+这里假设有 $d$ 个相同的零能基态，基态能量为零故不贡献内能；其巨势在固定 $z$ 时不依赖体积，故不贡献压强。在凝聚相中 $N=N_0+N_{\mathrm{ex}}$，不能用连续谱公式代替总粒子数。
